@@ -77,12 +77,12 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         return ""
 
     if user_id in DEMONS:
-        rt += "Requested HA to promote a Priestess to Chimera."
+        rt += "Requested HA to promote a Sorcerer to Chimera."
         data["supports"].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote a Slave to Chimera."
+        rt += "Requested HA to promote a Magic Fairy to Chimera."
         data["whitelists"].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -135,16 +135,16 @@ def addsupport(
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "Requested HA to demote this Chimera to Priestess"
+        rt += "Requested HA to demote this Chimera to Sorcerer"
         data["sudos"].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        message.reply_text("This user is already a Priestess.")
+        message.reply_text("This user is already a Sorcerer.")
         return ""
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote this Slave to Priestess"
+        rt += "Requested HA to promote this Magic Fairy to Sorcerer"
         data["whitelists"].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -155,11 +155,11 @@ def addsupport(
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\n{user_member.first_name} is promoted to Priestess!"
+        rt + f"\n{user_member.first_name} is promoted to Sorcerer!"
     )
 
     log_message = (
-        f"#Priestess\n"
+        f"#Sorcerer\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
         f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
     )
@@ -191,17 +191,17 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is a Chimera, Demoting to Slave."
+        rt += "This member is a Chimera, Demoting to Magic Fairy."
         data["sudos"].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is Priestess, Demoting to Slave."
+        rt += "This user is Sorcerer, Demoting to Magic Fairy."
         data["supports"].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        message.reply_text("This user is already a Slave.")
+        message.reply_text("This user is already a Magic Fairy.")
         return ""
 
     data["whitelists"].append(user_id)
@@ -211,11 +211,11 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\nSuccessfully promoted {user_member.first_name} to a Slave!"
+        rt + f"\nSuccessfully promoted {user_member.first_name} to a Magic Fairy!"
     )
 
     log_message = (
-        f"#Slave\n"
+        f"#Magic Fairy\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))} \n"
         f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
     )
@@ -252,12 +252,12 @@ def addtiger(update: Update, context: CallbackContext) -> str:
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is a Priestess, Demoting to Fallen Angel."
+        rt += "This user is a Sorcerer, Demoting to Fallen Angel."
         data["supports"].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "This user is a Slave, promoting to Fallen Angel."
+        rt += "This user is a Magic Fairy, promoting to Fallen Angel."
         data["whitelists"].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -358,7 +358,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
             json.dump(data, outfile, indent=4)
 
         log_message = (
-            f"#UNPriestess\n"
+            f"#UNSorcerer\n"
             f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
         )
@@ -369,7 +369,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Priestess!")
+        message.reply_text("This user is not a Sorcerer!")
         return ""
 
 
@@ -411,7 +411,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Slave!")
+        message.reply_text("This user is not a Magic Fairy!")
         return ""
 
 
@@ -460,7 +460,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 @run_async
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
-    reply = "<b>Known Slaves:</b>\n"
+    reply = "<b>Known Magic Fairies:</b>\n"
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
@@ -501,7 +501,7 @@ def supportlist(update: Update, context: CallbackContext):
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
-    reply = "<b>Known Priestesss:</b>\n"
+    reply = "<b>Known Sorcerer:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
@@ -649,17 +649,17 @@ def devlist(update: Update, context: CallbackContext):
 # """
 
 SUDO_HANDLER = CommandHandler(("addchimera", "addsudo"), addsudo)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "addpriestess"), addsupport)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "addsorcerer"), addsupport)
 TIGER_HANDLER = CommandHandler(("addfallenangel"), addtiger)
 WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addmagicfairies"), addwhitelist)
 UNSUDO_HANDLER = CommandHandler(("removesudo", "removechimera"), removesudo)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removepriestess"), removesupport)
+UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removesorcerer"), removesupport)
 UNTIGER_HANDLER = CommandHandler(("removefallenangel"), removetiger)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removemagicfairies"), removewhitelist)
 
 WHITELISTLIST_HANDLER = CommandHandler(["magicfairieslist", "magicfairies"], whitelistlist)
 TIGERLIST_HANDLER = CommandHandler(["fallenangellist", "fallenangels"], tigerlist)
-SUPPORTLIST_HANDLER = CommandHandler(["priestesslist", "priestesss"], supportlist)
+SUPPORTLIST_HANDLER = CommandHandler(["sorcererlist", "sorcerers"], supportlist)
 SUDOLIST_HANDLER = CommandHandler(["chimeralist", "chimeras"], sudolist)
 DEVLIST_HANDLER = CommandHandler(["devlist", "magicsociety"], devlist)
 
