@@ -73,7 +73,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-YUMEKO_IMG = "https://telegra.ph/file/2125854e53f693d3e170a.mp4"
+YUMEKO_IMG = "https://telegra.ph/file/5c359091d98e8e4247842.mp4"
 
 PM_START_TEXT = """
 **Hey I am Rikka** [ㅤ](https://telegra.ph/file/2125854e53f693d3e170a.mp4)
@@ -222,8 +222,8 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        update.effective_message.raboutvideo(
-            YUMEKO_IMG, caption= "Baka, I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+        update.effective_message.reply_animation(
+            YUMEKO_IMG, caption= "Moshi Moshi, I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
