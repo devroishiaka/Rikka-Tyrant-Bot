@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<a href="https://t.me/YumekoProBot"> <img src="https://github.com/Kakegurui-Domain/YumekoBot/blob/Yumeko/YumekoBot/resources/siesta-robot.svg" alt="Yumeko on Telegram" /> </a></br>
+<a href="https://t.me/Rikka_Tyrant_bot"> <img src="https://github.com/Kakegurui-Domain/YumekoBot/blob/Yumeko/YumekoBot/resources/siesta-robot.svg" alt="Yumeko on Telegram" /> </a></br>
 <a href="https://github.com/shiinobu/YumekoBot/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-GPLv3-blueviolet?style=for-the-badge" alt="License" /> </a>
 <a href="https://makeapullrequest.com"> <img src="https://img.shields.io/badge/PRs-Welcome-yellow?style=for-the-badge" alt="PRs" /></a></br>
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Made%20With-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://telegra.ph/file/5835dce546af117c637d4.jpg">
+  <img src="https://telegra.ph/file/f90ab08880e9963e980e9.jpg">
 </p>
 
 <h2 align="center">
@@ -34,9 +34,9 @@
 </h2>
 
 <p align="center">
-<a href="https://t.me/YumekoProBot"> <img src="https://img.shields.io/badge/Yumeko-User-green?style=for-the-badge&logo=telegram" alt="Yumeko on Telegram" /> </a>
-<a href="https://t.me/Yumekosupport"> <img src="https://img.shields.io/badge/Support-Chat-green?style=for-the-badge&logo=telegram" alt="Support Chat" /> </a>
-<a href="https://t.me/YumekoUpdates"> <img src="https://img.shields.io/badge/Update-Channel-green?style=for-the-badge&logo=telegram" alt="Update Channel" /> </a>
+<a href="https://t.me/Rikka_Tyrant_bot"> <img src="https://img.shields.io/badge/Yumeko-User-green?style=for-the-badge&logo=telegram" alt="Yumeko on Telegram" /> </a>
+<a href="https://t.me/tyranteyeeee"> <img src="https://img.shields.io/badge/Support-Chat-green?style=for-the-badge&logo=telegram" alt="Support Chat" /> </a>
+<a href="https://t.me/takanashirikkaupdates"> <img src="https://img.shields.io/badge/Update-Channel-green?style=for-the-badge&logo=telegram" alt="Update Channel" /> </a>
 </p>
 
 <h2 align="center">
