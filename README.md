@@ -1,9 +1,9 @@
 <h2 align="center">
-    ──「 Yumeko IS A MODULAR BOT WITH ANIME THEME 」──
+    ──「 Rikka IS A MODULAR BOT WITH ANIME THEME 」──
 </h2>
 
 <p align="center">
-  <img src="https://telegra.ph/file/900499565371726a3f256.jpg">
+  <img src="https://telegra.ph/file/ec749863aaffc3dbaff1a.jpg">
 </p>
 
 <p align="center">
