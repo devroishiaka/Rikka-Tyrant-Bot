@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<a href="https://t.me/Rikka_Tyrant_bot"> <img src="https://github.com/Kakegurui-Domain/YumekoBot/blob/Yumeko/YumekoBot/resources/siesta-robot.svg" alt="Yumeko on Telegram" /> </a></br>
+<a href="https://t.me/Rikka_Tyrant_bot"> <img src="https://i.imgur.com/kYAHOAQ.gif" alt="Rikka on Telegram" /> </a></br>
 <a href="https://github.com/shiinobu/YumekoBot/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-GPLv3-blueviolet?style=for-the-badge" alt="License" /> </a>
 <a href="https://makeapullrequest.com"> <img src="https://img.shields.io/badge/PRs-Welcome-yellow?style=for-the-badge" alt="PRs" /></a></br>
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Made%20With-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
