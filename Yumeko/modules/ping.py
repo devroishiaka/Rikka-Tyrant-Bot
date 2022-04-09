@@ -35,6 +35,7 @@ from Yumeko.modules.helper_funcs.filters import CustomFilters
 
 StartTime = time.time()
 
+@run_async
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -62,7 +63,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-
+@run_async
 @typing_action
 def ping(update: Update, _):
     msg = update.effective_message
@@ -92,7 +93,7 @@ def speed_convert(size):
         zero += 1
     return f"{round(size, 2)} {units[zero]}"
 
-
+@run_async
 @typing_action
 def get_bot_ip(update, _):
     """Sends the bot's IP address, so as to be able to ssh in if necessary.
@@ -102,7 +103,7 @@ def get_bot_ip(update, _):
     update.message.reply_text(res.text)
 
 
-
+@run_async
 @typing_action
 def system_status(update: Update, context: CallbackContext):
     uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
@@ -138,13 +139,13 @@ def system_status(update: Update, context: CallbackContext):
 
 
 IP_HANDLER = CommandHandler(
-    "ip", get_bot_ip, filters=Filters.chat(OWNER_ID), run_async=True
+    "ip", get_bot_ip, filters=Filters.chat(OWNER_ID)
 )
 PING_HANDLER = CommandHandler(
-    "ping", ping, filters=CustomFilters.dev_filter, run_async=True
+    "ping", ping, filters=CustomFilters.dev_filter
 )
 SYS_STATUS_HANDLER = CommandHandler(
-    "sysinfo", system_status, filters=CustomFilters.dev_filter, run_async=True
+    "sysinfo", system_status, filters=CustomFilters.dev_filter
 )
 
 dispatcher.add_handler(IP_HANDLER)
