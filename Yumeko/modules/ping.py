@@ -29,9 +29,9 @@ from spamwatch import __version__ as __sw__
 from telegram import ParseMode, Update
 from telegram.ext import CommandHandler, Filters, CallbackContext
 
-from Shikimori import dispatcher, OWNER_ID
-from Shikimori.modules.helper_funcs.alternate import typing_action
-from Shikimori.modules.helper_funcs.filters import CustomFilters
+from Yumeko import dispatcher, OWNER_ID
+from Yumeko.modules.helper_funcs.alternate import typing_action
+from Yumeko.modules.helper_funcs.filters import CustomFilters
 
 StartTime = time.time()
 
