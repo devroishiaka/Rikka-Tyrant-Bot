@@ -37,7 +37,7 @@ SLAP_YONE_TEMPLATES = (
     ],
 )
 
-SLAP_TEMPLATES = (
+SLAP_TEMPLATES = ("{user 2} was burned by the flame of darkness.",
     "{user2} was killed by magic.",
     "{user2} starved without pats.",
     "{user2} was knocked into the void by {user1}.",
@@ -175,6 +175,11 @@ PAT_TEMPLATES = (
     "{user1} pats {user2} friendlily",
     "{user2} uses HEADPATS? O KAWAII KOTO",
     "*headpats.gif intensifies for {user2}*",
+    "https://telegra.ph/file/6514a36327d1c2cd9aa53.mp4 {user1} pats {user2}",
+    "https://telegra.ph/file/a4d6c34795f4c00b70037.mp4 {user1} pats {user2} friendly",
+    "https://telegra.ph/file/d60963f811b4a4f7d0be5.mp4 {user1} gently pats {user2}",
+    "https://telegra.ph/file/6ccc343cfe6b6ec391af0.mp4 {user1} pats {user2}",
+    "https://telegra.ph/file/2ea35156066afdd618405.mp4 {user1} pats {user2} unexpectedly",
     "(*´ω´(*｀ω｀)",
     "(ｏ・_・)ノ”(ᴗ_ ᴗ。)",
     "(*￣▽￣)ノ”(- -*)",
@@ -183,8 +188,8 @@ PAT_TEMPLATES = (
 )
 
 PAT_GIFS = (
-    "CgACAgQAAxkBAALRX19Xs7tBdOH1gQwS_rglVRkTbgVYAAKEAgACmQn9UWlyGa_xy9_aGwQ",
-    "CgACAgEAAxkBAALRYF9Xs8EnhsDfDpld3ILoqTbzDmwxAAJFAAOJxjlHECanwn69E5QbBA",
+    "https://telegra.ph/file/a4d6c34795f4c00b70037.mp4",
+    "https://telegra.ph/file/6514a36327d1c2cd9aa53.mp4",
 )
 
 PAT_STICKERS = (
