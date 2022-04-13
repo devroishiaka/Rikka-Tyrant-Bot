@@ -168,7 +168,7 @@ PAT_TEMPLATES = (
     "{user1} headpats {user2}'s head with a pat",
     "{user1} pats {user2} unexpectedly",
     "{user1} pats {user2} with consent, maybe?",
-    "https://telegra.ph/file/f5ad4fc8f5a301ddecff9.mp4 Pat pat, {user2} honto kawaii ne!",
+    "https://telegra.ph/file/f5ad4fc8f5a301ddecff9.mp4",
     "{user1} headpats {user2} at 420apm",
     "{user1} bellyrubs {user2}",
     "{user1} pats {user2} friendlily",
