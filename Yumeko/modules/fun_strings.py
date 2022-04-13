@@ -138,7 +138,7 @@ SLAP_TEMPLATES = ("{user 2} was burned by the flame of darkness.",
     "{user2} lost his race piece!",  # No game no life reference
     "Shut up {user2}, you are just {user2}.",  # No game no life reference
     "{user1} hits {user2} with Aka si anse!",  # No game no life reference
-    "https://telegra.ph/file/343af31d59fa29cb19268.mp4,  # Pixels pet cat - @NeoTheKitty
+    "https://telegra.ph/file/343af31d59fa29cb19268.mp4"
     "https://telegra.ph/file/8042d7f59dac65b1745e8.mp4",  # Dbz
     "Goblin slayer slays {user2}",  # Goblin Slayer
 )
