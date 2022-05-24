@@ -21,7 +21,7 @@ TRUTH = (
     "What's the one thing that scares you very much ?"
     "What kind of lifestyle do you want in future?"
     "If you ever get a chance to go back in time and change one thing, what will you change?"
-    "Have you ever found some guy/girl really really hot? Like some real guy/girl you know and you think he/she's so hot and you got some nice lusty feelings for him/her?
+    "Have you ever found some guy/girl really really hot? Like some real guy/girl you know and you think he/she's so hot and you got some nice lusty feelings for him/her?"
     "Have you ever done something very bad but named someone else's?"
     "Have you ever thought of killing someone and if u have then why ?"
     "Have you ever seriously injured another person?"
@@ -36,20 +36,20 @@ TRUTH = (
     "Can you see yourself being married to the creepiest kid a your school someday?"
     "Have you ever spent your parent’s money on alcohol?"
     "What is your special talent?"
-    "What is the longest time that you think you could go withoutyour cell phone?"
-    "What is your favourite sport in the Olympics?"
+    "What is the longest time that you think you could go without your cell phone?"
+    "What is your favorite sport in the Olympics?"
     "What is your favorite physical feature on those you are attracted to?"
     "What is the best vacation you’ve ever been on?"
-    "What is your favourite color?"
+    "What is your favorite color?"
     "What was the scariest moment in your whole life ? Describe in full detail."
     "If you could get rid of one household chore, what would it be?"
     "What is the perfect first day?"
     "Would you ever want to have sex with one of your friends? If so, who?"
     "Have you ever been called a freak? Why?"
-    "What is your favourite sports team?"
+    "What is your favorite sports team?"
     "How many kids would you like to have?"
     "Is love greater than, less than or equal to sex? Explain your rationale."
-    "What is your favourite song that is out right now?"
+    "What is your favorite song that is out right now?"
     "What is your weirdest habit?"
     "Who is the worst teacher you have ever had, why?"
     "If you could kiss a celebrity without it impacting your current relationship, who would it be?"
@@ -61,11 +61,11 @@ TRUTH = (
     "If you were trapped on an island for 3 days, what would you take with you?"
     "What do you want to be when you grow up?"
     "What is the most annoying thing that your mom does?"
-    "Who is your favourite Disney character?"
+    "Who is your favorite Disney character?"
     "What is the most annoying thing that your dad does?"
     "Who is your best friend?"
     "What would you do on the perfect first date?"
-    "What is your favourite movie?"
+    "What is your favorite movie?"
     "Which person here knows something about you that you wouldn't want revealed?"
     "Can you touch your tongue to your nose?"
     "Would you have sex with your best friend?"
@@ -90,8 +90,8 @@ TRUTH = (
     "Did you smoke or drink before college?"
     "Who is your celebrity husband or wife?"
     "If you could hypnotize one person in this group to do anything you wanted, who would it be and what would they do?"
-    "What is your favourite thing to do on the weekends?"
-    "What is your favourite cartoon from your generation?"
+    "What is your favorite thing to do on the weekends?"
+    "What is your favorite cartoon from your generation?"
     "Do you know how to swim?"
     "If you could swap genders, what would be the first thing you do?"
     "Do you believe in love at all")
@@ -109,10 +109,10 @@ DARE = (
     "* Say the first word that comes to your mind",
     "Give a lap dance to someone of your choice",
     "Take off four pieces of clothing",
-    "Like the first 15 posts on your Facebook newsfeed",
+    "Like the first 15 posts on your Facebook news feed",
     "Eat a spoonful of mustard",
     "Close your eyes until you leave again",
-    "Send sext to the last person in your phonebook",
+    "Send sext to the last person in your phone-book",
     "Show off your orgasmic face",
     "Eat bananas seductively",
     "Empty your wallet/wallet and show everyone what's in it",
