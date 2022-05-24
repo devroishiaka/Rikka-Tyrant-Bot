@@ -22,7 +22,10 @@ RUN_STRINGS = (
 GIFS = [
     "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE",
     "CgACAgUAAx0CU_rCTAABAjdgX1s4NVaeCls6YaH3p43vgdCRwQIAAqsAA4P_MFUYQhyoR-kgpRsE",
-    "CgACAgUAAx0CU_rCTAABAjdSX1s3fq5iEJ64YeQLKI8cD7CSuSEAAlUBAAJu09hW5iqWB0hTPD4bBA",
+    "CgACAgUAAx0CU_rCTAABAjdSX1s3fq5iEJ64YeQLKI8cD7CSuSEAAlUBAAJu09hW5iqWB0hTPD4bBA"
+    "https://telegra.ph/file/a6d6d11091e16ea80f777.mp4"
+    "https://telegra.ph/file/f1dd152882c3695a50f3a.mp4"
+    "https://telegra.ph/file/852c76a12bd59d556d555.mp4",
 ]
 
 SLAP_YONE_TEMPLATES = (
@@ -86,11 +89,10 @@ SLAP_TEMPLATES = ("{user 2} was burned by the flame of darkness.",
     "*Hits {user2} with a Fire Tornado*.",
     "{user1} pokes {user2} in the eye !",
     "{user1} pokes {user2} on the sides!",
-    "[{user1} pokes {user2}(https://telegra.ph/file/83e580fec112a6c074eb8.mp4)",
+    "[{user1} pokes {user2}](https://telegra.ph/file/83e580fec112a6c074eb8.mp4)",
     "{user1} pokes {user2} with a needle!",
     "{user1} pokes {user2} with a pen!",
     "{user1} pokes {user2} with a stun gun!",
-    "{user2} is secretly a Furry!",
     "Hey Everybody! {user1} is asking me to be mean!",
     "( ･_･)ﾉ⌒●~* (･.･;) <-{user2}",
     "Take this {user2}\n(ﾉﾟДﾟ)ﾉ ))))●~* ",
@@ -108,16 +110,16 @@ SLAP_TEMPLATES = ("{user 2} was burned by the flame of darkness.",
     "{user1} starts slapping {user2} silly with a {item}.",
     "{user1} pins {user2} down and repeatedly {hits} them with a {item}.",
     "{user1} grabs up a {item} and {hits} {user2} with it.",
-    "{user1} ties {user2} to a chair and {throws} a {item} at them.",
+     "https://telegra.ph/file/6c6a6fcceebca69542271.mp4",
     "{user1} gave a friendly push to help {user2} learn to swim in lava.",
     "https://telegra.ph/file/6c32bbf1c58035ec7d6a7.mp4",
     "{user1} {throws} a master ball at {user2}, resistance is futile.",
-    "{user1} hits {user2} with an action beam...bbbbbb (ง・ω・)ง ====*",
+    "[{user1} hits {user2}](https://telegra.ph/file/ea37dfbeec0438a720534.mp4)",
     "{user1} ara ara's {user2}.",
     "{user1} ora ora's {user2}.",
     "{user1} muda muda's {user2}.",
     "[{user1} kicks {user2}](https://telegra.ph/file/277625f3a5d253d0b4ba7.mp4)",
-    "{user1} hits {user2} with {item}.",
+    "[{user1} hits {user2} with AVALON Smash](https://telegra.ph/file/1518cca1e3865a7b8de64.mp4).",
     "Round 2!..Ready? .. FIGHT!!",
     "WhoPixel will oof {user2} to infinity and beyond.",
     "{user2} ate a bat and discovered a new disease.",
@@ -177,8 +179,9 @@ PAT_TEMPLATES = (
     "https://telegra.ph/file/a4d6c34795f4c00b70037.mp4",
     "https://telegra.ph/file/d60963f811b4a4f7d0be5.mp4",
     "https://telegra.ph/file/6ccc343cfe6b6ec391af0.mp4",
-    "https://telegra.ph/file/2ea35156066afdd618405.mp4",
-    "(*´ω´(*｀ω｀)",
+    "https://telegra.ph/file/2ea35156066afdd618405.mp4"
+    "https://telegra.ph/file/ed326881499cc6b5ad5d9.mp4",
+    "https://telegra.ph/file/b6fdc180b468d63e5092f.mp4",
     "(ｏ・_・)ノ”(ᴗ_ ᴗ。)",
     "(*￣▽￣)ノ”(- -*)",
     "(っ´ω`)ﾉ(╥ω╥)",
@@ -188,7 +191,9 @@ PAT_TEMPLATES = (
 PAT_GIFS = (
     "https://telegra.ph/file/a4d6c34795f4c00b70037.mp4",
     "https://telegra.ph/file/6514a36327d1c2cd9aa53.mp4"
-"https://telegra.ph/file/230b080082233f87eecac.mp4",
+ ",
+"https://telegra.ph/file/230b080082233f87eecac.mp4","https://telegra.ph/file/f116fd3d5e8c2830d9d9d.mp4",
+    "https://telegra.ph/file/27cbcce6bd46c29a64b6a.mp4",
 )
 
 PAT_STICKERS = (
@@ -198,7 +203,7 @@ PAT_STICKERS = (
 
 PING_STRING = (
     "PONG!!",
-    "I am here!",
+    "Moshi Moshi! The Tyrant Eye is the strongest",
 )
 
 ITEMS = (
@@ -440,7 +445,7 @@ EIGHTBALL = [
     "🟢 You may rely on it.",
 ]
 
-DECIDE = ("Yes.", "No.", "Maybe.")
+DECIDE = ("Yes.", "No.", "Maybe.","Can't Say.","I won't tell.","Find out by yourself.")
 
 TABLE = (
     "(╯°□°）╯彡 ┻━┻",
