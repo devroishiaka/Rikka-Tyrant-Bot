@@ -1,5 +1,4 @@
 TRUTH = (
-    "Have you ever ghosted someone?"
     "Did you ever walk over your parents doing 'that'?",
     "Who was the last person you liked the most? Why?",
     "Have you ever been suspended from school?",
