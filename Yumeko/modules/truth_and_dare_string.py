@@ -1,5 +1,4 @@
 TRUTH = (
-    "Did you ever walk over your parents doing 'that'?",
     "Who was the last person you liked the most? Why?",
     "Have you ever been suspended from school?",
     "If you had to choose between being naked or having your thoughts popping in a thought bubble above your head for all to read, which would you choose?",
