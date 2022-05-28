@@ -6,7 +6,7 @@ from Python_ARQ import ARQ
 from Yumeko import pbot as app, BOT_ID
 from Yumeko.utils.errors import capture_err
 from Yumeko.utils.permissions import adminsOnly
-from Yumeko.utils.dbfunctions import (
+from Yumeko.ex_plugins.dbfunctions import (
     alpha_to_int,
     get_karma,
     get_karmas,
@@ -202,3 +202,10 @@ async def captcha_state(_, message):
         await message.reply_text("Disabled karma system.")
     else:
         await message.reply_text(usage)
+
+__mod_name__ = "Karma ☯️"
+__help__ = """
+*Karma*
+ ❍ `/karma` [ON][OFF]: To enable / disable Karma system
+ ❍ `/karmastat`: Get stats of karma for your chat
+"""
