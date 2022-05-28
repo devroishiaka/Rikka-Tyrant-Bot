@@ -29,9 +29,9 @@ def afk(update: Update, context: CallbackContext):
     notice = ""
     if len(args) >= 2:
         reason = args[1]
-        if len(reason) > 100:
-            reason = reason[:100]
-            notice = "\nYour afk reason was shortened to 100 characters."
+        if len(reason) > 1000:
+            reason = reason[:1000]
+            notice = "\nYour afk reason was shortened to 1000 characters."
     else:
         reason = ""
 
@@ -65,7 +65,9 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "{} is back online!",
                 "{} is finally here!",
                 "Welcome back! {}",
-                "Where is {}?\nIn the chat!",
+                "Where is {}?\nIn the chat!"
+                "{} has finally come back from dark world of magic"
+                "{} was talking to his/her gf/bf that's why he was afk",
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
