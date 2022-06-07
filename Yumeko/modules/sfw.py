@@ -29,23 +29,6 @@ def feed(update, context):
     msg.reply_video(nekos.img(target))
 
 @run_async
-def poke(update, context):
-    msg = update.effective_message
-    target = "poke"
-    msg.reply_video(nekos.img(target))
-
-@run_async
-def avatar(update, context):
-    msg = update.effective_message
-    target = "nsfw_avatar"
-    with open("temp.png", "wb") as f:
-        f.write(requests.get(nekos.img(target)).content)
-    img = Image.open("temp.png")
-    img.save("temp.webp", "webp")
-    msg.reply_document(open("temp.webp", "rb"))
-    os.remove("temp.webp")
-
-@run_async
 def smug(update, context):
     msg = update.effective_message
     target = "smug"
@@ -55,16 +38,12 @@ NEKO_HANDLER = CommandHandler("neko", neko)
 WALLPAPER_HANDLER = CommandHandler("wallpaper", wallpaper)
 TICKLE_HANDLER = CommandHandler("tickle", tickle)
 FEED_HANDLER = CommandHandler("feed", feed)
-POKE_HANDLER = CommandHandler("poke", poke)
-AVATAR_HANDLER = CommandHandler("avatar", avatar)
 SMUG_HANDLER = CommandHandler("smug", smug)
 
 dispatcher.add_handler(NEKO_HANDLER)
 dispatcher.add_handler(WALLPAPER_HANDLER)
 dispatcher.add_handler(TICKLE_HANDLER)
 dispatcher.add_handler(FEED_HANDLER)
-dispatcher.add_handler(POKE_HANDLER)
-dispatcher.add_handler(AVATAR_HANDLER)
 dispatcher.add_handler(SMUG_HANDLER)
 
 __handlers__ = [
@@ -72,8 +51,6 @@ __handlers__ = [
     WALLPAPER_HANDLER,
     TICKLE_HANDLER,
     FEED_HANDLER,
-    POKE_HANDLER,
-    AVATAR_HANDLER,
     SMUG_HANDLER,
 ]
 
@@ -86,7 +63,5 @@ __help__ = """
    ➢ `/neko`*:*Sends Random SFW Neko source Images.
    ➢ `/tickle`*:*Sends Random Tickle GIFs.
    ➢ `/feed`*:*Sends Random Feeding GIFs.
-   ➢ `/avatar`*:*Sends Random Avatar Stickers.
    ➢ `/smug`*:* Sends Random Smug GIFs.
-   ➢ `/poke`*:* Sends Random Poke GIFs.
 """
