@@ -76,7 +76,7 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@app.on_edited_message(filters.command("couples"))
+@app.on_message(filters.command("couples"))
 async def couple(_, message):
     if message.chat.type == "private":
         await message.reply_text("This command only works in groups.")
