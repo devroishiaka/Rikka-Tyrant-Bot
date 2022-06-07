@@ -156,7 +156,7 @@ async def ws(event):
 
 
 """
-@pbot.on_message(filters.command("nsfwguardian") & ~filters.edited & ~filters.bot)
+@pbot.on_edited_message(filters.command("nsfwguardian") & ~filters.bot)
 async def add_nsfw(client, message):
     if len(await member_permissions(message.chat.id, message.from_user.id)) < 1:
         await message.reply_text("**You don't have enough permissions**")

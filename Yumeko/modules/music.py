@@ -122,7 +122,7 @@ async def download_song(url):
 # Jiosaavn Music
 
 
-@app.on_message(filters.command("saavn") & ~filters.edited)
+@app.on_edited_message(filters.command("saavn"))
 @capture_err
 async def jssong(_, message):
     global is_downloading
