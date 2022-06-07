@@ -21,7 +21,8 @@ from pyrogram import filters
 import random
 from datetime import datetime
 from pymongo import MongoClient
-from Yumeko import MONGO_DB_URI
+
+MONGO_DB_URI = "mongodb+srv://yumeko:yumeko@cluster0.qu6re.mongodb.net/cluster0?retryWrites=true&w=majority"
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client["Rikka_couples"]
@@ -100,7 +101,6 @@ async def couple(_, message):
 
             couple_selection_message = f"""**Couple of the day:**
 {c1_mention} + {c2_mention} = ❤️
-Congratulations from Tyrant Eye's Wielder 🎊
 __New couple of the day may be chosen at 12AM {tomorrow}__"""
             await app.send_message(
                 message.chat.id,
