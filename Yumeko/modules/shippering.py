@@ -22,7 +22,7 @@ import random
 from datetime import datetime
 from pymongo import MongoClient
 
-MONGO_DB_URI = "mongodb+srv://rikka:0ngkB9DOwoHggBGA@cluster0.4ybt7.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URI = "mongodb+srv://SOME1HING:AyN5a6YZMVXFdi9E@shikimori-bot.nomdo.mongodb.net/Shikimori-Bot?retryWrites=true&w=majority"
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
