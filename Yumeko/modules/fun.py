@@ -330,7 +330,7 @@ def weebify(update: Update, context: CallbackContext):
 
 
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
-RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
+RUNS_HANDLER = DisableAbleCommandHandler(("runs", "run"), runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 ROLL_HANDLER = DisableAbleCommandHandler("roll", roll)
