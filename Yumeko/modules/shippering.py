@@ -1,20 +1,27 @@
 from Yumeko import pbot as app
+from Yumeko.utils.errors import capture_err
 from Yumeko.utils.dbfunc import get_couple, save_couple
 from pyrogram import filters
 import random
 from datetime import datetime
 
+
 # Date and time
 def dt():
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M")
-    dt_list = dt_string.split(' ')
+    dt_list = dt_string.split(" ")
     return dt_list
 
 
 def dt_tom():
-    a = str(int(dt()[0].split('/')[0]) + 1)+"/" + \
-        dt()[0].split('/')[1]+"/" + dt()[0].split('/')[2]
+    a = (
+        str(int(dt()[0].split("/")[0]) + 1)
+        + "/"
+        + dt()[0].split("/")[1]
+        + "/"
+        + dt()[0].split("/")[2]
+    )
     return a
 
 
@@ -22,7 +29,8 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@app.on_edited_message(filters.command("couples"))
+@app.on_message(filters.command("couples") & ~filters.edited)
+@capture_err
 async def couple(_, message):
     if message.chat.type == "private":
         await message.reply_text("This command only works in groups.")
@@ -46,37 +54,29 @@ async def couple(_, message):
             c2_mention = (await app.get_users(c2_id)).mention
 
             couple_selection_message = f"""**Couple of the day:**
-{c1_mention} + {c2_mention} = 💘
+{c1_mention} + {c2_mention} = ❤️
 Congratulations from Tyrant Eye's Wielder 🎊
 __New couple of the day may be chosen at 12AM {tomorrow}__"""
-            await app.send_message(
-                message.chat.id,
-                text=couple_selection_message
-            )
-            couple = {
-                "c1_id": c1_id,
-                "c2_id": c2_id
-            }
+            await app.send_message(message.chat.id, text=couple_selection_message)
+            couple = {"c1_id": c1_id, "c2_id": c2_id}
             await save_couple(chat_id, today, couple)
 
         elif is_selected:
-            c1_id = int(is_selected['c1_id'])
-            c2_id = int(is_selected['c2_id'])
+            c1_id = int(is_selected["c1_id"])
+            c2_id = int(is_selected["c2_id"])
             c1_name = (await app.get_users(c1_id)).first_name
             c2_name = (await app.get_users(c2_id)).first_name
             couple_selection_message = f"""Couple of the day:
 [{c1_name}](tg://openmessage?user_id={c1_id}) + [{c2_name}](tg://openmessage?user_id={c2_id}) = ❤️
 __New couple of the day may be chosen at 12AM {tomorrow}__"""
-            await app.send_message(
-                message.chat.id,
-                text=couple_selection_message
-            )
+            await app.send_message(message.chat.id, text=couple_selection_message)
     except Exception as e:
         print(e)
         await message.reply_text(e)
 
 
-
-
-__mod_name__ = "ᴄᴏᴜᴘʟᴇs"
-
+__mod_name__ = "Couples / Shippering 💑"
+__help__ = """
+*Couples / Shippering*
+ ❍ `/couples` :  get couples of the day!
+"""
