@@ -20,10 +20,9 @@ from Yumeko import pbot as app
 from pyrogram import filters
 import random
 from datetime import datetime
-from Yumeko import MONGO_DB_URI
 from pymongo import MongoClient
 
-
+MONGO_DB_URI = "mongodb+srv://yumeko:yumeko@cluster0.qu6re.mongodb.net/cluster0?retryWrites=true&w=majority"
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client["Rikka_couples"]
@@ -133,7 +132,5 @@ __New couple of the day may be chosen at 12AM {tomorrow}__"""
 
 __help__ = """
 - /couples - To Choose Couple Of The Day ❤
-
- @Shinobu_Update_Channel 
  """
 __mod_name__ = "Couples"
