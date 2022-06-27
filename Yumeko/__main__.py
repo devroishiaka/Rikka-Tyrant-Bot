@@ -374,10 +374,10 @@ def yumeko_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Setup Guide", callback_data="yumeko_setup"
+                            text="Support", url="https://tyranteyeeee"
                         ),
                         InlineKeyboardButton(
-                            text="T & C", callback_data="yumeko_tc"
+                            text="Owner", url="https://t.me/sneha_uwu_owo"
                         ),
                     ],
                     [InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="yumeko_back")],
