@@ -67,6 +67,8 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "Welcome back! {}",
                 "Where is {}?\nIn the chat!"
                 "{} has finally come back from dark world of magic"
+                "{} has finally come back from his/her Date"
+                "{} has finally come back alive from the hell"
                 "{} was talking to his/her gf/bf that's why he was afk",
             ]
             chosen_option = random.choice(options)
@@ -153,7 +155,14 @@ dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
 dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
 
-__mod_name__ = "ᴀғᴋ"
+__mod_name__ = "AFK"
+
+__help__ = """
+   - /afk <ʀᴇᴀsᴏɴ>: ᴍᴀʀᴋ ʏᴏᴜʀsᴇʟғ ᴀs ᴀғᴋ.
+   - brb <ʀᴇᴀsᴏɴ>: sᴀᴍᴇ ᴀs ᴛʜᴇ ᴀғᴋ ᴄᴏᴍᴍᴀɴᴅ, ʙᴜᴛ ɴᴏᴛ ᴀ ᴄᴏᴍᴍᴀɴᴅ.
+   ᴡʜᴇɴ ᴍᴀʀᴋᴇᴅ ᴀs ᴀғᴋ, ᴀɴʏ ᴍᴇɴᴛɪᴏɴs ᴡɪʟʟ ʙᴇ ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴡɪᴛʜ ᴀ ᴍᴇssᴀɢᴇ sᴛᴀᴛɪɴɢ ᴛʜᴀᴛ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ!
+"""
+
 __command_list__ = ["afk"]
 __handlers__ = [
     (AFK_HANDLER, AFK_GROUP),
