@@ -158,4 +158,5 @@ __mod_name__ = "Zᴏᴍʙɪᴇs"
 __help__ = """
 *Zombies*
  ❍ /zombies : Search For Deleted Accounts and kicks them from the group.
+ ❍ /zombies clean: Remove deleted accounts from group..
 """
