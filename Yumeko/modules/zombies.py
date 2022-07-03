@@ -153,3 +153,9 @@ async def _(event):
     required_string = "Successfully Kicked **{}** users"
     await event.reply(required_string.format(c))
 
+__mod_name__ = "Zᴏᴍʙɪᴇs"
+
+__help__ = """
+*Zombies*
+ ❍ /zombies : Search For Deleted Accounts and kicks them from the group.
+"""
