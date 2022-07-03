@@ -76,7 +76,7 @@ def get_readable_time(seconds: int) -> str:
 YUMEKO_IMG = "https://telegra.ph/file/f3e0ab0181de319da2569.mp4"
 
 PM_START_TEXT = """
-**Hey I am Rikka** [ㅤ](https://telegra.ph/file/32012e86471dabfe78f2b.mp4)
+**Hey I am Rikka** 
 ×————————————————————×
 **×I'm a Powerful Group Manager Bot With Cool Modules. Feel free to add me to your groups!**
 ×————————————————————×
@@ -902,7 +902,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am Alive](https://telegra.ph/file/ec749863aaffc3dbaff1a.jpg)",
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "ᏴϴͲ ႮᏢᎠᎪͲᎬᎠ ՏႮᏟᏟᎬՏՏҒႮᏞᏞᎽ ◉‿◉\nᎡႮΝΝᏆΝᏀ ՏᎷϴϴͲᎻᏞᎽ ᏞᏆᏦᎬ ᏴᎬҒϴᎡᎬ",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
