@@ -389,5 +389,9 @@ async def q(event):
     os.remove('sticker.webp')
     
     
-__mod_name__ = "ϙᴜᴏᴛʟʏ"
+__mod_name__ = "Qᴜᴏᴛʟʏ"
 
+__help__ = """
+*Quotly*
+To quote a message, reply to the message and type the command listed below :-
+❍ /q - quote a single message
