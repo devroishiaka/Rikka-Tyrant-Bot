@@ -91,13 +91,13 @@ def gban(update: Update, context: CallbackContext):
 
     if int(user_id) in DEV_USERS:
         message.reply_text(
-            "That user is part of the Association\nI can't act against our own."
+            "That user is one of the devs, I can't act against the person who takes care of me"
         )
         return
 
     if int(user_id) in DRAGONS:
         message.reply_text(
-            "I spy, with my little eye... a disaster! Why are you guys turning on each other?"
+            "I spy, with my little eye... a sudo! Why are you guys turning on each other?"
         )
         return
 
@@ -108,11 +108,11 @@ def gban(update: Update, context: CallbackContext):
         return
 
     if int(user_id) in TIGERS:
-        message.reply_text("That's a Tiger! They cannot be banned!")
+        message.reply_text("That's a clan member! They cannot be banned!")
         return
 
     if int(user_id) in WOLVES:
-        message.reply_text("That's a Wolf! They cannot be banned!")
+        message.reply_text("That person is in my whitelist! They cannot be banned!")
         return
 
     if user_id == bot.id:
@@ -177,6 +177,7 @@ def gban(update: Update, context: CallbackContext):
 
     log_message = (
         f"#GBANNED\n"
+        f"@Chizuruxdbot\n"
         f"<b>Originated from:</b> <code>{chat_origin}</code>\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>Banned User:</b> {mention_html(user_chat.id, user_chat.first_name)}\n"
@@ -550,7 +551,23 @@ dispatcher.add_handler(UNGBAN_HANDLER)
 dispatcher.add_handler(GBAN_LIST)
 dispatcher.add_handler(GBAN_STATUS)
 
-__mod_name__ = "ᴀɴᴛɪ sᴘᴀᴍ"
+__mod_name__ = "Aɴᴛɪ-Sᴘᴀᴍ"
+
+__help__ = f"""
+*Admins only:*
+ • `/antispam `<on/off/yes/no> *:* Will toggle our antispam tech or return your current settings.
+Anti-Spam, used by bot devs to ban spammers across all groups. This helps protect \
+you and your groups by removing spam flooders as quickly as possible.
+
+*Note:* Users can appeal gbans or report spammers at @{SUPPORT_CHAT}
+
+This also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
+*What is SpamWatch?*
+SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters[.](https://telegra.ph/file/f584b643c6f4be0b1de53.jpg)
+Constantly help banning spammers off from your group automatically So, you wont have to worry about spammers storming your group.
+*Note:* Users can appeal spamwatch bans at @SpamwatchSupport
+"""
+
 __handlers__ = [GBAN_HANDLER, UNGBAN_HANDLER, GBAN_LIST, GBAN_STATUS]
 
 if STRICT_GBAN:  # enforce GBANS if this is set
