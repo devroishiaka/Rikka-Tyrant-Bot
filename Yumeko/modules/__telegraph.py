@@ -81,7 +81,7 @@ def resize_image(image):
 
 
 
-__mod_name__ = "Tɢʀᴀᴘʜ"
+__mod_name__ = "Tᴇʟᴇɢʀᴀᴘʜ"
 
 __help__ """
 I can upload files to Telegraph
