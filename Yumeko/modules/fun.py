@@ -359,7 +359,12 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(EIGHTBALL_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
-__mod_name__ = "ᴍᴇᴍᴇs"
+__mod_name__ = "Fᴜɴ"
+
+__help__ = """
+ ❍ /decide - bot send radom decides.
+"""
+
 __command_list__ = [
     "runs",
     "slap",
