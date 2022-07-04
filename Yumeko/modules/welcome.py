@@ -73,6 +73,7 @@ ENUM_FUNC_MAP = {
 
 VERIFIED_USER_WAITLIST = {}
 
+OWNER_IMG= "https://te.legra.ph/file/356874825f8c470f5c281.jpg"
 
 # do not async
 def send(update, message, keyboard, backup_message):
@@ -189,20 +190,18 @@ def new_member(update: Update, context: CallbackContext):
 
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_text(
-                    "Woah The Wicked Lord aka my master just entered the chat", reply_to_message_id=reply
-                )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"Bot Owner just joined the group"
-                )
+                update.effective_message.reply_photo(
+                    OWNER_IMG,caption="Huh! My Love join here!\n Hello! Darling ✋",
+                    reply_to_message_id=reply)
+                welcome_log = (f"{html.escape(chat.title)}\n"
+                               f"#USER_JOINED\n"
+                               f"*Legend* JOINED!")
                 continue
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Be cool! A member of the Magic Society just joined.",
+                    "Be cool! one of the devs just joined.",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -215,7 +214,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
                 update.effective_message.reply_text(
-                    "Whoa! A Chimera just joined! Stay Alert!",
+                    "Whoa! A Dragon disaster just joined! Stay Alert!",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -228,7 +227,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Support
             elif new_mem.id in DEMONS:
                 update.effective_message.reply_text(
-                    "OwO! Someone with a Sorcerer magic class just joined!",
+                    "OwO! Someone with a Demon level disaster just joined!",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -241,7 +240,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
                 update.effective_message.reply_text(
-                    "Beware A Fallen Angel ! just joined!", reply_to_message_id=reply
+                    "Beware A Tiger level disaster ! just joined!", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -253,7 +252,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Tigers
             elif new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                    "Awoo! A Magic Fairy just joined!", reply_to_message_id=reply
+                    "Awoo! A wolf level disaster just joined!", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -274,7 +273,7 @@ def new_member(update: Update, context: CallbackContext):
                                         switch_inline_query_current_chat=""),
                                     InlineKeyboardButton(
                                         text="sᴜᴘᴘᴏʀᴛ​",
-                                        url="https://t.me/tyranteyeeee",
+                                        url="https://t.me/suppporttxd",
                                     )
                                 }
                             ]
@@ -1170,7 +1169,7 @@ dispatcher.add_handler(CLEAN_SERVICE_HANDLER)
 dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
 dispatcher.add_handler(WELCOME_MUTE_HELP)
 
-__mod_name__ = "Welcome"
+__mod_name__ = "Wᴇʟᴄᴏᴍᴇ"
 __command_list__ = []
 __handlers__ = [
     NEW_MEM_HANDLER,
