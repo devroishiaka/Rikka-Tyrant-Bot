@@ -85,7 +85,7 @@ PM_START_TEXT = """
 
 buttons = [
     [
-        InlineKeyboardButton(text="➕ Add Rikka To Your group ➕", url="http://t.me/Rikka_Tyrant_bot?startgroup=true"),
+        InlineKeyboardButton(text="➕ Add Rikka To Your group ➕", url="http://t.me/chizuruxdbot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="About", callback_data="yumeko_"),
@@ -112,8 +112,11 @@ If you want to report any bugs or need any help with setting up Rikka, reach us 
 
 
 DONATE_STRING = """Hehe, baka!!
- [Is that so!!](https://t.me/Ryu_God) ❤️
+ [Is that so!!](https://t.me/Ishikki-akabane) ❤️
 """
+
+CHIZURU_IMG = ( "https://te.legra.ph/file/512dd68ab41695d9865bf.jpg",
+                "https://te.legra.ph/file/512dd68ab41695d9865bf.jpg",)       
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -215,8 +218,9 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_photo(
+               random.choice(CHIZURU_IMG),PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
