@@ -110,8 +110,16 @@ def slap(update: Update, context: CallbackContext):
     reply = temp.format(user1=user1, user2=user2, item=item, hits=hit, throws=throw)
 
     reply_text(reply, parse_mode=ParseMode.HTML)
-
-
+    
+WISH_IMG="https://te.legra.ph/file/651c94da919249a67c1ff.jpg"
+@run_async
+@typing_action
+def wish(update, context):
+    message = update.effective_message
+    first_name = update.effective_user.first_name
+    wishchoice = f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 25%😟",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 50%🤔",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 75%😉",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 100%😍"
+    message.reply_photo(WISH_IMG,random.choice(wishchoice))
+    
 @run_async
 def pat(update: Update, context: CallbackContext):
     bot = context.bot
@@ -230,6 +238,21 @@ def eightball(update: Update, context: CallbackContext):
     )
     reply_text(random.choice(fun_strings.EIGHTBALL))
 
+@run_async
+@typing_action
+def repo(update, context):
+    update.effective_message.reply_text(fun.REPO)
+    
+@run_async
+@typing_action
+def truth(update, context):
+    update.effective_message.reply_text(random.choice(fun.TRUTH))
+
+@run_async
+@typing_action
+def dare(update, context):
+    update.effective_message.reply_text(random.choice(fun.DARE))
+    
 
 @run_async
 def table(update: Update, context: CallbackContext):
@@ -332,12 +355,16 @@ def weebify(update: Update, context: CallbackContext):
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
 RUNS_HANDLER = DisableAbleCommandHandler(("runs", "run"), runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
+WISH_HANDLER = DisableAbleCommandHandler("wish", wish)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 ROLL_HANDLER = DisableAbleCommandHandler("roll", roll)
 TOSS_HANDLER = DisableAbleCommandHandler("toss", toss)
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
 RLG_HANDLER = DisableAbleCommandHandler("rlg", rlg)
+REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
+TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
+DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 EIGHTBALL_HANDLER = DisableAbleCommandHandler("8ball", eightball)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
@@ -349,6 +376,7 @@ dispatcher.add_handler(SHOUT_HANDLER)
 dispatcher.add_handler(SANITIZE_HANDLER)
 dispatcher.add_handler(RUNS_HANDLER)
 dispatcher.add_handler(SLAP_HANDLER)
+dispatcher.add_handler(WISH_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(ROLL_HANDLER)
 dispatcher.add_handler(TOSS_HANDLER)
@@ -357,19 +385,32 @@ dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(EIGHTBALL_HANDLER)
+dispatcher.add_handler(REPO_HANDLER)
+dispatcher.add_handler(TRUTH_HANDLER)
+dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
 __mod_name__ = "Fᴜɴ"
 
 __help__ = """
  ❍ /decide - bot send radom decides.
+ ❍ /pat - reply to the user to give them a pat.
+ ❍ /truth or /dare - bot send funny messages.
+ ❍ /wish your wish possible chance random.
+ 
+ *New fun features will be added soon*
+ *If you have any suggestions to make this more fun, please tell us in our support group @suppporttxd *
 """
 
 __command_list__ = [
     "runs",
     "slap",
+    "wish",
     "roll",
     "toss",
+    "repo",
+    "truth",
+    "dare",
     "shrug",
     "bluetext",
     "rlg",
@@ -384,6 +425,10 @@ __command_list__ = [
 __handlers__ = [
     RUNS_HANDLER,
     SLAP_HANDLER,
+    REPO_HANDLER,
+    TRUTH_HANDLER,
+    DARE_HANDLER,
+    WISH_HANDLER,
     PAT_HANDLER,
     ROLL_HANDLER,
     TOSS_HANDLER,
