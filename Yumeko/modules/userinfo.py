@@ -287,26 +287,26 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is the 'Wielder of the Tyrant Eye' AKA 'Wicked Lord'."
+        text += "\n\nThis person is MY LOVE Ishikki'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis person is the member of 'Magic Society'."
+        text += "\n\nThis person is one of My devs'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe magic class of this person is 'Chimera'."
+        text += "\n\nThe Level of this person is 'Dragon'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe magic class of this person is 'Priestess'."
+        text += "\n\nThe Level of this person is 'Demon'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe magic class of this person is 'Fallen Angel'."
+        text += "\n\nThe Level of this person is 'Tiger'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe magic class of this person is 'Magic Fairies'."
+        text += "\n\nThe Level of this person is 'Wolf'."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/takanashirikkaupdates/5">?</a>]'.format(
+        text += ' [<a href="https://t.me/updatesxd/5">?</a>]'.format(
             bot.username
         )
 
@@ -479,7 +479,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Erm... yeah, I only trust Heroes Association to set my bio."
+                "Erm... yeah, I only trust my love [Ishikki](https://t.me/ishikki_akabane) to set my bio."
             )
             return
 
@@ -538,7 +538,31 @@ dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
-__mod_name__ = "ɪɴғᴏs"
+__mod_name__ = "Iɴғᴏs"
+
+__help__ = """
+*ID:*
+❂ /id*:* get group-user Id's.
+❂ /gifid*:* reply to a gif.
+*Self addded About information:* 
+❂ /setme <text>*:* will set your info
+❂ /me*:* will get your or another user's info.
+Examples:
+❂ /setme I am a wolf.
+❂ /me @username(defaults to yours if no user specified)
+*Information others add on you:* 
+❂ /bio*:* will get your or another user's bio. This cannot be set by yourself.
+❂ /setbio <text>*:* while replying, will save another user's bio 
+Examples:
+❂ /bio @username(defaults to yours if not specified).
+❂ /setbio This user is a wolf (reply to the user)
+*Overall Information about you:*
+❂ /info*:* get information about a user.
+❂ /json*:* Get Detailed info about any message.
+*What is that health thingy?*
+ Come and see [HP System explained](https://t.me/updatesxd/4)
+"""
+
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER,
