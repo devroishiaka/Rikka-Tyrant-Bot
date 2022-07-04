@@ -243,16 +243,6 @@ def eightball(update: Update, context: CallbackContext):
 def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
     
-@run_async
-@typing_action
-def truth(update, context):
-    update.effective_message.reply_text(random.choice(fun.TRUTH))
-
-@run_async
-@typing_action
-def dare(update, context):
-    update.effective_message.reply_text(random.choice(fun.DARE))
-    
 
 @run_async
 def table(update: Update, context: CallbackContext):
@@ -363,8 +353,6 @@ SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
 RLG_HANDLER = DisableAbleCommandHandler("rlg", rlg)
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
-TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
-DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 EIGHTBALL_HANDLER = DisableAbleCommandHandler("8ball", eightball)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
@@ -386,8 +374,6 @@ dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(EIGHTBALL_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
-dispatcher.add_handler(TRUTH_HANDLER)
-dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
 __mod_name__ = "Fᴜɴ"
@@ -409,8 +395,6 @@ __command_list__ = [
     "roll",
     "toss",
     "repo",
-    "truth",
-    "dare",
     "shrug",
     "bluetext",
     "rlg",
@@ -426,8 +410,6 @@ __handlers__ = [
     RUNS_HANDLER,
     SLAP_HANDLER,
     REPO_HANDLER,
-    TRUTH_HANDLER,
-    DARE_HANDLER,
     WISH_HANDLER,
     PAT_HANDLER,
     ROLL_HANDLER,
