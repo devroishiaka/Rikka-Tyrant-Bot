@@ -117,7 +117,7 @@ WISH_IMG="https://te.legra.ph/file/651c94da919249a67c1ff.jpg"
 def wish(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    wishchoice = f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 25%😟",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 50%🤔",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 75%😉",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 100%😍"
+    wishchoice = "Hey! \nYour Wish Possible to 25%😟","Hey! \nYour Wish Possible to 50%🤔","Hey! \nYour Wish Possible to 75%😉",f"Hey! \nYour Wish Possible to 100%😍"
     message.reply_photo(WISH_IMG,random.choice(wishchoice))
     
 @run_async
@@ -241,7 +241,7 @@ def eightball(update: Update, context: CallbackContext):
 @run_async
 @typing_action
 def repo(update, context):
-    update.effective_message.reply_text(fun.REPO)
+    update.effective_message.reply_text(fun_strings.REPO)
     
 
 @run_async
