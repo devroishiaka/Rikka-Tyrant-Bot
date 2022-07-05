@@ -380,7 +380,7 @@ def yumeko_about_callback(update, context):
                     InlineKeyboardButton(text="Bᴏᴛ ᴀᴅᴍɪɴs", url="https://t.me/KazumaclanXD/13"),
                  ],
                  [
-                    InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="vegeta_back"),
+                    InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_back"),
                  ]
                 ]
             ),
@@ -423,24 +423,22 @@ def yumeko_about_callback(update, context):
         )
     elif query.data == "vegeta_support":
         query.message.edit_text(
-            text=f"*๏ support chats*"
-            f"\nJoin My Support Group if you want to report a problem about 🎀  𝒞𝒽𝒾𝓏𝓊𝓇𝓊  🎀.",
+            text="*๏ support chats*"
+            "\nJoin My Support Group if you want to report a problem about 🎀  𝒞𝒽𝒾𝓏𝓊𝓇𝓊  🎀.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/supppporttxd"),
-                    InlineKeyboardButton(text="ғᴇᴅᴇʀᴀᴛɪᴏɴ", url="https://t.me/KazumaclanXD/23"),
+                    InlineKeyboardButton(text="Oᴡɴᴇʀ", url="https://t.me/ishikki_akabane"),
+                    InlineKeyboardButton(text="Fᴇᴅᴇʀᴀᴛɪᴏɴ", url="https://t.me/KazumaclanXD/23"),
                  ],
                  [
-                       InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="t.me/kazumaclanxd"),
-                       InlineKeyboardButton(text="ʟᴏɢs", url="t.me/logsforbots"),
-                   
-                   ],
-                    [
-                     InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_back"),
-                 
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/supppporttxd"),
+                    InlineKeyboardButton(text="Lᴏɢs", url="t.me/logsforbots"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_"),
                  ]
                 ]
             ),
@@ -459,7 +457,7 @@ def yumeko_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_back")]]
+                [[InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_")]]
             ),
         )
 
