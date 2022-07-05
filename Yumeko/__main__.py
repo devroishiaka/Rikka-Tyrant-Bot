@@ -76,11 +76,12 @@ def get_readable_time(seconds: int) -> str:
 YUMEKO_IMG = "https://telegra.ph/file/f3e0ab0181de319da2569.mp4"
 
 PM_START_TEXT = """
-**Hey I am Rikka** [ㅤ](https://telegra.ph/file/32012e86471dabfe78f2b.mp4)
+**ᴋᴏɴɪᴄʜɪᴡᴀ, ɪ ᴀᴍ Cʜɪᴢᴜʀᴜ**, ʜᴀᴊɪᴍᴇᴍᴀꜱʜɪᴛᴇ[ㅤ](https://te.legra.ph/file/512dd68ab41695d9865bf.jpg)
 ×————————————————————×
-**×I'm a Powerful Group Manager Bot With Cool Modules. Feel free to add me to your groups!**
+×**I'ᴍ Aɴɪᴍᴇ-Tʜᴇᴍᴇ Gʀᴏᴜᴘ Mᴀɴᴀɢᴇᴍᴇɴᴛ Bᴏᴛ**
+×**ɪ'ᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ʙᴏᴛ ᴡɪᴛʜ ᴄᴏᴏʟ ᴀɴᴅ ɪɴᴛʀᴇꜱᴛɪɴɢ ꜰᴇᴀᴛᴜʀᴇꜱ. ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ!**
 ×————————————————————×
-☉ **×Click the button below for more.**
+☉ **×ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
 """
 
 buttons = [
@@ -95,24 +96,22 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(text="Hᴇʟᴘ", callback_data="help_back"),
-                       InlineKeyboardButton(text="Iɴғᴏ", callback_data="yumeko_about"
+                       InlineKeyboardButton(text="Iɴғᴏ", callback_data="yumeko_"
          ),
     ],
 ]
 
 
 HELP_STRINGS = """
-**Main commands:**  [ㅤ](https://telegra.ph/file/2125854e53f693d3e170a.mp4)
-❂ /start: Starts me! You've probably already used this.
-❂ /help: Sends this message; I'll tell you more about myself.
-
-All commands can either be used with / or !.
-If you want to report any bugs or need any help with setting up Rikka, reach us at here"""
+ʜᴇʟʟᴏ ᴛʜᴇʀᴇ! 
+*I'ʍ ᴀ ʍᴏdulᴀr grᴏuᴩ ʍᴀnᴀgᴇʍᴇnᴛ ʙᴏᴛ wiᴛh ᴀ fᴇw fun ᴇxᴛrᴀs!
+Hᴀvᴇ ᴀ lᴏᴏᴋ ᴀᴛ ᴛhᴇ fᴏllᴏwing fᴏr ᴀn idᴇᴀ ᴏf sᴏʍᴇ ᴏf ᴛhᴇ ᴛhings I ᴄᴀn hᴇlᴩ yᴏu wiᴛh*
+ɪꜰ ʏᴏᴜ ʀᴀɴ ɪɴᴛᴏ ᴛʀᴏᴜʙʟᴇ ᴏʀ ꜰᴏᴜɴᴅ ᴀɴʏ ʙᴜɢꜱ ᴏʀ ɪꜱꜱᴜᴇꜱ ᴏʀ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ, ᴛʜᴇɴ ᴘʟᴇᴀꜱᴇ ᴠɪꜱɪᴛ ᴏᴜʀ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ, ᴀʟʟ ᴛʜᴇ ᴀᴅᴍɪɴꜱ ᴡɪʟʟ ᴛʀʏ ᴛʜᴇɪʀ ʙᴇꜱᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ 🙃."""
 
 
 
-DONATE_STRING = """Hehe, baka!!
- [Is that so!!](https://t.me/ishikki_akabane) ❤️
+DONATE_STRING = """*ɪ ᴅᴏɴᴛ ɴᴇᴇᴅ ᴀɴʏ ᴅᴏɴᴀᴛɪᴏɴꜱ 🙃*!
+ꜱᴛɪʟʟ ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴏ ꜱᴏᴍᴇᴛʜɪɴɢ, ᴛʜᴇɴ ᴀᴅᴅ ᴛʜɪꜱ ʙᴏᴛ ᴛᴏ ᴀꜱ ᴍᴀɴʏ ɢʀᴏᴜᴘꜱ ᴀꜱ ʏᴏᴜ ᴄᴀɴ ᴀɴᴅ ᴅᴏɴᴛ ꜰᴏʀɢᴇᴛ ᴛᴏ ᴛᴇʟʟ ᴍᴇ ʏᴏᴜʀ ᴇxᴘᴇʀɪᴇɴᴄᴇ ᴡʜɪʟᴇ ᴜꜱɪɴɢ ᴛʜɪꜱ ʙᴏᴛ, ᴍᴇ [𝙸𝚜𝚑𝚒𝚔𝚔𝚒 𝙰𝚔𝚊𝚋𝚊𝚗𝚎](https://t.me/ishikki_akabane) ❤️
 """
 
 IMPORTED = {}
@@ -361,26 +360,28 @@ def yumeko_about_callback(update, context):
     if query.data == "yumeko_":
         query.message.edit_text(
             text="""Hi again! I'am an anime themed group management bot built to help you manage your group easily.\n
-                    \nI can do lot of stuff, some of them are:
-                    \n× Restrict users who flood your chat using my anti-flood module.
-                    \n× Safeguard your group with the advanced and handy Antispam system.
-                    \n× Greet users with media + text and buttons, with proper formatting.
-                    \n× Save notes and filters with proper formatting and reply markup.\n
-                    \nNote: I need to be promoted with proper admin permissions to fuction properly.\n
-                    \nCheck Setup Guide to learn on setting up the bot and on help to learn more.""",
+                    \n๏I can do lot of stuff, some of them are:
+                    \n❍ Restrict users who flood your chat using my anti-flood module.
+                    \n❍ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
+                    \n❍ Safeguard your group with the advanced and handy Antispam system.
+                    \n❍ Greet users with media + text and buttons, with proper formatting.
+                    \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.\n
+                    \nNote: I need to be promoted with proper admin permissions to fuction properly.""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(
-                            text="Sᴜᴘᴘᴏʀᴛ", url="https://suppporttxd"
-                        ),
-                        InlineKeyboardButton(
-                            text="Oᴡɴᴇʀ", url="https://t.me/ishikki_akabane"
-                        ),
-                    ],
-                    [InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_back")],
+                 [
+                    InlineKeyboardButton(text="𝙺𝚊𝚣𝚞𝚖𝚊 𝙲𝚕𝚊𝚗", callback_data="yumeko_admin"),
+                    InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", callback_data="source_"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", callback_data="vegeta_support"),
+                    InlineKeyboardButton(text="Bᴏᴛ ᴀᴅᴍɪɴs", url="https://t.me/KazumaclanXD/13"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="vegeta_back"),
+                 ]
                 ]
             ),
         )
@@ -420,6 +421,31 @@ def yumeko_about_callback(update, context):
                 ]
             ),
         )
+    elif query.data == "vegeta_support":
+        query.message.edit_text(
+            text=f"*๏ support chats*"
+            f"\nJoin My Support Group if you want to report a problem about 🎀  𝒞𝒽𝒾𝓏𝓊𝓇𝓊  🎀.",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/supppporttxd"),
+                    InlineKeyboardButton(text="ғᴇᴅᴇʀᴀᴛɪᴏɴ", url="https://t.me/KazumaclanXD/23"),
+                 ],
+                 [
+                       InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="t.me/kazumaclanxd"),
+                       InlineKeyboardButton(text="ʟᴏɢs", url="t.me/logsforbots"),
+                   
+                   ],
+                    [
+                     InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_back"),
+                 
+                 ]
+                ]
+            ),
+        )
+        
     elif query.data == "yumeko_admin":
         query.message.edit_text(
             text=f"**──「 Basic Guide 」──**"
@@ -433,7 +459,7 @@ def yumeko_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_basichelp")]]
+                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_back")]]
             ),
         )
 
@@ -601,7 +627,7 @@ def Source_about_callback(update, context):
     if query.data == "source_":
         query.message.edit_text(
             text=""" Hi.. ɪ'ᴀᴍ Cʜɪᴢᴜʀᴜ*
-                 \nMʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇs ᴀʀᴇ ɴᴏᴡ Pʀɪᴠᴀᴛᴇ. \nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://ishikki_akabane) .""",
+                 \nMʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇs ᴀʀᴇ ɴᴏᴡ Pʀɪᴠᴀᴛᴇ. \nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IƧΉIKKI ΛKΛBΛПΣ](https://ishikki_akabane) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
