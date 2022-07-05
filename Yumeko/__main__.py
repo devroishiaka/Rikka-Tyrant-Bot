@@ -75,6 +75,8 @@ def get_readable_time(seconds: int) -> str:
 
 YUMEKO_IMG = "https://telegra.ph/file/f3e0ab0181de319da2569.mp4"
 
+Lumine_IMG = "https://te.legra.ph/file/7bd18e2d1345f6705f41b.jpg"
+
 PM_START_TEXT = """
 **Hey I am Rikka** [ㅤ](https://telegra.ph/file/32012e86471dabfe78f2b.mp4)
 ×————————————————————×
@@ -215,7 +217,8 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
+            update.effective_message.reply_photo(
+                Lumine_IMG,
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
