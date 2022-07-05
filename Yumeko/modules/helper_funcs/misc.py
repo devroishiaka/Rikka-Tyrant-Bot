@@ -88,9 +88,9 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
             modulo_page * COLUMN_SIZE : COLUMN_SIZE * (modulo_page + 1)
         ] + [
             (
-                EqInlineKeyboardButton("❮", callback_data="{}_prev({})".format(prefix, modulo_page),),
-                EqInlineKeyboardButton("Go Home", callback_data="Shikimori_back"),
-                EqInlineKeyboardButton("❯", callback_data="{}_next({})".format(prefix, modulo_page),),
+                EqInlineKeyboardButton("⋘", callback_data="{}_prev({})".format(prefix, modulo_page),),
+                EqInlineKeyboardButton("Bᴀᴄᴋ", callback_data="yumeko_back"),
+                EqInlineKeyboardButton("⋙", callback_data="{}_next({})".format(prefix, modulo_page),),
             )
         ]
 
