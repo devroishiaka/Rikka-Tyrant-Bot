@@ -1,5 +1,5 @@
-import random
 import importlib
+import random
 import time
 import re
 from sys import argv
@@ -86,18 +86,18 @@ PM_START_TEXT = """
 
 buttons = [
     [
-        InlineKeyboardButton(text="➕ Add Rikka To Your group ➕", url="http://t.me/chizuruxdbot?startgroup=true"),
-    ],
-    [
-        InlineKeyboardButton(text="About", callback_data="yumeko_"),
         InlineKeyboardButton(
-            text="Sᴜᴘᴘᴏʀᴛ", url="https://t.me/tyranteyeeee"
-        ),
-    ],
-    [
-        
-        InlineKeyboardButton(
-            text="❓ Help&Commands", callback_data="help_back"),
+                            text="☑ ᴀᴅᴅ Chizuru ☑",
+                            url="t.me/chizuruxdbot?startgroup=true"),
+                    ],
+                     [
+                       InlineKeyboardButton(text="Owner", url="https://t.me/ishikki_akababe"),
+                       InlineKeyboardButton(text="Kᴀᴢᴜᴍᴀ Cʟᴀɴ", url="https://t.me/KazumaclanXD"),
+                    ],
+                   [
+                       InlineKeyboardButton(text="Hᴇʟᴘ", callback_data="help_back"),
+                       InlineKeyboardButton(text="Iɴғᴏ", callback_data="yumeko_"
+         ),
     ],
 ]
 
