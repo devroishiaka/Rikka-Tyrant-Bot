@@ -377,7 +377,7 @@ def yumeko_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="Oᴡɴᴇʀ", url="https://t.me/ishikki_akabane"),
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/supppporttxd"),
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/suppporttxd"),
                  ],
                  [
                     InlineKeyboardButton(text="Fᴇᴅᴇʀᴀᴛɪᴏɴ", url="https://t.me/KazumaclanXD/23"),
@@ -469,7 +469,7 @@ def yumeko_about_callback(update, context):
         query.message.edit_text(
             text=f"──「 Advanced CMD 」──\n\n"
             f"Mʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇs ᴀʀᴇ ɴᴏᴡ Pʀɪᴠᴀᴛᴇ."
-            f"\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IƧΉIKKI ΛKΛBΛПΣ](https://ishikki_akabane)",
+            "\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IƧΉIKKI ΛKΛBΛПΣ](https://ishikki_akabane)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_")]]
