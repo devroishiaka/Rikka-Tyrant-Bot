@@ -467,9 +467,9 @@ def yumeko_about_callback(update, context):
 
     elif query.data == "yumeko_notes":
         query.message.edit_text(
-            text=f"──「 Advanced CMD 」──\n\n"
+            text=f"──「 SoURce CoDe 」──\n\n"
             f"Mʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇs ᴀʀᴇ ɴᴏᴡ Pʀɪᴠᴀᴛᴇ."
-            "\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IƧΉIKKI ΛKΛBΛПΣ](https://ishikki_akabane)",
+            "\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ IƧΉIKKI ΛKΛBΛПΣ (@Ishikki_Akabane)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_")]]
@@ -477,19 +477,10 @@ def yumeko_about_callback(update, context):
         )
     elif query.data == "yumeko_support":
         query.message.edit_text(
-            text=f"──「 Admin CMD 」──\n"
-            f"\n/player - show the music playing status"
-            f"\n/pause - pause the music streaming"
-            f"\n/resume - resume the music was paused"
-            f"\n/skip - skip to the next song"
-            f"\n/end - stop music streaming"
-            f"\n/join - invite userbot join to your group"
-            f"\n/leave - order the userbot to leave your group"
-            f"\n/auth - authorized user for using music bot"
-            f"\n/unauth - unauthorized for using music bot"
-            f"\n/control - open the player settings panel"
-            f"\n/delcmd (on | off) - enable / disable del cmd feature"
-            f"\n/music (on / off) - disable / enable music player in your group",
+            text=f"──「 Kᴀᴢᴜᴍᴀ Cʟᴀɴ 」──\n"
+            f"ᴋᴀᴢᴜᴍᴀ ᴄʟᴀɴ ɪs ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴍᴀᴅᴇ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ᴀʟʟ ᴋɪɴᴅs ᴏғ ᴀɴɪᴍᴇ ʀᴇʟᴀᴛᴇᴅ ᴄᴏɴᴛᴇɴᴛs"
+            f"ᴏᴜʀ ᴍᴀɪɴ ᴘᴇʀsᴘᴇᴄᴛɪᴠᴇ ɪs ᴛᴏ ᴜɴɪᴛᴇ ᴀɴɪᴍᴇ ʟᴏᴠᴇʀs ᴀɴᴅ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇᴍ ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛ ᴛʜᴇʏ ᴡᴀɴᴛ"
+            f"ᴏᴜʀ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜ ᴀɴɪᴍᴇ, ᴍᴀɴɢᴀ, ᴀɴɪᴍᴇ ᴀᴍᴠ, ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ʙᴏᴛs, ᴡᴀʟʟᴘᴀᴘᴇʀ ᴀɴᴅ ᴍᴀɴʏ ᴍᴏʀᴇ",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
