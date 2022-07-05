@@ -75,8 +75,6 @@ def get_readable_time(seconds: int) -> str:
 
 YUMEKO_IMG = "https://telegra.ph/file/f3e0ab0181de319da2569.mp4"
 
-Lumine_IMG = "https://te.legra.ph/file/7bd18e2d1345f6705f41b.jpg"
-
 PM_START_TEXT = """
 **Hey I am Rikka** [ㅤ](https://telegra.ph/file/32012e86471dabfe78f2b.mp4)
 ×————————————————————×
@@ -88,7 +86,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ᴀᴅᴅ ZeroTwo ☑",
+                            text="☑ ᴀᴅᴅ Cʜɪᴢᴜʀᴜ ☑",
                             url="t.me/chizuruxdbot?startgroup=true"),
                     ],
                      [
@@ -97,7 +95,7 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(text="Hᴇʟᴘ", callback_data="help_back"),
-                       InlineKeyboardButton(text="Iɴғᴏ", callback_data="yumeko_"
+                       InlineKeyboardButton(text="Iɴғᴏ", callback_data="yumeko_about"
          ),
     ],
 ]
@@ -114,7 +112,7 @@ If you want to report any bugs or need any help with setting up Rikka, reach us 
 
 
 DONATE_STRING = """Hehe, baka!!
- [Is that so!!](https://t.me/Ryu_God) ❤️
+ [Is that so!!](https://t.me/ishikki_akabane) ❤️
 """
 
 IMPORTED = {}
@@ -217,8 +215,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_photo(
-                Lumine_IMG,
+            update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
@@ -226,12 +223,12 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_animation(
-            YUMEKO_IMG, caption= "Moshi Moshi, I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            YUMEKO_IMG, caption= "Moshi Moshi, Cʜɪᴢᴜʀᴜ Speaking!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://t.me/tyranteyeeee")]]
+                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://t.me/suppporttxd")]]
             ),
         )
         
@@ -377,13 +374,13 @@ def yumeko_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Support", url="https://tyranteyeeee"
+                            text="Sᴜᴘᴘᴏʀᴛ", url="https://suppporttxd"
                         ),
                         InlineKeyboardButton(
-                            text="Owner", url="https://t.me/sneha_uwu_owo"
+                            text="Oᴡɴᴇʀ", url="https://t.me/ishikki_akabane"
                         ),
                     ],
-                    [InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="yumeko_back")],
+                    [InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_back")],
                 ]
             ),
         )
@@ -417,7 +414,7 @@ def yumeko_about_callback(update, context):
                     InlineKeyboardButton(text="📙 Admin CMD", callback_data="yumeko_support"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="yumeko_back"),
+                    InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_back"),
                  
                  ]
                 ]
@@ -436,7 +433,7 @@ def yumeko_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="yumeko_basichelp")]]
+                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_basichelp")]]
             ),
         )
 
@@ -450,7 +447,7 @@ def yumeko_about_callback(update, context):
             f"\n/id - show the group/user id & other",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="yumeko_basichelp")]]
+                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_basichelp")]]
             ),
         )
     elif query.data == "yumeko_support":
@@ -472,7 +469,7 @@ def yumeko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="yumeko_basichelp"),
+                    InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_basichelp"),
                  
                  ]
                 ]
@@ -494,7 +491,7 @@ def yumeko_about_callback(update, context):
                     InlineKeyboardButton(text="Support", url="https://t.me/"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="yumeko_basichelp"),
+                    InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_basichelp"),
                  
                  ]
                 ]
@@ -517,7 +514,7 @@ def yumeko_about_callback(update, context):
                     InlineKeyboardButton(text="Anti Spam", callback_data="luna_asi"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="luna_"),
+                    InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="luna_"),
                  
                  ]
                 ]
@@ -535,7 +532,7 @@ def yumeko_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="yumeko_setup")]]
+                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_setup")]]
             ),
         )
 
@@ -553,7 +550,7 @@ def yumeko_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="yumeko_setup")]]
+                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_setup")]]
             ),
         )
 
@@ -574,7 +571,7 @@ def yumeko_about_callback(update, context):
                 [
                   [
                      InlineKeyboardButton(text="Credits", callback_data="yumeko_lic"),
-                     InlineKeyboardButton(text="Back", callback_data="help_back"),
+                     InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="help_back"),
                   ]
                 ]
             ),
@@ -591,8 +588,8 @@ def yumeko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                     InlineKeyboardButton(text="Back", callback_data="yumeko_lub"),
-                     InlineKeyboardButton(text="☎️ Support", url=f"https://t.me/tyranteyeeee"),
+                     InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_lub"),
+                     InlineKeyboardButton(text="☎️ Support", url=f"https://t.me/suppporttxd"),
                   ]
                 ]
             ),
@@ -603,14 +600,14 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi.. ɪ'ᴀᴍ Rikka*
-                 \nHere is the [sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ](https://www Xhamster.com) .""",
+            text=""" Hi.. ɪ'ᴀᴍ Cʜɪᴢᴜʀᴜ*
+                 \nMʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇs ᴀʀᴇ ɴᴏᴡ Pʀɪᴠᴀᴛᴇ. \nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://ishikki_akabane) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="source_back")
+                    InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="source_back")
                  ]
                 ]
             ),
@@ -639,7 +636,7 @@ def get_help(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Help",
+                                text="Hᴇʟᴘ",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -662,7 +659,7 @@ def get_help(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ 📢 ",
-                            url="https://t.me/tyranteyeeee".format(SUPPORT_CHAT),
+                            url="https://t.me/suppporttxd".format(SUPPORT_CHAT),
                         )
                     ],
                 ]
@@ -857,7 +854,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1963422158 and DONATION_LINK:
+        if OWNER_ID != 5030730429 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
@@ -905,7 +902,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am Alive](https://telegra.ph/file/ec749863aaffc3dbaff1a.jpg)",
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Cʜɪᴢᴜʀᴜ Mɪᴢᴜʜᴀʀᴀ ᴜᴘᴅᴀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ \nRᴜɴɴɪɴɢ sᴍᴏᴏᴛʜʟʏ ʟɪᴋᴇ ʙᴇғᴏʀᴇ (◍•ᴗ•◍)",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
