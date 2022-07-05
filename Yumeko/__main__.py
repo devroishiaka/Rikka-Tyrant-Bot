@@ -373,11 +373,15 @@ def yumeko_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="𝙺𝚊𝚣𝚞𝚖𝚊 𝙲𝚕𝚊𝚗", callback_data="yumeko_admin"),
-                    InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", callback_data="source_"),
+                    InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", callback_data="yumeko_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", callback_data="vegeta_support"),
-                    InlineKeyboardButton(text="Bᴏᴛ ᴀᴅᴍɪɴs", url="https://t.me/KazumaclanXD/13"),
+                    InlineKeyboardButton(text="Oᴡɴᴇʀ", url="https://t.me/ishikki_akabane"),
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/supppporttxd"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Fᴇᴅᴇʀᴀᴛɪᴏɴ", url="https://t.me/KazumaclanXD/23"),
+                    InlineKeyboardButton(text="Lᴏɢs", url="t.me/logsforbots"),
                  ],
                  [
                     InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_back"),
@@ -464,14 +468,11 @@ def yumeko_about_callback(update, context):
     elif query.data == "yumeko_notes":
         query.message.edit_text(
             text=f"──「 Advanced CMD 」──\n\n"
-            f"/start (in group) - see the bot alive status"
-            f"\n/reload - reload bot and refresh the admin list"
-            f"\n/ping - check the bot ping status"
-            f"\n/uptime - check the bot uptime status"
-            f"\n/id - show the group/user id & other",
+            f"Mʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇs ᴀʀᴇ ɴᴏᴡ Pʀɪᴠᴀᴛᴇ."
+            f"\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ᴏғ ᴛʜɪs ʙᴏᴛ ᴛʜᴇɴ PM ᴍʏ ʟᴏᴠᴇ [IƧΉIKKI ΛKΛBΛПΣ](https://ishikki_akabane)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_basichelp")]]
+                [[InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="yumeko_")]]
             ),
         )
     elif query.data == "yumeko_support":
