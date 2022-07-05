@@ -1,6 +1,6 @@
 import threading
 
-from VegetaRobot.modules.sql import BASE, SESSION
+from Yumeko.modules.sql import BASE, SESSION
 from sqlalchemy import Integer, String, Boolean, Column, UnicodeText
 
 
