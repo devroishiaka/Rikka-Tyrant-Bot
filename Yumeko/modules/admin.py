@@ -5,7 +5,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from Yumeko import DRAGONS, dispatcher
+from Yumeko import DRAGONS, DEV_USERS, dispatcher
 from Yumeko.modules.disable import DisableAbleCommandHandler
 from Yumeko.modules.helper_funcs.chat_status import (
     bot_admin,
@@ -29,14 +29,13 @@ from Yumeko.modules.log_channel import loggable
 from Yumeko.modules.helper_funcs.alternate import send_message
 from Yumeko.modules.helper_funcs.alternate import typing_action
 
-
 @run_async
 @connection_status
 @bot_admin
 @can_promote
 @user_admin
 @loggable
-def promote(update: Update, context: CallbackContext) -> str:
+def fullpromote(update: Update, context: CallbackContext) -> str:
     bot = context.bot
     args = context.args
 
@@ -48,7 +47,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if (
         not (promoter.can_promote_members or promoter.status == "creator")
-        and user.id not in DRAGONS
+        and user.id not in DEV_USERS
     ):
         message.reply_text("You don't have the necessary rights to do that!")
         return
@@ -82,6 +81,90 @@ def promote(update: Update, context: CallbackContext) -> str:
             chat.id,
             user_id,
             can_change_info=bot_member.can_change_info,
+            can_post_messages=bot_member.can_post_messages,
+            can_edit_messages=bot_member.can_edit_messages,
+            can_delete_messages=bot_member.can_delete_messages,
+            can_invite_users=bot_member.can_invite_users,
+            can_promote_members=bot_member.can_promote_members,
+            can_restrict_members=bot_member.can_restrict_members,
+            can_pin_messages=bot_member.can_pin_messages,
+        )
+    except BadRequest as err:
+        if err.message == "User_not_mutual_contact":
+            message.reply_text("I can't promote someone who isn't in the group.")
+        else:
+            message.reply_text("An error occured while promoting.")
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Sucessfully Promoted <b>{user_member.user.first_name or user_id}</b>with all right!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    log_message = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"USER FULL PROMOTED SUCCESSFULLY\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+    )
+
+    return log_message
+
+
+
+@run_async
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    promoter = chat.get_member(user.id)
+
+    if (
+        not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DEV_USERS
+    ):
+        message.reply_text("You don't have the necessary rights to do that!")
+        return
+
+    user_id = extract_user(message, args)
+
+    if not user_id:
+        message.reply_text(
+            "You don't seem to be referring to a user or the ID specified is incorrect.."
+        )
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status == "administrator" or user_member.status == "creator":
+        message.reply_text("How am I meant to promote someone that's already an admin?")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        return
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            # can_change_info=bot_member.can_change_info,
             can_post_messages=bot_member.can_post_messages,
             can_edit_messages=bot_member.can_edit_messages,
             can_delete_messages=bot_member.can_delete_messages,
@@ -643,7 +726,8 @@ __help__ = """
  ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  ❍ /unpin*:* unpins the currently pinned message
  ❍ /invitelink*:* gets invitelink
- ❍ /promote*:* promotes the user
+ ❍ /fullpromote*:* promotes the user with all rights
+ ❍ /promote*:* promotes the user with basic rights
  ❍ /demote*:* demotes the user
  ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
  ❍ /setgtitle <newtitle>*:* Sets new chat title in your group.
@@ -664,6 +748,7 @@ UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
 
+FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote)
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
 
@@ -689,6 +774,7 @@ dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
+dispatcher.add_handler(FULLPROMOTE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
@@ -704,6 +790,7 @@ __command_list__ = [
     "adminlist",
     "admins",
     "invitelink",
+    "fullpromote",
     "promote",
     "demote",
     "admincache",
@@ -713,6 +800,7 @@ __handlers__ = [
     PIN_HANDLER,
     UNPIN_HANDLER,
     INVITE_HANDLER,
+    FULLPROMOTE_HANDLER,
     PROMOTE_HANDLER,
     DEMOTE_HANDLER,
     SET_TITLE_HANDLER,
