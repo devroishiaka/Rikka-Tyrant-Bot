@@ -19,6 +19,7 @@ from Yumeko.helper_extra.admin_rights import (
     user_can_pin,
     user_can_promote,
     user_can_changeinfo,
+    user_can_manage_voice_chats,
 )
 
 from Yumeko.modules.helper_funcs.extraction import (
@@ -88,6 +89,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
             can_promote_members=bot_member.can_promote_members,
             can_restrict_members=bot_member.can_restrict_members,
             can_pin_messages=bot_member.can_pin_messages,
+            can_manage_voice_chats=bot_member.can_manage_voice_chats,
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
@@ -172,6 +174,7 @@ def promote(update: Update, context: CallbackContext) -> str:
             # can_promote_members=bot_member.can_promote_members,
             can_restrict_members=bot_member.can_restrict_members,
             can_pin_messages=bot_member.can_pin_messages,
+            can_manage_voice_chats=bot_member.can_manage_voice_chats,
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
