@@ -17,5 +17,5 @@ def user_can_changeinfo(chat: Chat, user: User, bot_id: int) -> bool:
     return chat.get_member(user.id).can_change_info
 
 
-def user_can_manage_voice_chats(chat: Chat, user: User, bot_id: int) -> bool:
-    return chat.get_member(user.id).can_manage_voice_chats
+def user_can_manage_video_chats(chat: Chat, user: User, bot_id: int) -> bool:
+    return chat.get_member(user.id).can_manage_video_chats
