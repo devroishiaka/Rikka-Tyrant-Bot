@@ -73,14 +73,15 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-YUMEKO_IMG = "https://telegra.ph/file/f3e0ab0181de319da2569.mp4"
+YUMEKO_IMG = "https://te.legra.ph/file/c7ffec22f074d5ecd6f05.jpg"
 
 PM_START_TEXT = """
+─⊰᯽⊱┈「 ᏟᎻᏆᏃႮᎡႮ 」┈⊰᯽⊱─
 **ᴋᴏɴɪᴄʜɪᴡᴀ, ɪ ᴀᴍ Cʜɪᴢᴜʀᴜ**, ʜᴀᴊɪᴍᴇᴍᴀꜱʜɪᴛᴇ[ㅤ](https://te.legra.ph/file/512dd68ab41695d9865bf.jpg)
-×————————————————————×
+×⋆✦⋆──────────────⋆✦⋆×
 ×**I'ᴍ Aɴɪᴍᴇ-Tʜᴇᴍᴇ Gʀᴏᴜᴘ Mᴀɴᴀɢᴇᴍᴇɴᴛ Bᴏᴛ**
 ×**ɪ'ᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ʙᴏᴛ ᴡɪᴛʜ ᴄᴏᴏʟ ᴀɴᴅ ɪɴᴛʀᴇꜱᴛɪɴɢ ꜰᴇᴀᴛᴜʀᴇꜱ. ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ!**
-×————————————————————×
+×⋆✦⋆──────────────⋆✦⋆×
 ☉ **×ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
 """
 
@@ -221,7 +222,7 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        update.effective_message.reply_animation(
+        update.effective_message.reply_photo(
             YUMEKO_IMG, caption= "Moshi Moshi, Cʜɪᴢᴜʀᴜ Speaking!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
@@ -450,14 +451,14 @@ def yumeko_about_callback(update, context):
         
     elif query.data == "yumeko_admin":
         query.message.edit_text(
-            text=f"**──「 Basic Guide 」──**"
-            f"\n\n/play (song name) - play song from youtube"
-            f"\n/ytp (song name) - play song directly from"
-            f"\nB/stream (reply to audio) - play song using audio file."
-            f"\n/playlist - show the list song in queue"
-            f"\n/song (song name) - download song from youtube."
-            f"\n/search (video name) - search video from youtube detailed."
-            f"\n/lyric - (song name) lyrics scrapper",
+            text=f"**──「 Kᴀᴢᴜᴍᴀ Cʟᴀɴ 」──**"
+            f"\n\nᴋᴀᴢᴜᴍᴀ ᴄʟᴀɴ ɪs ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴍᴀᴅᴇ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ᴀʟʟ ᴋɪɴᴅs ᴏғ ᴀɴɪᴍᴇ ʀᴇʟᴀᴛᴇᴅ ᴄᴏɴᴛᴇɴᴛs"
+            f"\nᴏᴜʀ ᴍᴀɪɴ ᴘᴇʀsᴘᴇᴄᴛɪᴠᴇ ɪs ᴛᴏ ᴜɴɪᴛᴇ ᴀɴɪᴍᴇ ʟᴏᴠᴇʀs ᴀɴᴅ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇᴍ ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛ ᴛʜᴇʏ ᴡᴀɴᴛ"
+            f"\nᴏᴜʀ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜ ᴀɴɪᴍᴇ, ᴍᴀɴɢᴀ, ᴀɴɪᴍᴇ ᴀᴍᴠ, ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ʙᴏᴛs, ᴡᴀʟʟᴘᴀᴘᴇʀ ᴀɴᴅ ᴍᴀɴʏ ᴍᴏʀᴇ"
+            f"\nOᴜʀ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴀʟsᴏ ʜᴀᴠᴇ ɪᴛs ᴏᴡɴ Fᴇᴅᴇʀᴀᴛɪᴏɴs ᴡʜɪᴄʜ ᴋᴇᴇᴘs sᴘᴀᴍᴍᴇʀs ᴀɴᴅ ᴛᴏxɪᴄɪᴛʏ ᴀᴡᴀʏ ғʀᴏᴍ ʏᴏᴜʀ ᴄʜᴀᴛs."
+            f"\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ɪᴛ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ᴠɪsɪᴛ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ's Fᴇᴅᴇʀᴀᴛɪᴏɴ ᴘᴀɢᴇ."
+            f"\nSᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ : @suppporttxd "
+            f"\nFᴏᴜɴᴅᴇʀ : @Ishikki_Akabane ",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
