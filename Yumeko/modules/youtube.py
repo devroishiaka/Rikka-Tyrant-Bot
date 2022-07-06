@@ -166,7 +166,7 @@ def youtube_callback(update: Update, context: CallbackContext):
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
         
-YOUTUBE_HANDLER = CommandHandler(["youtube", "yt"], youtube, run_async = True)
+YOUTUBE_HANDLER = CommandHandler(["youtube", "yt"], youtube,)
 YOUTUBE_CALLBACKHANDLER = CallbackQueryHandler(
     youtube_callback, pattern="youtube*", run_async=True
 )
