@@ -1,181 +1,72 @@
-from __future__ import unicode_literals
-
 import os
-from asyncio import get_running_loop
-from functools import partial
-from io import BytesIO
-from urllib.parse import urlparse
-
-import ffmpeg
+import requests
+import aiohttp
 import youtube_dl
+
 from pyrogram import filters
-
-from Yumeko import aiohttpsession as session
-from Yumeko.modules.memek import arq
-from Yumeko import pbot as app
-from Yumeko.utils.errors import capture_err
-from Yumeko.utils.pastebin import paste
-
-__mod_name__ = "Media"
+from Yumeko import pbot
+from youtube_search import YoutubeSearch
 
 
-is_downloading = False
+
+def time_to_seconds(time):
+    stringt = str(time)
+    return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 
-def get_file_extension_from_url(url):
-    url_path = urlparse(url).path
-    basename = os.path.basename(url_path)
-    return basename.split(".")[-1]
+@pbot.on_message(filters.command(['song']))
+def song(client, message):
 
+    user_id = message.from_user.id 
+    user_name = message.from_user.first_name 
+    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
 
-def download_youtube_audio(url: str):
-    global is_downloading
-    with youtube_dl.YoutubeDL(
-        {
-            "format": "bestaudio",
-            "writethumbnail": True,
-            "quiet": True,
-        }
-    ) as ydl:
-        info_dict = ydl.extract_info(url, download=False)
-        if int(float(info_dict["duration"])) > 600:
-            is_downloading = False
-            return []
-        ydl.process_info(info_dict)
-        audio_file = ydl.prepare_filename(info_dict)
-        basename = audio_file.rsplit(".", 1)[-2]
-        if info_dict["ext"] == "webm":
-            audio_file_opus = basename + ".opus"
-            ffmpeg.input(audio_file).output(
-                audio_file_opus, codec="copy", loglevel="error"
-            ).overwrite_output().run()
-            os.remove(audio_file)
-            audio_file = audio_file_opus
-        thumbnail_url = info_dict["thumbnail"]
-        thumbnail_file = (
-            basename
-            + "."
-            + get_file_extension_from_url(thumbnail_url)
-        )
-        title = info_dict["title"]
-        performer = info_dict["uploader"]
-        duration = int(float(info_dict["duration"]))
-    return [title, performer, duration, audio_file, thumbnail_file]
-
-
-@app.on_message(filters.command("ytmusic"))
-@capture_err
-async def music(_, message):
-    global is_downloading
-    if len(message.command) != 2:
-        return await message.reply_text(
-            "/ytmusic needs a link as argument"
-        )
-    url = message.text.split(None, 1)[1]
-    if is_downloading:
-        return await message.reply_text(
-            "Another download is in progress, try again after sometime."
-        )
-    is_downloading = True
-    m = await message.reply_text(
-        f"Downloading {url}", disable_web_page_preview=True
-    )
+    query = ''
+    for i in message.command[1:]:
+        query += ' ' + str(i)
+    print(query)
+    m = message.reply('🔎 Finding the song...')
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
-        loop = get_running_loop()
-        music = await loop.run_in_executor(
-            None, partial(download_youtube_audio, url)
-        )
-        if not music:
-            await m.edit("Too Long, Can't Download.")
-        (
-            title,
-            performer,
-            duration,
-            audio_file,
-            thumbnail_file,
-        ) = music
+        results = YoutubeSearch(query, max_results=1).to_dict()
+        link = f"https://youtube.com{results[0]['url_suffix']}"
+        #print(results)
+        title = results[0]["title"][:40]       
+        thumbnail = results[0]["thumbnails"][0]
+        thumb_name = f'thumb{title}.jpg'
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, 'wb').write(thumb.content)
+
+
+        duration = results[0]["duration"]
+        url_suffix = results[0]["url_suffix"]
+        views = results[0]["views"]
+
     except Exception as e:
-        is_downloading = False
-        return await m.edit(str(e))
-    await message.reply_audio(
-        audio_file,
-        duration=duration,
-        performer=performer,
-        title=title,
-        thumb=thumbnail_file,
-    )
-    await m.delete()
-    os.remove(audio_file)
-    os.remove(thumbnail_file)
-    is_downloading = False
-
-
-# Funtion To Download Song
-async def download_song(url):
-    async with session.get(url) as resp:
-        song = await resp.read()
-    song = BytesIO(song)
-    song.name = "a.mp3"
-    return song
-
-
-# Jiosaavn Music
-
-
-@app.on_edited_message(filters.command("saavn"))
-@capture_err
-async def jssong(_, message):
-    global is_downloading
-    if len(message.command) < 2:
-        return await message.reply_text(
-            "/saavn requires an argument."
+        m.edit(
+            "✖️ Found Nothing. Sorry.\n\nTry another keywork or maybe spell it properly."
         )
-    if is_downloading:
-        return await message.reply_text(
-            "Another download is in progress, try again after sometime."
-        )
-    is_downloading = True
-    text = message.text.split(None, 1)[1]
-    m = await message.reply_text("Searching...")
+        print(str(e))
+        return
+    m.edit("`Downloading Song... Please wait ⏱`")
     try:
-        songs = await arq.saavn(text)
-        if not songs.ok:
-            await m.edit(songs.result)
-            is_downloading = False
-            return
-        sname = songs.result[0].song
-        slink = songs.result[0].media_url
-        ssingers = songs.result[0].singers
-        sduration = songs.result[0].duration
-        await m.edit("Downloading")
-        song = await download_song(slink)
-        await m.edit("Uploading")
-        await message.reply_audio(
-            audio=song,
-            title=sname,
-            performer=ssingers,
-            duration=sduration,
-        )
-        await m.delete()
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+        rep = f'🎙 **Title**: [{title[:35]}]({link})\n🎬 **Source**: YouTube\n⏱️ **Duration**: `{duration}`\n👁‍🗨 **Views**: `{views}`\n📤 **By**: @NicoRobin_robot'
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        for i in range(len(dur_arr)-1, -1, -1):
+            dur += (int(dur_arr[i]) * secmul)
+            secmul *= 60
+        message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur)
+        m.delete()
     except Exception as e:
-        is_downloading = False
-        return await m.edit(str(e))
-    is_downloading = False
-    song.close()
+        m.edit('❌ Error')
+        print(e)
 
-
-# Lyrics
-
-
-@app.on_message(filters.command("lyricz"))
-async def lyrics_func(_, message):
-    if len(message.command) < 2:
-        return await message.reply_text("**Usage:**\n/lyrics [QUERY]")
-    m = await message.reply_text("**Searching**")
-    query = message.text.strip().split(None, 1)[1]
-    song = await arq.lyrics(query)
-    lyrics = song.result
-    if len(lyrics) < 4095:
-        return await m.edit(f"__{lyrics}__")
-    lyrics = await paste(lyrics)
-    await m.edit(f"**LYRICS_TOO_LONG:** [URL]({lyrics})")
+    try:
+        os.remove(audio_file)
+        os.remove(thumb_name)
+    except Exception as e:
+        print(e)
