@@ -87,4 +87,11 @@ async def mentionall(event):
                 usrtxt = ""
 
 
-__mod_name__ = "Mention All"
+__mod_name__ = "Tᴀɢɢᴇʀ"
+
+__help__ = """
+This Feature helps you to tag every member of your group
+  ❍ /mentionall :- Tag every single member of your group. Use it while giving a message or replying to a message
+
+Note :- This Command can mention members upto 10,000 in groups and can mention members upto 200 in channels !
+""""
