@@ -1,4 +1,5 @@
 from Yumeko import pbot as app
+from Yumeko.utils.errors import capture_err
 from Yumeko.utils.dbfunc import get_couple, save_couple
 from pyrogram import filters
 import random
@@ -22,7 +23,8 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@app.on_edited_message(filters.command("couples"))
+@app.on_edited_message(filters.command("couples") & ~filters.edited)
+@capture_err
 async def couple(_, message):
     if message.chat.type == "private":
         await message.reply_text("This command only works in groups.")
