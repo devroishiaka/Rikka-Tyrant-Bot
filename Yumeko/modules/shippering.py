@@ -1,4 +1,4 @@
-from Yumeko import pbot as app
+Opfrom Yumeko import pbot as app
 from Yumeko.utils.errors import capture_err
 from Yumeko.utils.dbfunctions import get_couple, save_couple
 from pyrogram import filters
@@ -29,7 +29,7 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@app.on_message(filters.command("shipping") & ~filters.edited)
+@app.on_message(filters.command("shipping"))
 @capture_err
 async def couple(_, message):
     if message.chat.type == "private":
