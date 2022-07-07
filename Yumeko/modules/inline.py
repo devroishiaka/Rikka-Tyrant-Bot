@@ -3,11 +3,15 @@ import traceback
 from Yumeko import pbot as app
 from Yumeko.utils.inlinefuncs import *
 
-__mod_name__ = "Inline"
+__mod_name__ = "Iɴʟɪɴᴇ"
 __help__ = """
 commands can be used by anyone in a group via inline.
 
-Usage: @Rikka_Tyrant_bot <func> <query>"""
+Usage: @chizuruxdbot <func> <query>
+
+**NOTE** :- This feature is currently disabled, it's still in development.
+Soon it will be enabled till then sorry for inconvenience.
+"""
 
 
 @app.on_inline_query()
