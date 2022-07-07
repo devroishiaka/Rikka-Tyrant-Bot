@@ -11,7 +11,7 @@ PHOTO = "https://te.legra.ph/file/525fa3c63a58446823cc1.mp4"
 async def awake(event):
   TEXT = "🔶Mᴏsʜɪ Mᴏsʜɪ I'ᴍ Cʜɪᴢᴜʀᴜ!🔶 \n"
   TEXT += "🔹I'ᴍ Wᴏʀᴋɪɴɢ Pʀᴏᴘᴇʀʟʏ🔹 \n"
-  TEXT += "💠Mʏ Oᴡɴᴇʀ : [ᏆՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://t.me/Sneha_UwU_OwO)💠 \n"
+  TEXT += "💠 Mʏ Oᴡɴᴇʀ : [ᏆՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://t.me/ishikki_akabane) 💠 \n"
   TEXT += f"🔹Tᴇʟᴇᴛʜᴏɴ Vᴇʀsɪᴏɴ : {tlhver} 🔹\n"
   TEXT += f"🔹Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ : {pyrover} 🔹"
   BUTTON = [[Button.url("Hᴇʟᴘ", "https://t.me/chizuruxdbot?start=help"), Button.url("Sᴜᴘᴘᴏʀᴛ", "https://t.me/suppporttxd")]]
