@@ -19,7 +19,7 @@ from Yumeko.helper_extra.admin_rights import (
     user_can_pin,
     user_can_promote,
     user_can_changeinfo,
-    user_can_manage_voice_chats,
+    user_can_manage_video_chats,
 )
 
 from Yumeko.modules.helper_funcs.extraction import (
