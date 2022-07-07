@@ -5,7 +5,7 @@ import Yumeko.modules.helper_funcs.git_api as api
 import Yumeko.modules.sql.github_sql as sql
 
 from Yumeko.modules.sql.clear_cmd_sql import get_clearcmd
-from Yumeko import dispatcher, OWNER_ID, EVENT_LOGS, SUDO_USERS, SUPPORT_USERS
+from Yumeko import dispatcher, OWNER_ID, EVENT_LOGS, DRAGONS, DEMONS
 from Yumeko.modules.helper_funcs.filters import CustomFilters
 from Yumeko.modules.helper_funcs.chat_status import user_admin
 from Yumeko.modules.helper_funcs.misc import delete
