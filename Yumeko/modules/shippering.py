@@ -1,6 +1,6 @@
 from Yumeko import pbot as app
 from Yumeko.utils.errors import capture_err
-from Yumeko.utils.dbfunc import get_couple, save_couple
+from Yumeko.utils.dbfunctions import get_couple, save_couple
 from pyrogram import filters
 import random
 from datetime import datetime
