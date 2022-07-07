@@ -73,7 +73,7 @@ ENUM_FUNC_MAP = {
 
 VERIFIED_USER_WAITLIST = {}
 
-OWNER_IMG= "https://te.legra.ph/file/356874825f8c470f5c281.jpg"
+OWNER_IMG= "https://te.legra.ph/file/ce53dfff70a4feba23a81.jpg"
 
 # do not async
 def send(update, message, keyboard, backup_message):
@@ -191,7 +191,7 @@ def new_member(update: Update, context: CallbackContext):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_photo(
-                    OWNER_IMG,caption="Huh! My Love join here!\n Hello! Darling ✋",
+                    OWNER_IMG,caption="Huh! My Love @ishikki_akabane join here!\n Hello! Darling ✋",
                     reply_to_message_id=reply)
                 welcome_log = (f"{html.escape(chat.title)}\n"
                                f"#USER_JOINED\n"
