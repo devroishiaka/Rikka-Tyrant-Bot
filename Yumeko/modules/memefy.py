@@ -10,17 +10,19 @@ async def handler(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.reply("Usage:- `/mmf upper text ; lower text`")
+        await event.reply(
+            "`Provide Some Text To Draw! And Reply To Image/Stickers EXAMPLE: /mmf text`"
+        )
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.reply("Reply to a image/sticker.")
+        await event.reply("```Reply to a image/sticker.```")
         return
     file = await bot.download_media(reply_message)
-    msg = await event.reply("Memifying this image! chotto matte ")
+    msg = await event.reply("```Memifying this image! baka (」ﾟﾛﾟ)｣ ```")
     text = str(event.pattern_match.group(1)).strip()
     if len(text) < 1:
-        return await msg.edit("Usage:- `/mmf upper text ; lower text`")
+        return await msg.edit("You might want to try `/mmf text`")
     meme = await drawText(file, text)
     await bot.send_file(event.chat_id, file=meme, force_document=False)
     await msg.delete()
@@ -34,13 +36,12 @@ async def handler(event):
 async def drawText(image_path, text):
     img = Image.open(image_path)
     os.remove(image_path)
-    shadowcolor = "black"
     i_width, i_height = img.size
     if os.name == "nt":
         fnt = "ariel.ttf"
     else:
-        fnt = "./Yumeko/default.ttf"
-    m_font = ImageFont.truetype(fnt, int((70 / 640) * i_width))
+        fnt = "./horisan/resources/default.ttf"
+    m_font = ImageFont.truetype(fnt, int((60 / 600) * i_width))
     if ";" in text:
         upper_text, lower_text = text.split(";")
     else:
