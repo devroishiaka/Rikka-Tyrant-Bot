@@ -114,7 +114,7 @@ def hpmanager(user):
 
 def make_bar(per):
     done = min(round(per / 10), 10)
-    return "■" * done + "□" * (10 - done)
+    return "●" * done + "○" * (10 - done)
 
 
 @run_async
@@ -241,21 +241,21 @@ def info(update: Update, context: CallbackContext):
     rep = message.reply_text("<code>Appraising...</code>", parse_mode=ParseMode.HTML)
 
     text = (
-        f"╒═══「<b> Appraisal results:</b> 」\n"
-        f"ID: <code>{user.id}</code>\n"
-        f"First Name: {html.escape(user.first_name)}"
+        f"⊱┈「<b> Iɴғᴏ Aʙᴏᴜᴛ Tʜɪs Usᴇʀ </b>」┈⊰ \n"
+        f"🔹 ID ⊸⊱ <code>{user.id}</code>\n"
+        f"🔹 Fɪʀsᴛ Nᴀᴍᴇ ⊸⊱ {html.escape(user.first_name)}"
     )
 
     if user.last_name:
         text += f"\nLast Name: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\nUsername: @{html.escape(user.username)}"
+        text += f"\n🔹 UsᴇʀNᴀᴍᴇ ⊸⊱ @{html.escape(user.username)}"
 
-    text += f"\nPermalink: {mention_html(user.id, 'link')}"
+    text += f"\n🔹 Pᴇʀᴍᴀʟɪɴᴋ ⊸⊱ {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
-        _stext = "\nPresence: <code>{}</code>"
+        _stext = "\n🔹 Pʀᴇsᴇɴᴄᴇ ⊸⊱ <code>{}</code>"
 
         afk_st = is_afk(user.id)
         if afk_st:
@@ -271,7 +271,9 @@ def info(update: Update, context: CallbackContext):
                     text += _stext.format("Admin")
     if user_id not in [bot.id, 777000, 1087968824]:
         userhp = hpmanager(user)
-        text += f"\n\n<b>Health:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
+        text += f"\n───────────────────"
+        text += f"\n\n<b>Hᴇᴀʟᴛʜ:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
+        text += f"\n───────────────────"
 
     try:
         spamwtc = sw.get_ban(int(user.id))
@@ -287,22 +289,22 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is MY LOVE Ishikki'."
+        text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs MY LOVE💠."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis person is one of My devs'."
+        text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs ᴏɴᴇ ᴏғ Mʏ ᴅᴇᴠs."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Level of this person is 'Dragon'."
+        text += "\n\n💠Tʜᴇ Lᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴘᴇʀsᴏɴ ɪs 'Dʀᴀɢᴏɴ'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Level of this person is 'Demon'."
+        text += "\n\n💠Tʜᴇ Lᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴘᴇʀsᴏɴ ɪs 'Dᴇᴍᴏɴ'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe Level of this person is 'Tiger'."
+        text += "\n\n💠Tʜᴇ Lᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴘᴇʀsᴏɴ ɪs 'Tɪɢᴇʀ'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Level of this person is 'Wolf'."
+        text += "\n\n💠Tʜᴇ Lᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴘᴇʀsᴏɴ ɪs 'Wᴏʟғ'."
         disaster_level_present = True
 
     if disaster_level_present:
@@ -422,7 +424,7 @@ def set_about_me(update: Update, context: CallbackContext):
 @run_async
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "<b>┎─⌈ Current Rikka stats ⌋</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "<b>⌈ Current ChIZuRu Stats ⌋</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
 
@@ -479,7 +481,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Erm... yeah, I only trust my love [Ishikki](https://t.me/ishikki_akabane) to set my bio."
+                f"Erm... yeah, I only trust my love [Ishikki](https://t.me/ishikki_akabane) to set my bio."
             )
             return
 
@@ -509,9 +511,9 @@ def __user_info__(user_id):
     me = html.escape(sql.get_user_me_info(user_id) or "")
     result = ""
     if me:
-        result += f"<b>About user:</b>\n{me}\n"
+        result += f"<b>Aʙᴏᴜᴛ ᴜsᴇʀ ⊸⊰</b>\n{me}\n"
     if bio:
-        result += f"<b>What others say:</b>\n{bio}\n"
+        result += f"<b>Wʜᴀᴛ ᴏᴛʜᴇʀs sᴀʏ ⊸⊰</b>\n{bio}\n"
     result = result.strip("\n")
     return result
 
