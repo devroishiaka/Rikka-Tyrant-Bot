@@ -481,7 +481,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                f"Erm... yeah, I only trust my love [Ishikki](https://t.me/ishikki_akabane) to set my bio."
+                "Erm... yeah, I only trust my love Ishikki to set my bio."
             )
             return
 
