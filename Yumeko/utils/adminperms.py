@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import ChatPermissions, Message
 from Yumeko import pbot as app
-
+from telegram import Chat, ChatMember
 
 async def member_permissions(chat_id: int, user_id: int):
     perms = []
