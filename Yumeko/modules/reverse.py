@@ -184,7 +184,7 @@ alternative commands :-
 """
 __mod_name__ = "Rᴇᴠᴇʀꜱᴇ"
 
-REVERSE_HANDLER = DisableAbleCommandHandler(
+REVERSE_HANDLER = (
     ["pp", "grs" , "r","reverse"], reverse, pass_args=True, admin_ok=True, run_async=True
 )
 
