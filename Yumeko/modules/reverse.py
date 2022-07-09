@@ -184,8 +184,6 @@ alternative commands :-
 """
 __mod_name__ = "Rᴇᴠᴇʀꜱᴇ"
 
-REVERSE_HANDLER = (
-    ["pp", "grs" , "r","reverse"], reverse, pass_args=True, admin_ok=True, run_async=True
-)
+REVERSE_HANDLER = DisableAbleCommandHandler(["pp", "grs" , "r","reverse"], reverse, run_async=True)
 
 dispatcher.add_handler(REVERSE_HANDLER)
