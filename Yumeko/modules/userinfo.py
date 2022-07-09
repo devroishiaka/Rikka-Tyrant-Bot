@@ -243,11 +243,11 @@ def info(update: Update, context: CallbackContext):
     text = (
         f"⊱┈「<b> Iɴғᴏ Aʙᴏᴜᴛ Tʜɪs Usᴇʀ </b>」┈⊰ \n"
         f"🔹 ID ⊸⊱ <code>{user.id}</code>\n"
-        f"🔹 Fɪʀsᴛ Nᴀᴍᴇ ⊸⊱ {html.escape(user.first_name)}"
+        f"🔹 FɪʀsᴛNᴀᴍᴇ ⊸⊱ {html.escape(user.first_name)}"
     )
 
     if user.last_name:
-        text += f"\nLast Name: {html.escape(user.last_name)}"
+        text += f"\nLᴀsᴛNᴀᴍᴇ ⊸⊱ {html.escape(user.last_name)}"
 
     if user.username:
         text += f"\n🔹 UsᴇʀNᴀᴍᴇ ⊸⊱ @{html.escape(user.username)}"
