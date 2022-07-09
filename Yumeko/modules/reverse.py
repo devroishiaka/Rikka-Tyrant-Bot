@@ -180,10 +180,10 @@ __help__ = """
  •`/reverse` :- reply to a sticker, or an image to search it!
 Do you know that you can search an image with a link too? /reverse picturelink <amount>. 
 alternative commands :-
-• `/r`, `/grs`, `/pp`
+• `/r`, `/grs`, `/pp`, `/p`
 """
 __mod_name__ = "Rᴇᴠᴇʀꜱᴇ"
 
-REVERSE_HANDLER = DisableAbleCommandHandler(["pp", "grs" , "r","reverse"], reverse, run_async=True)
+REVERSE_HANDLER = DisableAbleCommandHandler(["pp", "grs" , "r", "p","reverse"], reverse, run_async=True)
 
 dispatcher.add_handler(REVERSE_HANDLER)
