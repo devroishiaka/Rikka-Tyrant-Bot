@@ -32,8 +32,6 @@ if is_module_loaded(FILENAME):
     DISABLE_OTHER = []
     ADMIN_CMDS = []
 
-CMD_STARTERS = tuple(CMD_STARTERS)
-
     class DisableAbleCommandHandler(CommandHandler):
         def __init__(self, command, callback, admin_ok=False, **kwargs):
             super().__init__(command, callback, **kwargs)
@@ -83,10 +81,12 @@ CMD_STARTERS = tuple(CMD_STARTERS)
                                 ] in ADMIN_CMDS and is_user_admin(chat, user.id)
                                 if not is_disabled:
                                     return None
-                                return args, filter_result
+                                else:
+                                    return args, filter_result
 
                             return args, filter_result
-                        return False
+                        else:
+                            return False
 
     class DisableAbleMessageHandler(MessageHandler):
         def __init__(self, filters, callback, friendly, **kwargs):
@@ -113,7 +113,8 @@ CMD_STARTERS = tuple(CMD_STARTERS)
             if super().check_update(update):
                 if sql.is_command_disabled(chat.id, self.friendly):
                     return False
-                return args, filter_result
+                else:
+                    return args, filter_result
 
     class DisableAbleRegexHandler(RegexHandler):
         def __init__(self, pattern, callback, friendly="", filters=None, **kwargs):
@@ -126,8 +127,10 @@ CMD_STARTERS = tuple(CMD_STARTERS)
             if super().check_update(update):
                 if sql.is_command_disabled(chat.id, self.friendly):
                     return False
-                return True
+                else:
+                    return True
 
+    @run_async
     @connection_status
     @user_admin
     def disable(update: Update, context: CallbackContext):
@@ -150,13 +153,14 @@ CMD_STARTERS = tuple(CMD_STARTERS)
         else:
             update.effective_message.reply_text("What should I disable?")
 
+    @run_async
     @connection_status
     @user_admin
     def disable_module(update: Update, context: CallbackContext):
         args = context.args
         chat = update.effective_chat
         if len(args) >= 1:
-            disable_module = "SaitamaRobot.modules." + args[0].rsplit(".", 1)[0]
+            disable_module = "lunaBot.modules." + args[0].rsplit(".", 1)[0]
 
             try:
                 module = importlib.import_module(disable_module)
@@ -168,7 +172,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
                 command_list = module.__command_list__
             except:
                 update.effective_message.reply_text(
-                    "Module does not contain command list!",
+                    "Module does not contain command list!"
                 )
                 return
 
@@ -202,6 +206,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
         else:
             update.effective_message.reply_text("What should I disable?")
 
+    @run_async
     @connection_status
     @user_admin
     def enable(update: Update, context: CallbackContext):
@@ -214,8 +219,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
 
             if sql.enable_command(chat.id, enable_cmd):
                 update.effective_message.reply_text(
-                    f"Enabled the use of `{enable_cmd}`",
-                    parse_mode=ParseMode.MARKDOWN,
+                    f"Enabled the use of `{enable_cmd}`", parse_mode=ParseMode.MARKDOWN
                 )
             else:
                 update.effective_message.reply_text("Is that even disabled?")
@@ -223,6 +227,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
         else:
             update.effective_message.reply_text("What should I enable?")
 
+    @run_async
     @connection_status
     @user_admin
     def enable_module(update: Update, context: CallbackContext):
@@ -230,7 +235,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
         chat = update.effective_chat
 
         if len(args) >= 1:
-            enable_module = "SaitamaRobot.modules." + args[0].rsplit(".", 1)[0]
+            enable_module = "lunaBot.modules." + args[0].rsplit(".", 1)[0]
 
             try:
                 module = importlib.import_module(enable_module)
@@ -242,7 +247,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
                 command_list = module.__command_list__
             except:
                 update.effective_message.reply_text(
-                    "Module does not contain command list!",
+                    "Module does not contain command list!"
                 )
                 return
 
@@ -275,6 +280,7 @@ CMD_STARTERS = tuple(CMD_STARTERS)
         else:
             update.effective_message.reply_text("What should I enable?")
 
+    @run_async
     @connection_status
     @user_admin
     def list_cmds(update: Update, context: CallbackContext):
@@ -300,16 +306,16 @@ CMD_STARTERS = tuple(CMD_STARTERS)
             result += " - `{}`\n".format(escape_markdown(cmd))
         return "The following commands are currently restricted:\n{}".format(result)
 
+    @run_async
     @connection_status
     def commands(update: Update, context: CallbackContext):
         chat = update.effective_chat
         update.effective_message.reply_text(
-            build_curr_disabled(chat.id),
-            parse_mode=ParseMode.MARKDOWN,
+            build_curr_disabled(chat.id), parse_mode=ParseMode.MARKDOWN
         )
 
     def __stats__():
-        return f"× {sql.num_disabled()} disabled items, across {sql.num_chats()} chats."
+        return f"• {sql.num_disabled()} disabled items, across {sql.num_chats()} chats."
 
     def __migrate__(old_chat_id, new_chat_id):
         sql.migrate_chat(old_chat_id, new_chat_id)
@@ -317,28 +323,12 @@ CMD_STARTERS = tuple(CMD_STARTERS)
     def __chat_settings__(chat_id, user_id):
         return build_curr_disabled(chat_id)
 
-    __help__ = """
-❂ /cmds*:* check the current status of disabled commands
-
-*Admins only:*
-
-❂ /enable <cmd name>*:* enable that command
-❂ /disable <cmd name>*:* disable that command
-❂ /enablemodule <module name>*:* enable all commands in that module
-❂ /disablemodule <module name>*:* disable all commands in that module
-❂ /listcmds*:* list all possible toggleable commands
-"""
-
-    DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
-    DISABLE_MODULE_HANDLER = CommandHandler(
-        "disablemodule", disable_module, run_async=True
-    )
-    ENABLE_HANDLER = CommandHandler("enable", enable, run_async=True)
-    ENABLE_MODULE_HANDLER = CommandHandler(
-        "enablemodule", enable_module, run_async=True
-    )
-    COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands, run_async=True)
-    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds, run_async=True)
+    DISABLE_HANDLER = CommandHandler("disable", disable)
+    DISABLE_MODULE_HANDLER = CommandHandler("disablemodule", disable_module)
+    ENABLE_HANDLER = CommandHandler("enable", enable)
+    ENABLE_MODULE_HANDLER = CommandHandler("enablemodule", enable_module)
+    COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands)
+    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds)
 
     dispatcher.add_handler(DISABLE_HANDLER)
     dispatcher.add_handler(DISABLE_MODULE_HANDLER)
@@ -347,7 +337,18 @@ CMD_STARTERS = tuple(CMD_STARTERS)
     dispatcher.add_handler(COMMANDS_HANDLER)
     dispatcher.add_handler(TOGGLE_HANDLER)
 
-    __mod_name__ = "Dɪꜱᴀʙʟᴇ"
+    __help__ = """
+    ❍ /cmds*:* check the current status of disabled commands
+
+    *Admins only:*
+    ❍ /enable <cmd name>*:* enable that command
+    ❍ /disable <cmd name>*:* disable that command
+    ❍ /enablemodule <module name>*:* enable all commands in that module
+    ❍ /disablemodule <module name>*:* disable all commands in that module
+    ❍ /listcmds*:* list all possible toggleable commands
+    """
+
+    __mod_name__ = "Disable"
 
 else:
     DisableAbleCommandHandler = CommandHandler
