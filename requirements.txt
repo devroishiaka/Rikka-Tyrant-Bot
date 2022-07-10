@@ -46,7 +46,7 @@ cachetools
 ujson
 pretty_errors
 TgCrypto
-Pyrogram==1.4
+Pyrogram
 yt-dlp
 youtube_search_python
 youtube_search
@@ -80,7 +80,3 @@ Python_ARQ
 httpx[http2]
 gpytranslate
 google-trans-new
-fastapi==0.63.0
-img2pdf
-uvicorn
-lxml==4.6.2
