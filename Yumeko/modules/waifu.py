@@ -35,7 +35,7 @@ dispatcher.add_handler(WAIFU_HANDLER)
 __mod_name__ = "Wᴀɪғᴜ"
 
 __help__ = """
-❍ `/waifui` : Gives random image of best selected waifus.
+❍ `/waifu` : Gives random image of best selected waifus.
 ❍ `/swaifu` : Gives random image of waifu
 ❍ `/waifus` : Gives random image of waifu
 ❍ `/waifuinfo` : Gives random image of waifu with info.
