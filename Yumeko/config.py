@@ -34,19 +34,19 @@ class Config(object):
     WEBHOOK = False
     INFOPIC = True
     URL = None
-    SPAMWATCH_API = "29sw~FuIbphLGXWd38AYb6VnlJ86DKKfnjWHS91VlpUUSyzpHoVlZWxQ0F4P_ZTy"  # go to support.spamwat.ch to get key
+    SPAMWATCH_API = "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG"  # go to support.spamwat.ch to get key
     SPAMWATCH_SUPPORT_CHAT = "@SpamWatchSupport"
 
     # OPTIONAL
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
-    DRAGONS = get_user_list("elevated_users.json", "1963422158")
+    DRAGONS = get_user_list("elevated_users.json", "5039582471")
     ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = get_user_list("elevated_users.json", "1963422158")
+    DEV_USERS = get_user_list("elevated_users.json", "5039582471")
     ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
-    DEMONS = get_user_list("elevated_users.json", "1963422158")
+    DEMONS = get_user_list("elevated_users.json", "5039582471")
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
-    TIGERS = get_user_list("elevated_users.json", "1963422158")
-    WOLVES = get_user_list("elevated_users.json", "1963422158")
+    TIGERS = get_user_list("elevated_users.json", "5039582471")
+    WOLVES = get_user_list("elevated_users.json", "5039582471")
     DONATION_LINK = None  # EG, paypal
     CERT_PATH = None
     PORT = 5000
