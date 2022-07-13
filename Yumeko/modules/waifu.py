@@ -28,14 +28,17 @@ def waifu(update, context):
         msg.reply_text(text, parse_mode=ParseMode.HTML)
 
 # Command Handler (YOU CAN CHANGE 'waifu' TO ANY 'cmd' FOR THIS TO BE WORKED AS '/cmd' *IF YOU WANT*.)
-WAIFU_HANDLER = CommandHandler('waifu', waifu)
+WAIFU_HANDLER = CommandHandler('waifuinfo', waifu)
 dispatcher.add_handler(WAIFU_HANDLER)
 
 #  Buttons for /help .
 __mod_name__ = "Wᴀɪғᴜ"
 
 __help__ = """
-❍ `/waifu` : Gives random image of waifu.  
+❍ `/waifui` : Gives random image of best selected waifus.
+❍ `/swaifu` : Gives random image of waifu
+❍ `/waifus` : Gives random image of waifu
+❍ `/waifuinfo` : Gives random image of waifu with info.
 """
 
 __handlers__ = [WAIFU_HANDLER]
