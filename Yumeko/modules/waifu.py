@@ -2,11 +2,12 @@
 # Imports from external libraries. (DON'T EDIT)
 import requests
 from telegram import ParseMode
-from telegram.ext import CommandHandler
+from telegram.ext import CommandHandler, run_async
 
 # Imports dispatcher = updater.dispatcher from __init__.py (*MUST EDIT* CHANGE MODULE_NAME TO THE FOLDER NAME OF MODULES IN YOUR BOT)
 from Yumeko import dispatcher
- 
+
+@run_async
 def waifu(update, context):
     try:
         msg = update.effective_message
@@ -27,7 +28,7 @@ def waifu(update, context):
         msg.reply_text(text, parse_mode=ParseMode.HTML)
 
 # Command Handler (YOU CAN CHANGE 'waifu' TO ANY 'cmd' FOR THIS TO BE WORKED AS '/cmd' *IF YOU WANT*.)
-WAIFU_HANDLER = CommandHandler('waifu', waifu, run_async=True)
+WAIFU_HANDLER = CommandHandler('waifu', waifu)
 dispatcher.add_handler(WAIFU_HANDLER)
 
 #  Buttons for /help .
