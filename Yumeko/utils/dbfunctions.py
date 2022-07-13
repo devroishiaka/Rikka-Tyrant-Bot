@@ -1,26 +1,3 @@
-"""
-MIT License
-
-Copyright (c) 2021 TheHamkerCat
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
 import codecs
 import pickle
 from typing import Dict, List, Union
@@ -36,6 +13,7 @@ from Yumeko.mongo import db
 notesdb = db.notes
 filtersdb = db.filters
 warnsdb = db.warns
+nsfwdb = db.nsfw
 karmadb = db.karma
 chatsdb = db.chats
 usersdb = db.users
@@ -54,7 +32,7 @@ blacklist_chatdb = db.blacklistChat
 restart_stagedb = db.restart_stage
 flood_toggle_db = db.flood_toggle
 rssdb = db.rss
-
+nsfw_filtersdb = db.nsfw_allowed
 
 def obj_to_str(obj):
     if not obj:
@@ -331,6 +309,26 @@ async def karma_off(chat_id: int):
     return karmadb.insert_one({"chat_id_toggle": chat_id})
 
 
+async def is_nsfw_on(chat_id: int) -> bool:
+    chat = nsfwdb.find_one({"chat_id": chat_id})
+    if not chat:
+        return True
+    return False
+
+async def nsfw_on(chat_id: int):
+    is_nsfw = is_nsfw_on(chat_id)
+    if is_nsfw:
+        return
+    return nsfwdb.delete_one({"chat_id": chat_id})
+
+
+async def nsfw_off(chat_id: int):
+    is_nsfw = is_nsfw_on(chat_id)
+    if not is_nsfw:
+        return
+    return nsfwdb.insert_one({"chat_id": chat_id})
+
+
 async def is_served_chat(chat_id: int) -> bool:
     chat = await chatsdb.find_one({"chat_id": chat_id})
     if not chat:
@@ -393,7 +391,7 @@ async def get_gbans_count() -> int:
 
 
 async def is_gbanned_user(user_id: int) -> bool:
-    user = await gbansdb.find_one({"user_id": user_id})
+    user = gbansdb.find_one({"user_id": user_id})
     if not user:
         return False
     return True
@@ -403,14 +401,14 @@ async def add_gban_user(user_id: int):
     is_gbanned = await is_gbanned_user(user_id)
     if is_gbanned:
         return
-    return await gbansdb.insert_one({"user_id": user_id})
+    return gbansdb.insert_one({"user_id": user_id})
 
 
 async def remove_gban_user(user_id: int):
     is_gbanned = await is_gbanned_user(user_id)
     if not is_gbanned:
         return
-    return await gbansdb.delete_one({"user_id": user_id})
+    return gbansdb.delete_one({"user_id": user_id})
 
 
 async def _get_lovers(chat_id: int):
@@ -438,7 +436,7 @@ async def save_couple(chat_id: int, date: str, couple: dict):
 
 
 async def is_captcha_on(chat_id: int) -> bool:
-    chat = await captchadb.find_one({"chat_id": chat_id})
+    chat = captchadb.find_one({"chat_id": chat_id})
     if not chat:
         return True
     return False
@@ -448,14 +446,14 @@ async def captcha_on(chat_id: int):
     is_captcha = await is_captcha_on(chat_id)
     if is_captcha:
         return
-    return await captchadb.delete_one({"chat_id": chat_id})
+    return captchadb.delete_one({"chat_id": chat_id})
 
 
 async def captcha_off(chat_id: int):
     is_captcha = await is_captcha_on(chat_id)
     if not is_captcha:
         return
-    return await captchadb.insert_one({"chat_id": chat_id})
+    return captchadb.insert_one({"chat_id": chat_id})
 
 
 async def has_solved_captcha_once(chat_id: int, user_id: int):
@@ -495,7 +493,7 @@ async def antiservice_off(chat_id: int):
 
 
 async def is_pmpermit_approved(user_id: int) -> bool:
-    user = await pmpermitdb.find_one({"user_id": user_id})
+    user = pmpermitdb.find_one({"user_id": user_id})
     if not user:
         return False
     return True
@@ -505,14 +503,14 @@ async def approve_pmpermit(user_id: int):
     is_pmpermit = await is_pmpermit_approved(user_id)
     if is_pmpermit:
         return
-    return await pmpermitdb.insert_one({"user_id": user_id})
+    return pmpermitdb.insert_one({"user_id": user_id})
 
 
 async def disapprove_pmpermit(user_id: int):
     is_pmpermit = await is_pmpermit_approved(user_id)
     if not is_pmpermit:
         return
-    return await pmpermitdb.delete_one({"user_id": user_id})
+    return pmpermitdb.delete_one({"user_id": user_id})
 
 
 async def get_welcome(chat_id: int) -> str:
@@ -534,10 +532,10 @@ async def del_welcome(chat_id: int):
 
 async def update_captcha_cache(captcha_dict):
     pickle = obj_to_str(captcha_dict)
-    await captcha_cachedb.delete_one({"captcha": "cache"})
+    captcha_cachedb.delete_one({"captcha": "cache"})
     if not pickle:
         return
-    await captcha_cachedb.update_one(
+    captcha_cachedb.update_one(
         {"captcha": "cache"},
         {"$set": {"pickled": pickle}},
         upsert=True,
@@ -545,7 +543,7 @@ async def update_captcha_cache(captcha_dict):
 
 
 async def get_captcha_cache():
-    cache = await captcha_cachedb.find_one({"captcha": "cache"})
+    cache = captcha_cachedb.find_one({"captcha": "cache"})
     if not cache:
         return []
     return str_to_obj(cache["pickled"])
@@ -777,3 +775,13 @@ async def get_rss_feeds_count() -> int:
     feeds = rssdb.find({"chat_id": {"$exists": 1}})
     feeds = await feeds.to_list(length=10000000)
     return len(feeds)
+
+async def set_nsfw_status(chat_id: int, allowed: bool):
+    return await nsfw_filtersdb.update_one(
+        {"chat_id": chat_id}, {"$set": {"allowed": allowed}}, upsert=True
+    )
+async def get_nsfw_status(chat_id: int) -> bool:
+    text = await nsfw_filtersdb.find_one({"chat_id": chat_id})
+    if not text:
+        return False
+    return text["allowed"]
