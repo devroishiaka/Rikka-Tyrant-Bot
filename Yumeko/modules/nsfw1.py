@@ -508,6 +508,7 @@ __handlers__ = [
 
 __mod_name__ = "NSFW"
 __help__ = """
+*This all Commands contain 18+ stuffs, so please refrain from using this Commands in public gc*
 *Commands* *:*  
    ➢ `/neko`*:*Sends Random SFW Neko source Images.
    ➢ `/ngif`*:*Sends Random Neko GIFs.
