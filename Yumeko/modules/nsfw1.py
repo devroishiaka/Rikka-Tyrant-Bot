@@ -481,9 +481,7 @@ dispatcher.add_handler(MEGUMIN_HANDLER)
 dispatcher.add_handler(BULLY_HANDLER)
 dispatcher.add_handler(CUDDLE_HANDLER)
 
-dispatcher.add_handler(LIZARD_HANDLER)
 dispatcher.add_handler(NGIF_HANDLER)
-dispatcher.add_handler(GOOSE_HANDLER)
 dispatcher.add_handler(WOOF_HANDLER)
 dispatcher.add_handler(GECG_HANDLER)
 dispatcher.add_handler(WALLPAPER_HANDLER)
@@ -495,8 +493,6 @@ dispatcher.add_handler(FOXGIRL_HANDLER)
 
 __handlers__ = [
     SLAP_HANDLER,
-    LIZARD_HANDLER,
-    GOOSE_HANDLER,
     WOOF_HANDLER,
     WALLPAPER_HANDLER,
     TICKLE_HANDLER,
