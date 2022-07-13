@@ -1,17 +1,18 @@
 import nekos
 import requests
 from Yumeko import dispatcher
-from telegram.ext import CommandHandler
+from telegram.ext import CommandHandler, run_async
 import random
 import Yumeko.modules.waifu_string as waifu_string
 
 url_sfw_1 = "https://api.waifu.pics/sfw/" 
 url_sfw_2 = "https://nekos.best/"
 
-
+@run_async
 def waifus(update, context):
     update.effective_message.reply_photo(random.choice(waifu_string.WAIFUS))
 
+@run_async
 def swaifu(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}waifu" 
@@ -19,6 +20,7 @@ def swaifu(update, context):
     img = result['url']
     msg.reply_photo(photo=img)
 
+@run_async
 def pout(update, context):
     msg = update.effective_message
     resp = requests.get("https://nekos.best/api/v2/pout")
@@ -26,6 +28,7 @@ def pout(update, context):
     img = (data["results"][0]["url"])
     msg.reply_animation(img)
 
+@run_async
 def bored(update, context):
     msg = update.effective_message
     resp = requests.get("https://nekos.best/api/v2/bored")
@@ -33,6 +36,7 @@ def bored(update, context):
     img = (data["results"][0]["url"])
     msg.reply_animation(img)
 
+@run_async
 def nekos2(update, context):
     msg = update.effective_message
     resp = requests.get("https://nekos.best/api/v2/neko")
@@ -40,6 +44,7 @@ def nekos2(update, context):
     img = (data["results"][0]["url"])
     msg.reply_photo(photo=img)
 
+@run_async
 def stare(update, context):
     msg = update.effective_message
     resp = requests.get("https://nekos.best/api/v2/stare")
@@ -47,6 +52,7 @@ def stare(update, context):
     img = (data["results"][0]["url"])
     msg.reply_animation(img)
 
+@run_async
 def think(update, context):
     msg = update.effective_message
     resp = requests.get("https://nekos.best/api/v2/think")
@@ -54,6 +60,7 @@ def think(update, context):
     img = (data["results"][0]["url"])
     msg.reply_animation(img)
 
+@run_async
 def thumbsup(update, context):
     msg = update.effective_message
     resp = requests.get("https://nekos.best/api/v2/thumbsup")
@@ -61,6 +68,7 @@ def thumbsup(update, context):
     img = (data["results"][0]["url"])
     msg.reply_animation(img)
 
+@run_async
 def waifu(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}waifu" 
@@ -68,6 +76,7 @@ def waifu(update, context):
     img = result['url']
     msg.reply_photo(photo=img)
 
+@run_async
 def neko(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}neko" 
@@ -75,6 +84,7 @@ def neko(update, context):
     img = result['url']
     msg.reply_photo(photo=img)
 
+@run_async
 def shinobu(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}shinobu" 
@@ -82,6 +92,7 @@ def shinobu(update, context):
     img = result['url']
     msg.reply_photo(photo=img)
 
+@run_async
 def megumin(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}megumin" 
@@ -89,6 +100,7 @@ def megumin(update, context):
     img = result['url']
     msg.reply_photo(photo=img)
 
+@run_async
 def bully(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}bully" 
@@ -96,6 +108,7 @@ def bully(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def cuddle(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}cuddle" 
@@ -103,6 +116,7 @@ def cuddle(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def cry(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}cry" 
@@ -110,6 +124,7 @@ def cry(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def hug(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}hug" 
@@ -117,6 +132,7 @@ def hug(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def awoo(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}awoo" 
@@ -124,6 +140,7 @@ def awoo(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def kiss(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}kiss" 
@@ -131,6 +148,7 @@ def kiss(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def lick(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}lick" 
@@ -138,6 +156,7 @@ def lick(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def pat(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}pat" 
@@ -145,6 +164,7 @@ def pat(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def smug(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}smug" 
@@ -152,6 +172,7 @@ def smug(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def bonk(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}bonk" 
@@ -159,6 +180,7 @@ def bonk(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def yeet(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}yeet" 
@@ -166,6 +188,7 @@ def yeet(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def blush(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}blush" 
@@ -173,6 +196,7 @@ def blush(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def smile(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}smile" 
@@ -180,6 +204,7 @@ def smile(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def wave(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}wave" 
@@ -187,6 +212,7 @@ def wave(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def highfive(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}highfive" 
@@ -194,6 +220,7 @@ def highfive(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def handhold(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}handhold" 
@@ -201,6 +228,7 @@ def handhold(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def nom(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}nom" 
@@ -208,6 +236,7 @@ def nom(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def bite(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}bite" 
@@ -215,7 +244,7 @@ def bite(update, context):
     img = result['url']
     msg.reply_animation(img)
 
-
+@run_async
 def glomp(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}glomp" 
@@ -223,6 +252,7 @@ def glomp(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def slap(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}slap" 
@@ -230,6 +260,7 @@ def slap(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def killgif(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}kill" 
@@ -237,6 +268,7 @@ def killgif(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def kickgif(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}kick" 
@@ -244,6 +276,7 @@ def kickgif(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def happy(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}happy" 
@@ -251,6 +284,7 @@ def happy(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def wink(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}wink" 
@@ -258,6 +292,7 @@ def wink(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def poke(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}poke" 
@@ -265,6 +300,7 @@ def poke(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def dance(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}dance" 
@@ -272,6 +308,7 @@ def dance(update, context):
     img = result['url']
     msg.reply_animation(img)
 
+@run_async
 def cringe(update, context):
     msg = update.effective_message
     url = f"{url_sfw_1}cringe" 
@@ -280,128 +317,125 @@ def cringe(update, context):
     msg.reply_animation(img)
 
 ################
+@run_async
 def wallpaper(update, context):
     msg = update.effective_message
     target = "wallpaper"
     msg.reply_photo(nekos.img(target))
 
+@run_async
 def tickle(update, context):
     msg = update.effective_message
     target = "tickle"
     msg.reply_video(nekos.img(target))
 
+@run_async
 def ngif(update, context):
     msg = update.effective_message
     target = "ngif"
     msg.reply_video(nekos.img(target))
 
+@run_async
 def feed(update, context):
     msg = update.effective_message
     target = "feed"
     msg.reply_video(nekos.img(target))
 
+@run_async
 def gasm(update, context):
     msg = update.effective_message
     target = "gasm"
     msg.reply_photo(nekos.img(target))
 
+@run_async
 def avatar(update, context):
      msg = update.effective_message
      target = "avatar"
      msg.reply_photo(nekos.img(target))
 
-
+@run_async
 def foxgirl(update, context):
     msg = update.effective_message
     target = "fox_girl"
     msg.reply_photo(nekos.img(target))
 
+@run_async
 def gecg(update, context):
     msg = update.effective_message
     target = "gecg"
     msg.reply_photo(nekos.img(target))
 
-def lizard(update, context):
-    msg = update.effective_message
-    target = "lizard"
-    msg.reply_photo(nekos.img(target))
-   
-def goose(update, context):
-    msg = update.effective_message
-    target = "goose"
-    msg.reply_photo(nekos.img(target))
-
+@run_async
 def woof(update, context):
     msg = update.effective_message
     target = "woof"
     msg.reply_photo(nekos.img(target))   
 
+@run_async
 def source(update, context):
     msg = update.effective_message
     img = "https://telegra.ph/file/f55d977a723b679197b43.mp4"
     msg.reply_animation(img)    
 
-WALLPAPER_HANDLER = CommandHandler("wallpaper", wallpaper, block=False)
-TICKLE_HANDLER = CommandHandler("tickle", tickle, block=False)
-FEED_HANDLER = CommandHandler("feed", feed, block=False)
-GASM_HANDLER = CommandHandler("gasm", gasm, block=False)
-AVATAR_HANDLER = CommandHandler("avatar", avatar, block=False)
-FOXGIRL_HANDLER = CommandHandler("foxgirl", foxgirl, block=False)
-GECG_HANDLER = CommandHandler("gecg", gecg, block=False)
-LIZARD_HANDLER = CommandHandler("lizard", lizard, block=False)
-GOOSE_HANDLER = CommandHandler("goose", goose, block=False)
-WOOF_HANDLER = CommandHandler("woof", woof, block=False)
-NGIF_HANDLER = CommandHandler("ngif", ngif, block=False)
+WALLPAPER_HANDLER = CommandHandler("wallpaper", wallpaper)
+TICKLE_HANDLER = CommandHandler("tickle", tickle)
+FEED_HANDLER = CommandHandler("feed", feed)
+GASM_HANDLER = CommandHandler("gasm", gasm)
+AVATAR_HANDLER = CommandHandler("avatar", avatar)
+FOXGIRL_HANDLER = CommandHandler("foxgirl", foxgirl)
+GECG_HANDLER = CommandHandler("gecg", gecg)
+WOOF_HANDLER = CommandHandler("woof", woof)
+NGIF_HANDLER = CommandHandler("ngif", ngif)
 
-WAIFUS_HANDLER = CommandHandler("waifus", waifu, block=False)
-NEKO_HANDLER = CommandHandler("neko", neko, block=False)
-SHINOBU_HANDLER = CommandHandler("shinobu", shinobu, block=False)
-MEGUMIN_HANDLER = CommandHandler("megumin", megumin, block=False)
-BULLY_HANDLER = CommandHandler("bully", bully, block=False)
-CUDDLE_HANDLER = CommandHandler("cuddle", foxgirl, block=False)
-CRY_HANDLER = CommandHandler("cry", cry, block=False)
-HUG_HANDLER = CommandHandler("hug", hug, block=False)
-AWOO_HANDLER = CommandHandler("awoo", awoo, block=False)
-KISS_HANDLER = CommandHandler("kiss", kiss, block=False)
-LICK_HANDLER = CommandHandler("lick", lick, block=False)
-PAT_HANDLER = CommandHandler("pat", pat, block=False)
+WAIFUS_HANDLER = CommandHandler("waifus", waifu)
+NEKO_HANDLER = CommandHandler("neko", neko)
+SHINOBU_HANDLER = CommandHandler("shinobu", shinobu)
+MEGUMIN_HANDLER = CommandHandler("megumin", megumin)
+BULLY_HANDLER = CommandHandler("bully", bully)
+CUDDLE_HANDLER = CommandHandler("cuddle", foxgirl)
+CRY_HANDLER = CommandHandler("cry", cry)
+HUG_HANDLER = CommandHandler("hug", hug)
+AWOO_HANDLER = CommandHandler("awoo", awoo)
+KISS_HANDLER = CommandHandler("kiss", kiss)
+LICK_HANDLER = CommandHandler("lick", lick)
+PAT_HANDLER = CommandHandler("pat", pat)
 
 
 
 
 
-SMUG_HANDLER = CommandHandler("smug", smug, block=False)
-BONK_HANDLER = CommandHandler("bonk", bonk, block=False)
-YEET_HANDLER = CommandHandler("yeet", yeet, block=False)
-BLUSH_HANDLER = CommandHandler("blush", blush, block=False)
-SMILE_HANDLER = CommandHandler("smile", smile, block=False)
-WAVE_HANDLER = CommandHandler("wave", wave, block=False)
-HIGHFIVE_HANDLER = CommandHandler("highfive", highfive, block=False)
-HANDHOLD_HANDLER = CommandHandler("handhold", handhold, block=False)
-NOM_HANDLER = CommandHandler("nom", nom, block=False)
-BITE_HANDLER = CommandHandler("bite", bite, block=False)
-GLOMP_HANDLER = CommandHandler("glomp", glomp, block=False)
+SMUG_HANDLER = CommandHandler("smug", smug)
+BONK_HANDLER = CommandHandler("bonk", bonk)
+YEET_HANDLER = CommandHandler("yeet", yeet)
+BLUSH_HANDLER = CommandHandler("blush", blush)
+SMILE_HANDLER = CommandHandler("smile", smile)
+WAVE_HANDLER = CommandHandler("wave", wave)
+HIGHFIVE_HANDLER = CommandHandler("highfive", highfive)
+HANDHOLD_HANDLER = CommandHandler("handhold", handhold)
+NOM_HANDLER = CommandHandler("nom", nom)
+BITE_HANDLER = CommandHandler("bite", bite)
+GLOMP_HANDLER = CommandHandler("glomp", glomp)
 
 
-SLAP_HANDLER = CommandHandler("slap", slap, block=False)
-KILLGIF_HANDLER = CommandHandler("killgif", killgif, block=False)
-HAPPY_HANDLER = CommandHandler("happy", happy, block=False)
-WINK_HANDLER = CommandHandler("wink", wink, block=False)
-POKE_HANDLER = CommandHandler("poke", poke, block=False)
-DANCE_HANDLER = CommandHandler("dance", dance, block=False)
-CRINGE_HANDLER = CommandHandler("cringe", cringe, block=False)
+SLAP_HANDLER = CommandHandler("slap", slap)
+KILLGIF_HANDLER = CommandHandler("killgif", killgif)
+HAPPY_HANDLER = CommandHandler("happy", happy)
+WINK_HANDLER = CommandHandler("wink", wink)
+POKE_HANDLER = CommandHandler("poke", poke)
+DANCE_HANDLER = CommandHandler("dance", dance)
+CRINGE_HANDLER = CommandHandler("cringe", cringe)
 
-POUT_HANDLER = CommandHandler("pout", pout, block=False)
-BORED_HANDLER = CommandHandler("bored", bored, block=False)
-NEKOS_HANDLER = CommandHandler("nekos", nekos2, block=False)
-STARE_HANDLER = CommandHandler("stare", stare, block=False)
-THINK_HANDLER = CommandHandler("think", think, block=False)
-THUMBSUP_HANDLER = CommandHandler("thumbsup", thumbsup, block=False)
-WAIFU_HANDLER = CommandHandler('waifu', waifus, block=False)
+POUT_HANDLER = CommandHandler("pout", pout)
+BORED_HANDLER = CommandHandler("bored", bored)
+NEKOS_HANDLER = CommandHandler("nekos", nekos2)
+STARE_HANDLER = CommandHandler("stare", stare)
+THINK_HANDLER = CommandHandler("think", think)
+THUMBSUP_HANDLER = CommandHandler("thumbsup", thumbsup)
+WAIFU_HANDLER = CommandHandler('waifu', waifus)
 dispatcher.add_handler(WAIFU_HANDLER)
-SWAIFU_HANDLER = CommandHandler('swaifu', swaifu, block=False)
+SWAIFU_HANDLER = CommandHandler('swaifu', swaifu)
 dispatcher.add_handler(SWAIFU_HANDLER)
-SOURCE_HANDLER = CommandHandler('source', source, block=False)
+SOURCE_HANDLER = CommandHandler('source', source)
 dispatcher.add_handler(SOURCE_HANDLER)
 dispatcher.add_handler(POUT_HANDLER)
 dispatcher.add_handler(BORED_HANDLER)
