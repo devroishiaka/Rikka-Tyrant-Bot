@@ -80,3 +80,7 @@ Python_ARQ
 httpx[http2]
 gpytranslate
 google-trans-new
+humanize
+redis==3.5.3
+aioredis==2.0.0
+hiredis==2.0.0
