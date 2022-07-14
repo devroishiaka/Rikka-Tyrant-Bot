@@ -6,6 +6,7 @@ import spamwatch
 import aiohttp
 from aiohttp import ClientSession
 
+from redis import StrictRedis
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
@@ -98,6 +99,7 @@ if ENV:
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
     ARQ_API_URL = "https://thearq.tech"
     ARQ_API_KEY = "ZWXCEZ-RTVXHT-NOVURC-FHCFZD-ARQ"
+    REDIS_URL = os.environ.get("REDIS_URL", "redis://ishikki:Ishikki_143@redis-11102.c264.ap-south-1-1.ec2.cloud.redislabs.com:11102/")
     LOG_GROUP_ID = os.environ.get("LOG_GROUP_ID", None)
     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
@@ -199,7 +201,22 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
 
+REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 
+try:
+
+    REDIS.ping()
+
+    LOGGER.info("[Chizuru]: Connecting To Redis Database")
+
+except BaseException:
+
+    raise Exception("[ERROR]: Your Redis Database Is Not Alive, Please Check Again.")
+
+finally:
+
+   REDIS.ping()
+        
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("luna", API_ID, API_HASH)
 pbot = Client("lunaBot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
