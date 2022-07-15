@@ -247,7 +247,7 @@ def info(update: Update, context: CallbackContext):
     )
 
     if user.last_name:
-        text += f"\nLᴀsᴛNᴀᴍᴇ ⊸⊱ {html.escape(user.last_name)}"
+        text += f"\n🔹 LᴀsᴛNᴀᴍᴇ ⊸⊱ {html.escape(user.last_name)}"
 
     if user.username:
         text += f"\n🔹 UsᴇʀNᴀᴍᴇ ⊸⊱ @{html.escape(user.username)}"
@@ -291,6 +291,9 @@ def info(update: Update, context: CallbackContext):
     if user.id == OWNER_ID:
         text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs MY LOVE💠."
         disaster_level_present = True
+    elif user.id == 5550450668:
+        text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs MY Bᴇsᴛɪᴇ."
+        disaster_level_present = True
     elif user.id in DEV_USERS:
         text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs ᴏɴᴇ ᴏғ Mʏ ᴅᴇᴠs."
         disaster_level_present = True
@@ -321,7 +324,7 @@ def info(update: Update, context: CallbackContext):
             result = result.json()["result"]
             if "custom_title" in result.keys():
                 custom_title = result["custom_title"]
-                text += f"\n\nTitle:\n<b>{custom_title}</b>"
+                text += f"\n\n🔹 Title:\n<b>{custom_title}</b>"
     except BadRequest:
         pass
 
