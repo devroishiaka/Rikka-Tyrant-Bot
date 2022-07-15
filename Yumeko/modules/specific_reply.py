@@ -52,7 +52,7 @@ GDNIGHT_HANDLER = MessageHandler(
 BYE_HANDLER = MessageHandler(
     Filters.regex("(?i)(bye|brb|afk|goodbye|good bye)"), bye, friendly="bye")
 HELLO_HANDLER = MessageHandler(
-    Filters.regex("(?i)(hello|hoi bro|hi bro|hii bro)"), hello, friendly="hello")
+    Filters.regex("(?i)(hello|hoi bro|hello bro|hii bro)"), hello, friendly="hello")
 
 dispatcher.add_handler(GDMORNING_HANDLER)
 dispatcher.add_handler(GDNIGHT_HANDLER)
