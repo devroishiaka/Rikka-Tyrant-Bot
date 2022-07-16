@@ -57,18 +57,10 @@ def afk(update, context):
     REDIS.set(f'afk_time_{update.effective_user.id}', start_afk_time)
     fname = update.effective_user.first_name
     try:
-        options = [
-                "{} is now away!\nStop dreaming that you'll find a date.",
-                "{} is now away!\nI know you are reading..... May be Doujins",
-                "{} Is now away!\nSo, you finally decided to leave. Maybe going to relieve your stress in form of your fluids.",
-                "{} Is now away!\Best of luck for your date",
-            ]
-            chosen_option = random.choice(options)
-            update.effective_message.reply_text(
-                chosen_option.format(fname),
-            )
-        except BaseException:
-            pass
+        update.effective_message.reply_text(
+            "{} is now Away!".format(fname))
+    except BadRequest:
+        pass
 
 @run_async
 def no_longer_afk(update, context):
