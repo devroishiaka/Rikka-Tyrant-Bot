@@ -34,6 +34,7 @@ from Yumeko.modules.helper_funcs.chat_status import sudo_plus
 from Yumeko.modules.helper_funcs.extraction import extract_user
 from Yumeko import telethn as YoneTelethonClient, TIGERS, DRAGONS, DEMONS
 
+CHIZURU ="https://te.legra.ph/file/d9e9e538996e1e8daa4a8.jpg"
 
 def no_by_per(totalhp, percentage):
     """
@@ -427,9 +428,9 @@ def set_about_me(update: Update, context: CallbackContext):
 @run_async
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "<b>⌈ Current ChIZuRu Stats ⌋</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "🌐 <b>⌈ Current ChIZuRu Stats ⌋</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
-    update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
+    update.effective_message.reply_photo(CHIZURU,caption=result, parse_mode=ParseMode.HTML)
 
 
 @run_async
@@ -562,8 +563,11 @@ Examples:
 ❂ /bio @username(defaults to yours if not specified).
 ❂ /setbio This user is a wolf (reply to the user)
 *Overall Information about you:*
-❂ /info*:* get information about a user.
+❂ /info*:* Get information about a user.
 ❂ /json*:* Get Detailed info about any message.
+*FAKE*
+❂ /fakegen*:* Creates a fake info about a user.
+❂ /picgen*:* Creates a fake pic of the user.
 *What is that health thingy?*
  Come and see [HP System explained](https://t.me/updatesxd/4)
 """
