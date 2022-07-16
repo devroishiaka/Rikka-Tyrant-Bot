@@ -57,10 +57,18 @@ def afk(update, context):
     REDIS.set(f'afk_time_{update.effective_user.id}', start_afk_time)
     fname = update.effective_user.first_name
     try:
-        update.effective_message.reply_text(
-            "{} is now Away!".format(fname))
-    except BadRequest:
-        pass
+        options = [
+                "{} is now away!\nStop dreaming that you'll find a date.",
+                "{} is now away!\nI know you are reading..... May be Doujins",
+                "{} Is now away!\nSo, you finally decided to leave. Maybe going to relieve your stress in form of your fluids.",
+                "{} Is now away!\Best of luck for your date",
+            ]
+            chosen_option = random.choice(options)
+            update.effective_message.reply_text(
+                chosen_option.format(fname),
+            )
+        except BaseException:
+            pass
 
 @run_async
 def no_longer_afk(update, context):
@@ -82,8 +90,10 @@ def no_longer_afk(update, context):
             options = [
                 "The Dead {} Came Back From His Grave! Time Taken: {}",
                 "Hey {}! Why weren't you online for {}?",
-                "{} Is now back online! Time Taken: {}",
+                "{} Is now back from his date! Time Taken: {}",
                 "OwO, Welcome back {} You've Missing Till {} ",
+                "Guys, {} got a girlfried, that's why he was busy for: {}",
+                "OwO, Welcome back {}, you left us for {} ",
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(
@@ -163,11 +173,11 @@ def __user_info__(user_id):
     text = ""
     if is_afk:
         since_afk = get_readable_time((time.time() - float(REDIS.get(f'afk_time_{user_id}'))))
-        text = "This user is currently afk (away from keyboard)."
-        text += f"\nLast Seen: {since_afk} Ago."
+        text = "Tʜɪs ᴜsᴇʀ ɪs ᴄᴜʀʀᴇɴᴛʟʏ ᴀғᴋ (ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ)."
+        text += f"\nLᴀsᴛ Sᴇᴇɴ: {since_afk} Aɢᴏ."
        
     else:
-        text = "This user currently isn't afk (not away from keyboard)."
+        text = "Tʜɪs ᴜsᴇʀ ᴄᴜʀʀᴇɴᴛʟʏ ɪsɴ'ᴛ ᴀғᴋ (ɴᴏᴛ ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ)."
     return text
 
 def __stats__():
