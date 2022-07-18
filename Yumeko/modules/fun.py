@@ -111,7 +111,7 @@ def slap(update: Update, context: CallbackContext):
 
     reply_text(reply, parse_mode=ParseMode.HTML)
     
-WISH_IMG="https://te.legra.ph/file/651c94da919249a67c1ff.jpg"
+WISH_IMG="https://te.legra.ph/file/6ad246dea7c25f3692577.jpg"
 @run_async
 @typing_action
 def wish(update, context):
