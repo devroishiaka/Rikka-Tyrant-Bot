@@ -1,7 +1,7 @@
 #Rewritten by Ishikki Akabane
 
 from datetime import datetime
-from Yumeko import DEV_USERS, OWNER_ID, STATS_IMG
+from Yumeko import DEV_USERS, OWNER_ID
 from Yumeko import (
     OWNER_ID,
     OWNER_USERNAME,
