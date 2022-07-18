@@ -382,8 +382,9 @@ __help__ = """
  ❍ /decide - bot send radom decides.
  ❍ /pat - reply to the user to give them a pat.
  ❍ /truth or /dare - bot send funny messages.
- ❍ /wish your wish possible chance random.
- 
+ ❍ /wish - your wish possible chance random.
+ ❍ /flirt - Bot sends random flirting lines (created by @ishikki_akabane)
+
  *New fun features will be added soon*
  *If you have any suggestions to make this more fun, please tell us in our support group @suppporttxd *
 """
