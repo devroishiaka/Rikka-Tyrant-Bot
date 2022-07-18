@@ -1,4 +1,5 @@
 #just for testing purpose, ishikki Akabane
+"""
 from pyrogram import (
     Client,
     filters
@@ -19,3 +20,4 @@ async def on_pm_s(client: Client, message: Message):
             chat_id=OWNER_ID,
             disable_notification=True
         )
+"""
