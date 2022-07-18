@@ -16,11 +16,17 @@ def dare(update: Update, context: CallbackContext):
     args = context.args
     update.effective_message.reply_text(random.choice(truth_and_dare_string.DARE))
 
+@run_async
+def flirt(update: Update, context: CallbackContext):
+    args = context.args
+    update.effective_message.reply_text(random.choice(truth_and_dare_string.FLIRT))
+
     
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
-
+FLIRT_HANDLER = DisableAbleCommandHandler("flirt", flirt)
 
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+dispatcher.add_handler(FLIRT_HANDLER)
 
