@@ -382,7 +382,7 @@ def yumeko_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="Fᴇᴅᴇʀᴀᴛɪᴏɴ", url="https://t.me/KazumaclanXD/23"),
-                    InlineKeyboardButton(text="Lᴏɢs", url="t.me/logsforbots"),
+                    InlineKeyboardButton(text="Lᴏɢs", url="t.me/suppporttxd"),
                  ],
                  [
                     InlineKeyboardButton(text="❮❮ Bᴀᴄᴋ", callback_data="yumeko_back"),
