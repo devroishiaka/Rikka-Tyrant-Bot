@@ -137,13 +137,13 @@ def __chat_settings__(chat_id, user_id):
 __mod_name__ = "Rᴜʟᴇs"
 
 GET_RULES_HANDLER = CommandHandler(
-    "rules", get_rules, filters=Filters.chat_type.groups
+    "rules", get_rules, filters=Filters.group
 )
 SET_RULES_HANDLER = CommandHandler(
-    "setrules", set_rules, filters=Filters.chat_type.groups
+    "setrules", set_rules, filters=Filters.group
 )
 RESET_RULES_HANDLER = CommandHandler(
-    "clearrules", clear_rules, filters=Filters.chat_type.groups
+    "clearrules", clear_rules, filters=Filters.group
 )
 
 dispatcher.add_handler(GET_RULES_HANDLER)
