@@ -217,7 +217,7 @@ def deletion(update: Update, context: CallbackContext, delmsg):
 
 
 REVERSE_HANDLER = DisableAbleCommandHandler(
-    ["reverse","grs","pp","p"], reverse, admin_ok=True, run_async=True
+    ["reverse","grs","pp","p"], reverse
 )
 
 dispatcher.add_handler(REVERSE_HANDLER)
