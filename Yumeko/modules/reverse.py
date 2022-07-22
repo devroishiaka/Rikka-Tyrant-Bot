@@ -85,7 +85,7 @@ def reverse(update: Update, context: CallbackContext):
             return
     else:
         msg.reply_markdown(
-            "Please reply to a sticker, or an image to search it!\nDo you know that you can search an image with a link too? `/reverse [picturelink] <amount>`."
+            "Please reply to a sticker, or an image to search it baka!"
         )
         return
 
@@ -133,8 +133,7 @@ def reverse(update: Update, context: CallbackContext):
         images = scam(imgspage, lim)
         if len(images) == 0:
             deletion(update, context, xx.edit_text(
-                f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})"
-                "\nHere is your results.",
+                f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})",
                 parse_mode="Markdown",
                 disable_web_page_preview=True,
             ))
@@ -216,6 +215,11 @@ def deletion(update: Update, context: CallbackContext, delmsg):
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
+__help__ = """*Image reverse:*
+ • `/reverse`: does a *reverse image search* of the media which it was replied to.
+ • You can also use `/grs` ,`/pp` or `/p`.
+ """
+
 REVERSE_HANDLER = DisableAbleCommandHandler(
     ["reverse","grs","pp","p"], reverse
 )
@@ -223,6 +227,6 @@ REVERSE_HANDLER = DisableAbleCommandHandler(
 dispatcher.add_handler(REVERSE_HANDLER)
 
 
-__mod_name__ = "Reverse"
+__mod_name__ = "Rᴇᴠᴇʀsᴇ"
 __command_list__ = ["reverse", "grs", "pp", "p"]
 __handlers__ = [REVERSE_HANDLER]
