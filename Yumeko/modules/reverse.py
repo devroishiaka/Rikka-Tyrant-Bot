@@ -101,8 +101,7 @@ def reverse(update: Update, context: CallbackContext):
         if response != 400:
             xx = bot.send_message(
                 chat_id,
-                "Image was successfully uploaded to Google."
-                "\nParsing it, please wait.",
+                "Image was successfully uploaded to Google.",
                 reply_to_message_id=rtmid,
             )
         else:
@@ -133,7 +132,7 @@ def reverse(update: Update, context: CallbackContext):
         images = scam(imgspage, lim)
         if len(images) == 0:
             deletion(update, context, xx.edit_text(
-                f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})",
+                f"[{guess}]({fetchUrl})\n\n[Visually similar images]({imgspage})",
                 parse_mode="Markdown",
                 disable_web_page_preview=True,
             ))
