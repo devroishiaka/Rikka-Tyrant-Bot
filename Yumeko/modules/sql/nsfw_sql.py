@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String
 
-from yumeko.modules.sql import BASE, SESSION
+from Yumeko.modules.sql import BASE, SESSION
 
 
 #   |----------------------------------|
