@@ -77,7 +77,7 @@ async def nsfw_watch(event):
         await event.reply("You Can Only Nsfw Watch in Groups.")
         return
     input_str = event.pattern_match.group(1)
-    if not await is_admin(event, 1192108540):
+    if not await is_admin(event, BOT_ID):
         await event.reply("`I Should Be Admin To Do This!`")
         return
     if await is_admin(event, event.message.sender_id):
@@ -125,7 +125,7 @@ async def ws(event):
         return
     if not (event.photo):
         return
-    if not await is_admin(event, 1192108540):
+    if not await is_admin(event, BOT_ID):
         return
     if await is_admin(event, event.message.sender_id):
         return
