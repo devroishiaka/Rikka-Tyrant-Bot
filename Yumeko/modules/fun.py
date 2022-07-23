@@ -1,7 +1,9 @@
 import html
 import random
 import time
+import requests
 
+from pyjokes import get_joke
 import Yumeko.modules.fun_strings as fun_strings
 from Yumeko import dispatcher
 from Yumeko.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
@@ -12,8 +14,13 @@ from Yumeko.modules.helper_funcs.extraction import extract_user
 from telegram import ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, run_async, CommandHandler, Filters
+from Yumeko.events import register
 
 GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE"
+
+@register(pattern="^/joke ?(.*)")
+async def joke(event):
+    await event.reply(get_joke())
 
 
 @run_async
@@ -383,7 +390,8 @@ __help__ = """
  ❍ /pat - reply to the user to give them a pat.
  ❍ /truth or /dare - bot send funny messages.
  ❍ /wish - your wish possible chance random.
- ❍ /flirt - Bot sends random flirting lines (created by @ishikki_akabane)
+ ❍ /flirt - Bot sends random flirting lines (created by @ishikki_akabane).
+ ❍ /joke - Bot will send random Jokes.
 
  *New fun features will be added soon*
  *If you have any suggestions to make this more fun, please tell us in our support group @suppporttxd *
