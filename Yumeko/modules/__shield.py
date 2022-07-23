@@ -1,16 +1,3 @@
-#    Copyright (C) DevsExpo 2020-2021
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 
 import asyncio
 import os
@@ -33,7 +20,7 @@ from Yumeko.pyrogramee.telethonbasics import is_admin
 from Yumeko.events import register
 from Yumeko import MONGO_DB_URI 
 from pymongo import MongoClient
-from Yumeko.modules.sql_extended.nsfw_watch_sql import (
+from Yumeko.modules.sql.nsfw_watch_sql import (
     add_nsfwatch,
     get_all_nsfw_enabled_chat,
     is_nsfwatch_indb,
@@ -90,7 +77,7 @@ async def nsfw_watch(event):
         await event.reply("You Can Only Nsfw Watch in Groups.")
         return
     input_str = event.pattern_match.group(1)
-    if not await is_admin(event, BOT_ID):
+    if not await is_admin(event, 1192108540):
         await event.reply("`I Should Be Admin To Do This!`")
         return
     if await is_admin(event, event.message.sender_id):
@@ -138,7 +125,7 @@ async def ws(event):
         return
     if not (event.photo):
         return
-    if not await is_admin(event, BOT_ID):
+    if not await is_admin(event, 1192108540):
         return
     if await is_admin(event, event.message.sender_id):
         return
@@ -148,12 +135,11 @@ async def ws(event):
         await event.delete()
         st = sender.first_name
         hh = sender.id
-        final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, luna deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By luna AI` \n**#GROUP_GUARDIAN** "
+        final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, Aries deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By Aries` \n**#GROUP_GUARDIAN** "
         dev = await event.respond(final)
-        await asyncio.sleep(10)
+        await asyncio.sleep(30)
         await dev.delete()
         os.remove("nudes.jpg")
-
 
 """
 @pbot.on_edited_message(filters.command("nsfwguardian") & ~filters.bot)
