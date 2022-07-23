@@ -1,4 +1,5 @@
 animedev
+pyjokes
 future
 emoji
 tzlocal
