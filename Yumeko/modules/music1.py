@@ -14,7 +14,7 @@ from tswift import Song
 from yt_dlp import YoutubeDL
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-from Yumeko.utils.progress import progress
+from Yumeko.utils.progress import progress, get_text
 from Yumeko import pbot, arq
 
 async def lyrics_func(answers, text):
