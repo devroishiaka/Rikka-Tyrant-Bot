@@ -22,7 +22,7 @@ GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr
 async def joke(event):
     await event.reply(get_joke())
 
-
+"""
 @run_async
 @typing_action
 def couple(update, context):
@@ -30,7 +30,7 @@ def couple(update, context):
 [⚡ 𝙕𝙖𝙥𝙠𝙝𝙞𝙚𝙡 ⚡](tg://openmessage?user_id=5181433687) + [Uno](tg://openmessage?user_id=5285650651) = ❤️
 New couple of the day may be chosen at 8:30AM 3/08/2022"""
     update.effective_message.reply_text(couplemes, parse_mode=ParseMode.MARKDOWN)
-
+"""
 
 @run_async
 def runs(update: Update, context: CallbackContext):
