@@ -28,7 +28,7 @@ async def joke(event):
 def couple(update, context):
     couplemes = f"""Couple of the day:
 [⚡ 𝙕𝙖𝙥𝙠𝙝𝙞𝙚𝙡 ⚡](tg://openmessage?user_id=5181433687) + [Uno](tg://openmessage?user_id=5285650651) = ❤️
-New couple of the day may be chosen at 8AM 3/08/2022"""
+New couple of the day may be chosen at 8:30AM 3/08/2022"""
     update.effective_message.reply_text(couplemes, parse_mode=ParseMode.MARKDOWN)
 
 
