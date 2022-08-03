@@ -24,6 +24,15 @@ async def joke(event):
 
 
 @run_async
+@typing_action
+def couple(update, context):
+    couplemes = """Couple of the day:
+[⚡ 𝙕𝙖𝙥𝙠𝙝𝙞𝙚𝙡 ⚡](https://t.me/Onlyanime787) + Uno = ❤️
+New couple of the day may be chosen at 8AM 3/08/2022"""
+    update.effective_message.reply_text(couplemes)
+
+
+@run_async
 def runs(update: Update, context: CallbackContext):
     update.effective_message.reply_text(random.choice(fun_strings.RUN_STRINGS))
 
@@ -365,6 +374,7 @@ EIGHTBALL_HANDLER = DisableAbleCommandHandler("8ball", eightball)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
 SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
+COUPLE_HANDLER = DisableAbleCommandHandler("couple", couple)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(SHOUT_HANDLER)
@@ -382,6 +392,7 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(EIGHTBALL_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
+dispatcher.add_handler(COUPLE_HANDLER)
 
 __mod_name__ = "Fᴜɴ"
 
