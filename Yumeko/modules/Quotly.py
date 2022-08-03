@@ -12,6 +12,7 @@ import random
 import json
 import os
 import re
+from telethon import events
 from Yumeko import telethn
 
 COLORS = [
@@ -374,7 +375,7 @@ async def replied_user(draw, tot, text, maxlength, title):
                 draw.text((180 + space, 132), letter, font=textfont, fill="white")
                 space += textfont.getsize(letter)[0]
                 
-@igrisbot(pattern="^/q")
+@telethn.on(events.NewMessage(pattern="^[!/]q$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -390,3 +391,11 @@ async def _(event):
     canvas.save('sticker.webp')
     await event.client.send_file(event.chat_id, "sticker.webp", reply_to=event.reply_to_msg_id)
     os.remove('sticker.webp')
+
+__mod_name__ = "Qᴜᴏᴛʟʏ"
+
+__help__ = """
+*Quotly*
+To quote a message, reply to the message and type the command listed below :-
+❍ /q - quote a single message
+"""
