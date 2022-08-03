@@ -374,7 +374,6 @@ EIGHTBALL_HANDLER = DisableAbleCommandHandler("8ball", eightball)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
 SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
-COUPLE_HANDLER = DisableAbleCommandHandler("couple", couple)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(SHOUT_HANDLER)
@@ -392,7 +391,6 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(EIGHTBALL_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
-dispatcher.add_handler(COUPLE_HANDLER)
 
 __mod_name__ = "Fᴜɴ"
 
