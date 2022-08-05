@@ -1,13 +1,7 @@
 <h2 align="center">
     ──「 Rikka IS A MODULAR BOT WITH ANIME THEME 」──
-</h2>
 
 <p align="center">
-  <img src="https://telegra.ph/file/ec749863aaffc3dbaff1a.jpg">
-</p>
-
-<p align="center">
-<a href="https://t.me/Rikka_Tyrant_bot"> <img src="https://i.imgur.com/kYAHOAQ.gif" alt="Rikka on Telegram" /> </a></br>
 <a href="https://github.com/shiinobu/YumekoBot/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-GPLv3-blueviolet?style=for-the-badge" alt="License" /> </a>
 <a href="https://makeapullrequest.com"> <img src="https://img.shields.io/badge/PRs-Welcome-yellow?style=for-the-badge" alt="PRs" /></a></br>
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Made%20With-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
@@ -18,9 +12,6 @@
 <a href="https://docs.python.org"> <img src="https://img.shields.io/badge/Python-2.8.1-purple?style=for-the-badge&logo=python" alt="Python Version" /> </a>
 </p>
 
-<p align="center">
-  <img src="https://telegra.ph/file/f90ab08880e9963e980e9.jpg">
-</p>
 
 <h2 align="center">
     ──「 DEPLOY ON HEROKU 」──
