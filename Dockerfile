@@ -62,7 +62,6 @@ RUN apt update && apt upgrade -y && \
 RUN apt-get install -y ffmpeg python3-pip curl
 RUN pip3 install --upgrade pip setuptools
 
-RUN git clone -b shiken https://github.com/devroishiaka/Rikka-Tyrant-Bot /root/Yumeko
 
 RUN mkdir /Yumeko/
 COPY . /Yumeko
