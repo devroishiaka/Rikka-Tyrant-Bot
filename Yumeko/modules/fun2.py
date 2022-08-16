@@ -102,6 +102,6 @@ REQGBAN_HANDLER = CommandHandler(("reqgban", "rgban"), reqgban)
 dispatcher.add_handler(REQGBAN_HANDLER)
 
 __command_list__ = ["reqgban"]
-__handlers__ = [reqgban_HANDLER]
+__handlers__ = [REQGBAN_HANDLER]
 
 __mod_name__ = "reqgban"
