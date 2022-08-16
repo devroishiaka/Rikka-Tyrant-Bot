@@ -1,17 +1,12 @@
-# Oringinal Source from Nicegrill: https://github.com/erenmetesar/NiceGrill/
-# Ported to Lynda by: @pokurt
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from telethon.tl import types, functions
 from fontTools.ttLib import TTFont 
-from fontTools.unicode import Unicode 
 import emoji
 import textwrap
 import urllib
-import logging
 import random
 import json
 import os
-import re
 from telethon import events
 from Yumeko import telethn
 
@@ -37,7 +32,7 @@ async def process(msg, user, client, reply, replied=None):
                 'https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Italic.ttf',
                 'resources/Roboto-Italic.ttf')
 
-        # Importıng fonts and gettings the size of text
+        # Importing fonts and gettings the size of text
         font = ImageFont.truetype("resources/Roboto-Medium.ttf", 43, encoding="utf-16")
         font2 = ImageFont.truetype("resources/Roboto-Regular.ttf", 33, encoding="utf-16")
         mono = ImageFont.truetype("resources/DroidSansMono.ttf", 30, encoding="utf-16")
@@ -213,8 +208,6 @@ async def process(msg, user, client, reply, replied=None):
                     draw.text((space, 20), letter, font=font, fill=color)
                     space += font.getsize(letter)[0]
 
-        if title:
-            draw.text((canvas.width - titlewidth - 20, 25), title, font=font2, fill="#898989")
 
         # Writing all separating emojis and regular texts
         x = pfpbg.width + 30
@@ -374,9 +367,9 @@ async def replied_user(draw, tot, text, maxlength, title):
             else:
                 draw.text((180 + space, 132), letter, font=textfont, fill="white")
                 space += textfont.getsize(letter)[0]
-                
+
 @telethn.on(events.NewMessage(pattern="^[!/]q$"))
-async def _(event):
+async def q(event):
     if event.fwd_from:
         return
     reply = await event.get_reply_message()
@@ -391,11 +384,10 @@ async def _(event):
     canvas.save('sticker.webp')
     await event.client.send_file(event.chat_id, "sticker.webp", reply_to=event.reply_to_msg_id)
     os.remove('sticker.webp')
-
-__mod_name__ = "Qᴜᴏᴛʟʏ"
+    
+    
+__mod_name__ = "Quotly"
 
 __help__ = """
-*Quotly*
-To quote a message, reply to the message and type the command listed below :-
-❍ /q - quote a single message
+> `/q` *:* To quote a message.
 """
