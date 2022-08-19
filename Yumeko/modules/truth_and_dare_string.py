@@ -175,3 +175,29 @@ FLIRT = (
     "Do you ever get tired from running through my thoughts all night?",
 )
 
+COSPLAY = (
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+)
+
+HOTCOSPLAY = (
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+)
+
+TESTING = (
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+)
