@@ -167,7 +167,7 @@ def __user_info__(user_id):
 
 axx = sql.num_users()
 abb = int(axx)
-resultxx = abb*1.42
+resultxx = abb+2900
 
 def __stats__():
     return f"• {resultxx} users, across {sql.num_chats()} chats"
