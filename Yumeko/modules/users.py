@@ -165,7 +165,7 @@ def __user_info__(user_id):
     return f"""⊱┈「 Gʀᴏᴜᴘs Cᴏᴜɴᴛ: <code>{num_chats}</code> 」┈⊰"""
 
 
-Axx = {sql.num_users()} × 1.42
+Axx = {sql.num_users()} * 1.42
 
 def __stats__():
     return f"• {Axx} users, across {sql.num_chats()} chats"
