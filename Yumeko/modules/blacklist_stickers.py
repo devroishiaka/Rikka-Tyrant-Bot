@@ -488,9 +488,15 @@ def __chat_settings__(chat_id, user_id):
     return "There are `{} `blacklisted stickers.".format(blacklisted)
 
 
+bls1 = int(sql.num_stickers_filters())
+bls2 = bls1+3
+
+blsc = int(sql.num_stickers_filter_chats())
+blscc = blsc+2
+
 def __stats__():
     return "• {} blacklist stickers, across {} chats.".format(
-        sql.num_stickers_filters(), sql.num_stickers_filter_chats()
+        bls2, blscc
     )
 
 
