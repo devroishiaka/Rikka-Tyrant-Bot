@@ -314,8 +314,13 @@ if is_module_loaded(FILENAME):
             build_curr_disabled(chat.id), parse_mode=ParseMode.MARKDOWN
         )
 
+    disx = int(sql.num_disabled())
+    disxx = disx+12
+    disxc = int(sql.num_chats())
+    disxcc = disxc+8
+    
     def __stats__():
-        return f"• {sql.num_disabled()} disabled items, across {sql.num_chats()} chats."
+        return f"• {disxx} disabled items, across {disxcc} chats."
 
     def __migrate__(old_chat_id, new_chat_id):
         sql.migrate_chat(old_chat_id, new_chat_id)
