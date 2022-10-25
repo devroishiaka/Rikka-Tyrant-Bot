@@ -399,7 +399,7 @@ def gbanlist(update: Update, context: CallbackContext):
         )
         return
 
-    banfile = "Screw these guys.\n"
+    banfile = "Hate you guys.\n"
     for user in banned_users:
         banfile += f"[x] {user['name']} - {user['user_id']}\n"
         if user["reason"]:
@@ -428,7 +428,7 @@ def check_and_ban(update, user_id, should_message=True):
             update.effective_message.reply_text(
                 f"<b>Alert</b>: this user is globally banned.\n"
                 f"<code>*bans them from here*</code>.\n"
-                f"<b>Appeal chat</b>: {SPAMWATCH_SUPPORT_CHAT}\n"
+                f"<b>Appeal chat</b>: @{SUPPORT_CHAT}\n"
                 f"<b>User ID</b>: <code>{sw_ban.id}</code>\n"
                 f"<b>Ban Reason</b>: <code>{html.escape(sw_ban.reason)}</code>",
                 parse_mode=ParseMode.HTML,
