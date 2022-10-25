@@ -145,8 +145,11 @@ def clear_rules(update: Update, context: CallbackContext):
     update.effective_message.reply_text("Successfully cleared rules!")
 
 
+rulese = int(sql.num_chats())
+rulesee = rulese+9
+
 def __stats__():
-    return f"• {sql.num_chats()} chats have rules set."
+    return f"• {rulesee} chats have rules set."
 
 
 def __import_data__(chat_id, data):
