@@ -3,9 +3,9 @@ import time
 from datetime import datetime as dt
 from random import choice
 from shutil import rmtree
-from Yemoko import quotly
-from Yemoko.services.quotehelper import eor
-from Yemoko.events import register  
+from Yumeko import quotly
+from Yumeko.services.quotehelper import eor
+from Yumeko.events import register  
 
 @register(pattern="^/q(?: |$)(.*)")
 async def quott_(event):
