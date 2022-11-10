@@ -25,7 +25,7 @@ def kazumaclanxd(update: Update, context: CallbackContext):
     )
 
 
-KAZUMACLAN_HANDLER = CommandHandler("kazumaclan", kazumaclanxd, run_async = True)
+KAZUMACLAN_HANDLER = CommandHandler("kazumaclan", kazumaclanxd)
 dispatcher.add_handler(KAZUMACLAN_HANDLER)
 
 __mod_name__ = "ᴋᴀᴢᴜᴍᴀ ᴄʟᴀɴ"
