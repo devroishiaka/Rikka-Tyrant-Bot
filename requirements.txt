@@ -1,3 +1,4 @@
+opencv
 animedev
 pyjokes
 future
