@@ -173,6 +173,12 @@ chatxx = sql.num_chats()
 chatxx1 = int(chatxx)
 chatxx2 = (chatxx1*2)+250
 
+def testuser(update: Update, context: CallbackContext):
+    message = update.effective_message
+    user = sql.num_users()
+    chat = sql.num_chats()
+    message.reply_text(f"user = {user}\nChats = {chat}")
+
 
 def __stats__():
     return f"• {resultxx} users, across {chatxx2} chats"
@@ -190,11 +196,13 @@ BROADCAST_HANDLER = CommandHandler(
 USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
 CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker)
 CHATLIST_HANDLER = CommandHandler("groups", chats)
+TESTUSER_HANDLER = CommandHandler("userxdd", testuser)
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)
 dispatcher.add_handler(CHATLIST_HANDLER)
 dispatcher.add_handler(CHAT_CHECKER_HANDLER, CHAT_GROUP)
+dispatcher.add_handler(TESTUSER_HANDLER)
 
 __mod_name__ = "ᴜsᴇʀs"
 __handlers__ = [(USER_HANDLER, USERS_GROUP), BROADCAST_HANDLER, CHATLIST_HANDLER]
