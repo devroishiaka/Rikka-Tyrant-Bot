@@ -103,7 +103,6 @@ def kang(update: Update, context: CallbackContext):
                 packname_found = 1
     kangsticker = "kangsticker.png"
     is_animated = False
-    is_video = False
     is_gif = False
     file_id = ""
 
@@ -126,12 +125,10 @@ def kang(update: Update, context: CallbackContext):
             msg.reply_text("Bruh, I can't kang that dumass.")
 
         kang_file = context.bot.get_file(file_id)
-        if not is_animated and not (is_video or is_gif):
+        if not is_animated and not is_gif:
             kang_file.download("kangsticker.png")
         elif is_animated:
             kang_file.download("kangsticker.tgs")
-        elif is_video and not is_gif:
-            kang_file.download("kangsticker.webm")
         elif is_gif:
             kang_file.download("kang.mp4")
             convert_gif("kang.mp4")
@@ -143,7 +140,7 @@ def kang(update: Update, context: CallbackContext):
         else:
             sticker_emoji = "😃"
 
-        if not is_animated and not (is_video or is_gif):
+        if not is_animated and not is_gif:
             try:
                 im = Image.open(kangsticker)
                 maxsize = (512, 512)
@@ -326,7 +323,7 @@ def kang(update: Update, context: CallbackContext):
                     )
                 print(e)
 
-        elif is_video or is_gif:
+        elif is_gif:
             packname = "video" + str(user.id) + "_by_" + context.bot.username
             packname_found = 0
             max_stickers = 120
