@@ -401,7 +401,16 @@ __help__ = """
  ❍ /wish - your wish possible chance random.
  ❍ /flirt - Bot sends random flirting lines (created by @ishikki_akabane).
  ❍ /joke - Bot will send random Jokes.
-
+ 
+**18+ NSFW**
+ ❍ /horny - Check Your Current Hornyess 
+ ❍ /gay - Check Your Current Gayness 
+ ❍ /lezbian - Check Your Current Lezbianess 
+ ❍ /boobs - Check Your Current Boobs Size 
+ ❍ /cock - Check Your Current Cock Size 
+ ❍ /cute - Check Your Current Cuteness 
+ Note :- This Module Inspired By @HowAllBot We Just Make It For Fun Don't Take It Serious
+ 
  *New fun features will be added soon*
  *If you have any suggestions to make this more fun, please tell us in our support group @suppporttxd *
 """
