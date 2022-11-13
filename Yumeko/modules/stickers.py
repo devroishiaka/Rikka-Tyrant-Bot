@@ -110,8 +110,6 @@ def kang(update: Update, context: CallbackContext):
         if msg.reply_to_message.sticker:
             if msg.reply_to_message.sticker.is_animated:
                 is_animated = True
-            elif msg.reply_to_message.sticker.is_video:
-                is_video = True
             file_id = msg.reply_to_message.sticker.file_id
 
         elif msg.reply_to_message.photo:
