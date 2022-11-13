@@ -228,7 +228,12 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://t.me/suppporttxd")]]
+                [
+                    [
+                        InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://t.me/suppporttxd")
+                        InlineKeyboardButton(text="Oᴡɴᴇʀ", url="https://t.me/ishikki_akabane")
+                    ]
+                ]
             ),
         )
         
