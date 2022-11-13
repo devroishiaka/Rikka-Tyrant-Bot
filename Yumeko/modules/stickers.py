@@ -607,6 +607,7 @@ __help__ = """
 • `/getsticker`*:* reply to a sticker to me to upload its raw PNG file.
 • `/kang`*:* reply to sticker (animated/static/video) or image or gif to kang into your own pack.
 • `/stickers`*:* Find stickers for given term on combot sticker catalogue
+• `/tiny`*:* reply to sticker to get the tiny version of the sticker
 """
 
 __mod_name__ = "Stickers"
