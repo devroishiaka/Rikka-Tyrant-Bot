@@ -167,7 +167,7 @@ def __user_info__(user_id):
 
 axx = sql.num_users()
 abb = int(axx)
-resultxx = (abb*3) + 9086
+resultxx = (abb*2) + 11306
 
 chatxx = sql.num_chats()
 chatxx1 = int(chatxx)
