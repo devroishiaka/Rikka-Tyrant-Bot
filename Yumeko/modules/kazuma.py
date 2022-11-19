@@ -11,7 +11,7 @@ PHOTO = "https://te.legra.ph/file/613ad2376d93ef5dd53c2.mp4"
 
 def kazumaclanxd(update: Update, context: CallbackContext):
     TEXT = "**[ᴋᴀᴢᴜᴍᴀ ᴄʟᴀɴ](t.me/kazumaclanxd)** ɪs ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴍᴀᴅᴇ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ᴀʟʟ ᴋɪɴᴅs ᴏғ ᴀɴɪᴍᴇ ʀᴇʟᴀᴛᴇᴅ ᴄᴏɴᴛᴇɴᴛs. ᴏᴜʀ ᴍᴀɪɴ ᴘᴇʀsᴘᴇᴄᴛɪᴠᴇ ɪs Pᴇᴀcᴇ\n\n━━━━━━━━━━━━━━━━━\nᴠɪsɪᴛ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ ғᴏʀ ᴀʟʟ ʏᴏᴜʀ ϙᴜᴇʀɪᴇs\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴀᴘᴘᴇᴀʟ ғᴏʀ ɢʙᴀɴ ᴏʀ ғʙᴀɴ.\n━━━━━━━━━━━━━━━━━"
-    update.effective_message.reply_photo(
+    update.effective_message.reply_video(
         PHOTO,
         caption=TEXT,
         parse_mode=ParseMode.MARKDOWN,
