@@ -78,7 +78,7 @@ if ENV:
     API_HASH = os.environ.get("API_HASH", None)
     BOT_ID = int(os.environ.get("BOT_ID", None))
     DB_URI = os.environ.get("DATABASE_URL")
-    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", "mongodb+srv://ishikki143:ishikki143@cluster0.sbxugre.mongodb.net/?retryWrites=true&w=majority")
     DONATION_LINK = os.environ.get("DONATION_LINK")
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
@@ -190,9 +190,6 @@ else:
 
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(1963422158)
-DEV_USERS.add(1817146787)
-DEV_USERS.add(1138045685)
 
 if not SPAMWATCH_API:
     sw = None
