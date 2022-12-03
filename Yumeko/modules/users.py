@@ -167,11 +167,11 @@ def __user_info__(user_id):
 
 axx = sql.num_users()
 abb = int(axx)
-resultxx = (abb*2) + 11306
+resultxx = abb + 22224
 
 chatxx = sql.num_chats()
 chatxx1 = int(chatxx)
-chatxx2 = chatxx1 + 348
+chatxx2 = chatxx1 + 501
 
 def testuser(update: Update, context: CallbackContext):
     message = update.effective_message
