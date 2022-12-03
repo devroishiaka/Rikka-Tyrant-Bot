@@ -14,34 +14,34 @@ class Config(object):
     # REQUIRED
     # Login to https://my.telegram.org and fill in these slots with the details given by it
 
-    API_ID = 123456  # integer value, dont use "6973446"
-    API_HASH = "d3a6dbd3e466159f7170f6af7fb35ac1"
+    API_ID = 10938772  # integer value, dont use "6973446"
+    API_HASH = "b5e29cb144a6cb6f69884f39cecd212e"
     TOKEN = "BOT_TOKEN"  # This var used to be API_KEY but it is now TOKEN, adjust accordingly.
     OWNER_ID = "5030730429"  # If you dont know, run the bot and do /id in your private chat with it, also an integer
-    OWNER_USERNAME = "theBlacklinen"
-    SUPPORT_CHAT = "yumekosupportgroup"  # Your own group for support, do not add the @
+    OWNER_USERNAME = "ishikki_akabane"
+    SUPPORT_CHAT = "suppporttxd"  # Your own group for support, do not add the @
     JOIN_LOGGER = (
-        -1001253661229
+        -1001631997698
     )  # Prints any new group the bot is added to, prints just the name and ID.
     EVENT_LOGS = (
-        -1001190806654
+        -1001691108474
     )  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
 
     # RECOMMENDED
-    SQLALCHEMY_DATABASE_URI = "something://somewhat:user@hosturl:port/databasename"  # needed for any database modules
+    SQLALCHEMY_DATABASE_URI = "postgres://zhlhysxy:L_d73cQARRtSM7f6iIkeg2yPwtNbqHmK@tiny.db.elephantsql.com/zhlhysxy"  # needed for any database modules
     LOAD = []
     NO_LOAD = ["rss", "cleaner", "connection", "math"]
     WEBHOOK = False
     INFOPIC = True
     URL = None
     SPAMWATCH_API = "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG"  # go to support.spamwat.ch to get key
-    SPAMWATCH_SUPPORT_CHAT = "@SpamWatchSupport"
+    SPAMWATCH_SUPPORT_CHAT = "@suppporttxd"
 
     # OPTIONAL
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
     DRAGONS = get_user_list("elevated_users.json", "5039582471")
     ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = get_user_list("elevated_users.json", "5039582471")
+    DEV_USERS = get_user_list("elevated_users.json", "5039582471)
     ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
     DEMONS = get_user_list("elevated_users.json", "5039582471")
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
@@ -58,9 +58,9 @@ class Config(object):
     BAN_STICKER = ""  # banhammer marie sticker id, the bot will send this sticker before banning or kicking a user in chat.
     ALLOW_EXCL = True  # Allow ! commands as well as / (Leave this to true so that blacklist can work)
     CASH_API_KEY = (
-        "V7NS1NBFEL4X24L6"  # Get your API key from https://www.alphavantage.co/support/#api-key
+        "URWAVM2BWHQPCWCZ"  # Get your API key from https://www.alphavantage.co/support/#api-key
     )
-    TIME_API_KEY = "2AS711XS1O9B"  # Get your API key from https://timezonedb.com/api
+    TIME_API_KEY = "TNOI2DHS7GLK"  # Get your API key from https://timezonedb.com/api
     WALL_API = (
         "awoo"  # For wallpapers, get one from https://wall.alphacoders.com/api.php
     )
