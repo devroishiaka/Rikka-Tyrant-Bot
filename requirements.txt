@@ -71,7 +71,6 @@ lyricsgenius
 tswift
 envparse
 better_profanity
-nudepy
 motor
 cloudscraper
 pendulum
