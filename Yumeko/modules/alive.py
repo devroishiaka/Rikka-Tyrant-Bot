@@ -9,7 +9,7 @@ PHOTO = "https://te.legra.ph/file/525fa3c63a58446823cc1.mp4"
 
 @register(pattern=("/alive"))
 async def awake(event):
-  TEXT = "🔶Mᴏsʜɪ Mᴏsʜɪ I'ᴍ Cʜɪᴢᴜʀᴜ!🔶 \n"
+  TEXT = "🔶Mᴏsʜɪ Mᴏsʜɪ I'ᴍ Cʜɪᴢᴜʀᴜ!🔶\n"
   TEXT += "🔹I'ᴍ Wᴏʀᴋɪɴɢ Pʀᴏᴘᴇʀʟʏ🔹 \n"
   TEXT += "💠 Mʏ Oᴡɴᴇʀ : [ᏆՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://t.me/ishikki_akabane) 💠 \n"
   TEXT += f"🔹Tᴇʟᴇᴛʜᴏɴ Vᴇʀsɪᴏɴ : {tlhver} 🔹\n"
