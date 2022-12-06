@@ -14,6 +14,7 @@ async def awake(event):
   TEXT += "💠 Mʏ Oᴡɴᴇʀ : [ᏆՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://t.me/ishikki_akabane) 💠 \n"
   TEXT += f"🔹Tᴇʟᴇᴛʜᴏɴ Vᴇʀsɪᴏɴ : {tlhver} 🔹\n"
   TEXT += f"🔹Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ : {pyrover} 🔹"
+  TEXT += f"🔹HOSTED BY [KARMA](https://t.me/animeFreak1233)
   BUTTON = [[Button.url("Hᴇʟᴘ", "https://t.me/chizuruxdbot?start=help"), Button.url("Sᴜᴘᴘᴏʀᴛ", "https://t.me/suppporttxd")]]
   await tbot.send_file(event.chat_id, PHOTO, caption=TEXT,  buttons=BUTTON)
 
