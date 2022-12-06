@@ -463,7 +463,8 @@ def yumeko_about_callback(update, context):
             f"\nOᴜʀ ᴄᴏᴍᴍᴜɴɪᴛʏ ᴀʟsᴏ ʜᴀᴠᴇ ɪᴛs ᴏᴡɴ Fᴇᴅᴇʀᴀᴛɪᴏɴs ᴡʜɪᴄʜ ᴋᴇᴇᴘs sᴘᴀᴍᴍᴇʀs ᴀɴᴅ ᴛᴏxɪᴄɪᴛʏ ᴀᴡᴀʏ ғʀᴏᴍ ʏᴏᴜʀ ᴄʜᴀᴛs."
             f"\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ɪᴛ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ᴠɪsɪᴛ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ's Fᴇᴅᴇʀᴀᴛɪᴏɴ ᴘᴀɢᴇ."
             f"\nSᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ : @suppporttxd "
-            f"\nFᴏᴜɴᴅᴇʀ : @Ishikki_Akabane ",
+            f"\nFᴏᴜɴᴅᴇʀ : @Ishikki_Akabane "
+            f"\nHOSTING BY @animeFreak1233,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
