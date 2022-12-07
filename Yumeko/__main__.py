@@ -464,7 +464,7 @@ def yumeko_about_callback(update, context):
             f"\nIғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ɪᴛ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ᴠɪsɪᴛ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ's Fᴇᴅᴇʀᴀᴛɪᴏɴ ᴘᴀɢᴇ."
             f"\nSᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ : @suppporttxd "
             f"\nFᴏᴜɴᴅᴇʀ : @Ishikki_Akabane "
-            f"\nHOSTING BY @animeFreak1233,
+            f"\nHOSTING BY @animeFreak1233",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
