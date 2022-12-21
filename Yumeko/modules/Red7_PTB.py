@@ -7,9 +7,9 @@ from telegram.ext import (
     MessageHandler,
 )
 
-from .. import dispatcher
+from Yumeko import dispatcher
 
-RED = Phoenix(os.getenv("RED7_TOKEN"))
+RED = Phoenix("RED7-dsxdt9yahtakfy0ix95wj")
 
 def redseven(update: Update, context: CallbackContext):
     chat = update.effective_chat
