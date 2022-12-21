@@ -4,7 +4,7 @@ from .. import pbot as RedSeven
 from pyrogram.types import Message
 from pyrogram import filters
 
-RED = Phoenix(os.getenv("RED7_TOKEN"))
+RED = Phoenix("RED7-dsxdt9yahtakfy0ix95wj")
 SCANLIST = []
 
 @RedSeven.on_message(filters.text & filters.user(5483120234))
