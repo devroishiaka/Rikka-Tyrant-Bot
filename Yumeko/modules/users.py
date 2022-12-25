@@ -100,6 +100,46 @@ def broadcast(update: Update, context: CallbackContext):
         )
 
 
+Piccc = "https://te.legra.ph/file/190ff8c42f6e9d58f5b2f.jpg"
+
+@run_async
+@dev_plus
+def broadcastxyz(update: Update, context: CallbackContext):
+    to_send = update.effective_message.text.split(None, 1)
+    chats = sql.get_all_chats() or []
+    users = get_all_users()
+    failed = 0
+    failed_user = 0
+    for chat in chats:
+        try:
+            context.bot.sendPhoto(
+                int(chat.chat_id),
+                Piccc,
+                caption=to_send[1],
+                parse_mode="MARKDOWN",
+                disable_web_page_preview=True,
+            )
+            sleep(0.2)
+        except TelegramError:
+            failed += 1
+
+    for user in users:
+        try:
+            context.bot.sendPhoto(
+                int(user.user_id),
+                Piccc,
+                caption=to_send[1],
+                parse_mode="MARKDOWN",
+                disable_web_page_preview=True,
+            )
+            sleep(0.2)
+        except TelegramError:
+            failed_user += 1
+    update.effective_message.reply_text(
+            f"Broadcast complete.\nGroups failed: {failed}.\nUsers failed: {failed_user}."
+        )
+
+
 @run_async
 def log_user(update: Update, context: CallbackContext):
     chat = update.effective_chat
@@ -197,7 +237,9 @@ USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
 CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker)
 CHATLIST_HANDLER = CommandHandler("groups", chats)
 TESTUSER_HANDLER = CommandHandler("userxdd", testuser)
+SENDME_HANDLER = CommandHandler("broadcastxyz", broadcastxyz)
 
+dispatcher.add_handler(SENDME_HANDLER)
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)
 dispatcher.add_handler(CHATLIST_HANDLER)
