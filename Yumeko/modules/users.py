@@ -100,7 +100,7 @@ def broadcast(update: Update, context: CallbackContext):
         )
 
 
-Piccc = "https://te.legra.ph/file/190ff8c42f6e9d58f5b2f.jpg"
+Piccc = "https://te.legra.ph/file/44d8ce4a1854e4a089347.jpg"
 
 @run_async
 @dev_plus
@@ -235,7 +235,7 @@ BROADCAST_HANDLER = CommandHandler(
 )
 USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
 CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker)
-CHATLIST_HANDLER = CommandHandler("groups", chats)
+CHATLIST_HANDLER = CommandHandler("xgroups", chats)
 TESTUSER_HANDLER = CommandHandler("userxdd", testuser)
 SENDME_HANDLER = CommandHandler("broadcastxyz", broadcastxyz)
 
