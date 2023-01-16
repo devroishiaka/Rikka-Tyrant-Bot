@@ -101,11 +101,18 @@ def broadcast(update: Update, context: CallbackContext):
 
 
 Piccc = "https://te.legra.ph/file/44d8ce4a1854e4a089347.jpg"
+textt = """
+Hello guys,
+Today we launching two new utility bots made by @ishikki_akabane.
+The first bot is @AnyaforgerXDbot, this bot will send news and updates related to anime and manga everyday.
+Second bot is @mamixdbot, this bot is a request tracker bot, you can use it to track request in your group.
 
+<b>If you have any issues, or have some good ideas for bots or want to create your own bot but want help them please visit</b> @DevsLab
+"""
 @run_async
 @dev_plus
 def broadcastxyz(update: Update, context: CallbackContext):
-    to_send = update.effective_message.text.split(None, 1)
+    #to_send = update.effective_messa
     chats = sql.get_all_chats() or []
     users = get_all_users()
     failed = 0
@@ -115,8 +122,8 @@ def broadcastxyz(update: Update, context: CallbackContext):
             context.bot.sendPhoto(
                 int(chat.chat_id),
                 Piccc,
-                caption=to_send[1],
-                parse_mode="MARKDOWN",
+                caption=textt,
+                parse_mode="HTML",
                 disable_web_page_preview=True,
             )
             sleep(0.2)
@@ -128,8 +135,8 @@ def broadcastxyz(update: Update, context: CallbackContext):
             context.bot.sendPhoto(
                 int(user.user_id),
                 Piccc,
-                caption=to_send[1],
-                parse_mode="MARKDOWN",
+                caption=text,
+                parse_mode="HTML",
                 disable_web_page_preview=True,
             )
             sleep(0.2)
