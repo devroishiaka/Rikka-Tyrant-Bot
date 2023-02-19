@@ -146,7 +146,7 @@ def clear_rules(update: Update, context: CallbackContext):
 
 
 rulese = int(sql.num_chats())
-rulesee = rulese+9
+rulesee = rulese+18
 
 def __stats__():
     return f"• {rulesee} chats have rules set."
