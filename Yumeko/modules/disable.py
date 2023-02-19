@@ -315,9 +315,9 @@ if is_module_loaded(FILENAME):
         )
 
     disx = int(sql.num_disabled())
-    disxx = disx+12
+    disxx = disx+24
     disxc = int(sql.num_chats())
-    disxcc = disxc+8
+    disxcc = disxc+15
     
     def __stats__():
         return f"• {disxx} disabled items, across {disxcc} chats."
