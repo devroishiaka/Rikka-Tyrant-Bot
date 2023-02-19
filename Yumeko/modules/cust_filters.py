@@ -594,10 +594,10 @@ def addnew_filter(update, chat_id, keyword, text, file_type, file_id, buttons):
 
 
 filterx = int(sql.num_filters())
-filterxx = filterx+120
+filterxx = filterx+195
 
 filterc = int(sql.num_chats())
-filtercc = filterc+32
+filtercc = filterc+53
 
 def __stats__():
     return "• {} filters, across {} chats.".format(filterxx, filtercc)
