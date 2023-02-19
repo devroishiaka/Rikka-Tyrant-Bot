@@ -444,10 +444,10 @@ def __chat_settings__(chat_id, user_id):
 
 
 blackl = int(sql.num_blacklist_filters())
-blackl1 = blackl+118
+blackl1 = blackl+119
 
 blackc = int(sql.num_blacklist_filter_chats())
-blackc1 = blackc+9
+blackc1 = blackc+10
 
 def __stats__():
     return "• {} blacklist triggers, across {} chats.".format(
