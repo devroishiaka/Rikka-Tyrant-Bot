@@ -25,7 +25,7 @@ else:
 
 BLUE_DATABASE = {}
 if response.status_code == 200: # SUCCESSFULL
-    BLUE_DATABASE = json.load(response.text) # {user_id: [case_id, reason, bancode]}
+    BLUE_DATABASE = json.loads(response.text) # {user_id: [case_id, reason, bancode]}
     print("BLUE SCANNER IS ONLINE!!!")
 
 
