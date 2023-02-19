@@ -295,6 +295,9 @@ def info(update: Update, context: CallbackContext):
     elif user.id == 5550450668:
         text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs MY Bᴇsᴛɪᴇ."
         disaster_level_present = True
+    elif user.id == 1227921829:
+        text += "\n\n💠ᴍʏ ᴍᴀꜱᴛᴇʀ'ꜱ ᴄʀᴜꜱʜ ᴄʀᴜꜱʜ"
+        disaster_level_present = True
     elif user.id in DEV_USERS:
         text += "\n\n💠Tʜɪs ᴘᴇʀsᴏɴ ɪs ᴏɴᴇ ᴏғ Mʏ ᴅᴇᴠs."
         disaster_level_present = True
