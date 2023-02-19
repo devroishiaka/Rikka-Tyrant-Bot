@@ -478,19 +478,19 @@ def set_warn_strength(update: Update, context: CallbackContext):
 
 warnsql = sql.num_warns()
 warnsql1 = int(warnsql)
-warnsql2 = warnsql1+82
+warnsql2 = warnsql1+119
 
 warnchat = sql.num_warn_chats()
 warnchat1 = int(warnchat)
-warnchat2 = warnchat1+19
+warnchat2 = warnchat1+32
 
 warnf = sql.num_warn_filters()
 warnf1 = int(warnf)
-warnf2 = warnf1+0
+warnf2 = warnf1+1
 
 warnfc = sql.num_warn_filter_chats()
 warnfc1 = int(warnfc)
-warnfc2 = warnfc1+0
+warnfc2 = warnfc1+1
 
 def __stats__():
     return (
