@@ -6,7 +6,7 @@ from pyrogram.types import ChatPermissions
 """import your pyrogram client as pbot"""
 from Yumeko import pbot
 
-api_key = "kazumablue-355647353295-5030730429-ice-b-division"
+api_key = "ishikkiakabanelovesalice"
 
 url = "https://blue-ishikki.vercel.app/records"
 headers = {'API-KEY': api_key}
