@@ -1,5 +1,5 @@
 #ISHIKKI_AKABANE
-
+import json
 import requests
 from pyrogram import Client, filters
 from pyrogram.types import ChatPermissions
@@ -25,7 +25,7 @@ else:
 
 BLUE_DATABASE = {}
 if response.status_code == 200: # SUCCESSFULL
-    BLUE_DATABASE = response.text # {user_id: [case_id, reason, bancode]}
+    BLUE_DATABASE = json.load(response.text) # {user_id: [case_id, reason, bancode]}
     print("BLUE SCANNER IS ONLINE!!!")
 
 
