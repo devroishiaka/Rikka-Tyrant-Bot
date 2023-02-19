@@ -216,8 +216,9 @@ except BaseException:
 finally:
 
    REDIS.ping()
-DB_URI = "postgres://tnngrrnh:hBLBFMACcD7RMePnvG7cW5CYEBeWlYxo@arjuna.db.elephantsql.com/tnngrrnh"
+#DB_URI = "postgres://tnngrrnh:hBLBFMACcD7RMePnvG7cW5CYEBeWlYxo@arjuna.db.elephantsql.com/tnngrrnh"
 #DB_URI = "postgres://ishikki:OUJm5DA5ya0NtmXxlt4uYOHnSQE975XV@dpg-cfe70ccgqg46rpmlkku0-a.oregon-postgres.render.com/chizuru_kcfb"
+DB_URI = "postgres://chizuru:PbOsQzJfjaSfDizJv67ZGjCf1hfWHanU@dpg-cfp1k7h4rebfdaqpper0-a.oregon-postgres.render.com/chizuru_m4xr"
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("luna", API_ID, API_HASH)
 pbot = Client("lunaBot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
