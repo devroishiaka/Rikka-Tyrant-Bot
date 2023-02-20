@@ -33,6 +33,7 @@ if response.status_code == 200: # SUCCESSFULL
 SCANNED_ID = [] # Your list of scanned user IDs
 allkeys = BLUE_DATABASE.keys()
 for userid in allkeys:
+    userid = int(userid)
     SCANNED_ID.append(userid)
 print(f"Scanned user: {SCANNED_ID}")
 scanned_users = {} # Keep track of the scanned users detected in each group
@@ -51,14 +52,14 @@ async def on_join(client, message):
             chat_id = message.chat.id
             try:
                 await client.kick_chat_member(chat_id, user.id)
-                await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[user.id][0], BLUE_DATABASE[user.id][2], BLUE_DATABASE[user.id][1]))
+                await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
             except Exception as e:
                 if chat_id in scanned_users and user.id in scanned_users[chat_id]:
                     return
                 if chat_id not in scanned_users:
                     scanned_users[chat_id] = []
                 scanned_users[chat_id].append(user.id)
-                await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[user.id][0], BLUE_DATABASE[user.id][2], BLUE_DATABASE[user.id][1]))
+                await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
 
 
 @pbot.on_message(filters.text & filters.group)
@@ -68,11 +69,11 @@ async def on_message(client, message: Message):
         chat_id = message.chat.id
         try:
             await client.kick_chat_member(chat_id, message.from_user.id)
-            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[user.id][0], BLUE_DATABASE[user.id][2], BLUE_DATABASE[user.id][1]))
+            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
         except Exception as e:
             if chat_id in scanned_users and message.from_user.id in scanned_users[chat_id]:
                 return
             if chat_id not in scanned_users:
                 scanned_users[chat_id] = []
             scanned_users[chat_id].append(message.from_user.id)
-            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[user.id][0], BLUE_DATABASE[user.id][2], BLUE_DATABASE[user.id][1]))
+            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
