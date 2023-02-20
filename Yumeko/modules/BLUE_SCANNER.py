@@ -48,6 +48,7 @@ def scanning(update, context):
     if update.effective_user is None:
         return
     user_id = update.effective_user.id
+    message = update.effective_message
     if user_id in SCANNED_ID:
         bot = context.bot
         first_name = update.effective_user.first_name
