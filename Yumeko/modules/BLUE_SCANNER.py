@@ -44,7 +44,7 @@ This user is banned globally as `{}`
 Reason: `{}` | Appeal By: @DevsLab
 """
 
-
+"""
 @pbot.on_message(filters.new_chat_members)
 async def on_join(client, message):
     for user in message.new_chat_members:
@@ -60,10 +60,10 @@ async def on_join(client, message):
                     scanned_users[chat_id] = []
                 scanned_users[chat_id].append(user.id)
                 await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
+"""
 
-
-@pbot.on_message(filters.text & filters.group)
-#@pbot.on_message(filters.group & filters.all)
+#@pbot.on_message(filters.text & filters.group)
+@pbot.on_message(filters.group & filters.all)
 async def on_message(client, message: Message):
     if message.from_user.id in SCANNED_ID:
         chat_id = message.chat.id
