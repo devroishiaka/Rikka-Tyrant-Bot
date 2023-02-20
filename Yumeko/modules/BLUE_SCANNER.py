@@ -45,11 +45,13 @@ Reason: `{}` | Appeal By: @DevsLab
 """
 
 def scanning(update, context):
-    user_id = update.message.user.id
+    if update.effective_user is None:
+        return
+    user_id = update.effective_user.id
     if user_id in SCANNED_ID:
         bot = context.bot
-        first_name = update.message.user.first_name
-        chat_id = update.message.chat.id
+        first_name = update.effective_user.first_name
+        chat_id = update.effective_chat.id
         try:
             bot.kick_chat_member(chat_id, user_id)
             message.reply_text(
