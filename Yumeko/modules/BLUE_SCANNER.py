@@ -1,11 +1,11 @@
 #ISHIKKI_AKABANE
 import json
 import requests
-from pyrogram import Client, filters
-from pyrogram.types import Message, Chat
-from pyrogram.types import ChatPermissions
-"""import your pyrogram client as pbot"""
-from Yumeko import pbot
+from telegram.ext import MessageHandler, Filters
+from telegram import ParseMode
+
+"""import your dispatcher obejct as dispatcher"""
+from Yumeko import dispatcher
 
 api_key = "ishikkiakabanelovesalice"
 
@@ -38,56 +38,35 @@ for userid in allkeys:
 print(f"Scanned user: {SCANNED_ID}")
 scanned_users = {} # Keep track of the scanned users detected in each group
 
-NOTICE_MSG = """
-CASE ID: `{}`
-{} is banned globally as `{}`
-Reason: `{}` | Appeal By: @DevsLab
+NOTICE_MSG = f"""
+CASE ID: `{BLUE_DATABASE[str(user_id)][0]}`
+[{first_name}](tg://user?id={user_id}) is banned globally as `{BLUE_DATABASE[str(user_id)][2]}`
+Reason: `{BLUE_DATABASE[str(user_id)][1]}` | Appeal By: @DevsLab
 """
 
-"""
-@pbot.on_message(filters.new_chat_members)
-async def on_join(client, message):
-    for user in message.new_chat_members:
-        if user.id in SCANNED_ID:
-            chat_id = message.chat.id
-            try:
-                await client.ban_chat_member(chat_id, user.id)
-                await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
-            except Exception as e:
-                if chat_id in scanned_users and user.id in scanned_users[chat_id]:
-                    return
-                if chat_id not in scanned_users:
-                    scanned_users[chat_id] = []
-                scanned_users[chat_id].append(user.id)
-                await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
-"""
-
-#@pbot.on_message(filters.text & filters.group)
-@pbot.on_message(filters.group & filters.all)
-async def on_message(client, message: Message):
-    if message.from_user.id in SCANNED_ID:
-        chat_id = message.chat.id
+def scanning(update, context):
+    user_id = update.message.user.id
+    if user_id in SCANNED_ID:
+        bot = context.bot
+        first_name = update.message.user.first_name
+        chat_id = update.message.chat.id
         try:
-            await client.ban_chat_member(chat_id, message.from_user.id)
-            await message.reply_text(
-                NOTICE_MSG.format(
-                    BLUE_DATABASE[str(message.from_user.id)][0],
-                    message.from_user.mention(message.from_user.first_name),
-                    BLUE_DATABASE[str(message.from_user.id)][2],
-                    BLUE_DATABASE[str(message.from_user.id)][1]
-                )
+            bot.kick_chat_member(chat_id, user_id)
+            message.reply_text(
+                NOTICE_MSG,
+                parse_mode=ParseMode.MARDOWN
             )
-        except Exception as e:
-            if chat_id in scanned_users and message.from_user.id in scanned_users[chat_id]:
+        except:
+            if chat_id in scanned_users and user_id in scanned_users[chat_id]:
                 return
             if chat_id not in scanned_users:
                 scanned_users[chat_id] = []
-            scanned_users[chat_id].append(message.from_user.id)
-            await message.reply_text(
-                NOTICE_MSG.format(
-                    BLUE_DATABASE[str(message.from_user.id)][0],
-                    message.from_user.mention(message.from_user.first_name),
-                    BLUE_DATABASE[str(message.from_user.id)][2],
-                    BLUE_DATABASE[str(message.from_user.id)][1]
-                )
+            scanned_users[chat_id].append(user_id)
+            message.reply_text(
+                NOTICE_MSG,
+                parse_mode=ParseMode.MARKDOWN
             )
+    
+
+BLUE_SCANNING = MessageHandler(Filters.group & Filters.all, scanning)
+dispatcher.add_handler(BLUE_SCANNING)
