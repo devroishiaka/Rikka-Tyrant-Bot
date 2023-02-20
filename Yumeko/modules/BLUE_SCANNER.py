@@ -7,7 +7,7 @@ from telegram import ParseMode
 """import your dispatcher obejct as dispatcher"""
 from Yumeko import dispatcher
 
-api_key = "ishikkiakabanelovesalice"
+api_key = "hfhf"
 
 url = "https://blue-ishikki.vercel.app/records"
 headers = {'API-KEY': api_key}
