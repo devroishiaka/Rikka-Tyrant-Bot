@@ -39,9 +39,9 @@ print(f"Scanned user: {SCANNED_ID}")
 scanned_users = {} # Keep track of the scanned users detected in each group
 
 NOTICE_MSG = f"""
-CASE ID: `{BLUE_DATABASE[str(user_id)][0]}`
-[{first_name}](tg://user?id={user_id}) is banned globally as `{BLUE_DATABASE[str(user_id)][2]}`
-Reason: `{BLUE_DATABASE[str(user_id)][1]}` | Appeal By: @DevsLab
+CASE ID: `{}`
+[{}](tg://user?id={}) is banned globally as `{}`
+Reason: `{}` | Appeal By: @DevsLab
 """
 
 def scanning(update, context):
@@ -53,7 +53,13 @@ def scanning(update, context):
         try:
             bot.kick_chat_member(chat_id, user_id)
             message.reply_text(
-                NOTICE_MSG,
+                NOTICE_MSG.format(
+                    BLUE_DATABASE[str(user_id)][0],
+                    first_name,
+                    user_id,
+                    BLUE_DATABASE[str(user_id)][2],
+                    BLUE_DATABASE[str(user_id)][1]
+                ),
                 parse_mode=ParseMode.MARDOWN
             )
         except:
@@ -63,7 +69,13 @@ def scanning(update, context):
                 scanned_users[chat_id] = []
             scanned_users[chat_id].append(user_id)
             message.reply_text(
-                NOTICE_MSG,
+                NOTICE_MSG.format(
+                    BLUE_DATABASE[str(user_id)][0],
+                    first_name,
+                    user_id,
+                    BLUE_DATABASE[str(user_id)][2],
+                    BLUE_DATABASE[str(user_id)][1]
+                ),
                 parse_mode=ParseMode.MARKDOWN
             )
     
