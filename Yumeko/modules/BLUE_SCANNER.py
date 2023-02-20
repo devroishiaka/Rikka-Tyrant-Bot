@@ -38,7 +38,7 @@ for userid in allkeys:
 print(f"Scanned user: {SCANNED_ID}")
 scanned_users = {} # Keep track of the scanned users detected in each group
 
-NOTICE_MSG = f"""
+NOTICE_MSG = """
 CASE ID: `{}`
 [{}](tg://user?id={}) is banned globally as `{}`
 Reason: `{}` | Appeal By: @DevsLab
