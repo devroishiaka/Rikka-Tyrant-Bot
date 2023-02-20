@@ -2,7 +2,7 @@
 import json
 import requests
 from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram.types import Message, Chat
 from pyrogram.types import ChatPermissions
 """import your pyrogram client as pbot"""
 from Yumeko import pbot
@@ -51,7 +51,7 @@ async def on_join(client, message):
         if user.id in SCANNED_ID:
             chat_id = message.chat.id
             try:
-                await client.kick_chat_member(chat_id, user.id)
+                await client.ban_chat_member(chat_id, user.id)
                 await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
             except Exception as e:
                 if chat_id in scanned_users and user.id in scanned_users[chat_id]:
@@ -68,12 +68,12 @@ async def on_message(client, message: Message):
     if message.from_user.id in SCANNED_ID:
         chat_id = message.chat.id
         try:
-            await client.kick_chat_member(chat_id, message.from_user.id)
-            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
+            await client.ban_chat_member(chat_id, message.from_user.id)
+            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(message.from_user.id)][0], BLUE_DATABASE[str(message.from_user.id)][2], BLUE_DATABASE[str(message.from_user.id)][1]))
         except Exception as e:
             if chat_id in scanned_users and message.from_user.id in scanned_users[chat_id]:
                 return
             if chat_id not in scanned_users:
                 scanned_users[chat_id] = []
             scanned_users[chat_id].append(message.from_user.id)
-            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(user.id)][0], BLUE_DATABASE[str(user.id)][2], BLUE_DATABASE[str(user.id)][1]))
+            await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[str(message.from_user.id)][0], BLUE_DATABASE[str(message.from_user.id)][2], BLUE_DATABASE[str(message.from_user.id)][1]))
