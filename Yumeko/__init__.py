@@ -24,7 +24,7 @@ logging.basicConfig(
     level=logging.INFO,
 )
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger("CHIZURU")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
