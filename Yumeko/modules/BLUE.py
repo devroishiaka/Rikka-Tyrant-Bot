@@ -8,6 +8,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, Chat
 from pyrogram.types import ChatPermissions
 """import your pyrogram client as pbot"""
+from Yumeko import pbot
 
 api_key = "kazumablue-1412470092-5030730429-wind-c-division" #Get it from @BlueXDBot by /token
 
