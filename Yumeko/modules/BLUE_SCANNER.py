@@ -2,6 +2,7 @@
 import json
 import requests
 from pyrogram import Client, filters
+from pyrogram.types import Message
 from pyrogram.types import ChatPermissions
 """import your pyrogram client as pbot"""
 from Yumeko import pbot
@@ -42,7 +43,7 @@ This user is banned globally as `{}`
 Reason: `{}` | Appeal By: @DevsLab
 """
 
-
+"""
 @pbot.on_message(filters.new_chat_members)
 async def on_join(client, message):
     for user in message.new_chat_members:
@@ -58,10 +59,11 @@ async def on_join(client, message):
                     scanned_users[chat_id] = []
                 scanned_users[chat_id].append(user.id)
                 await client.send_message(chat_id, NOTICE_MSG.format(BLUE_DATABASE[user.id][0], BLUE_DATABASE[user.id][2], BLUE_DATABASE[user.id][1]))
+"""
 
-
-@pbot.on_message(filters.text & filters.group)
-async def on_message(client, message):
+#@pbot.on_message(filters.text & filters.group)
+@pbot.on_message(filters.group & filters.all)
+async def on_message(client, message: Message):
     if message.from_user.id in SCANNED_ID:
         chat_id = message.chat.id
         try:
