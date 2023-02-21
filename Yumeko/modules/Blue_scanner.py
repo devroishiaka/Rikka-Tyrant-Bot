@@ -10,7 +10,7 @@ from pyrogram.types import ChatPermissions
 """import your pyrogram client as pbot"""
 from Yumeko import pbot
 
-api_key = "Your Blue Scanner Token" #Get it from @BlueXDBot by /token
+api_key = "kazumablue-663967744872-5030730429-water-f-divison" #Get it from @BlueXDBot by /token
 
 url = "https://blue-ishikki.vercel.app/records"
 headers = {'API-KEY': api_key}
