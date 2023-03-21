@@ -87,3 +87,4 @@ aioredis==2.0.0
 hiredis==2.0.0
 opencv-python-headless
 pyRiZoeLX
+pg_dump
