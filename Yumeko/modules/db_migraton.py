@@ -23,7 +23,7 @@ def db_backup(update: Update, context: CallbackContext):
     backup_command = f"pg_dump -h {db_host} -p {db_port} -U {db_user} -F c -b -v {db_name} > {backup_file}"
     """
     
-    backup_command = pg_dump "postgres://chizuru:PbOsQzJfjaSfDizJv67ZGjCf1hfWHanU@dpg-cfp1k7h4rebfdaqpper0-a.oregon-postgres.render.com/chizuru_m4xr" > backup.sql
+    backup_command = "pg_dump 'postgres://chizuru:PbOsQzJfjaSfDizJv67ZGjCf1hfWHanU@dpg-cfp1k7h4rebfdaqpper0-a.oregon-postgres.render.com/chizuru_m4xr' > backup.sql"
     # Execute the backup command
     subprocess.run(backup_command, shell=True, check=True)
 
