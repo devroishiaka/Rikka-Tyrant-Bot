@@ -17,8 +17,21 @@ def db_backup(update: Update, context: CallbackContext):
     db_name = "chizuru_m4xr"
     db_user = "chizuru"
     db_password = "PbOsQzJfjaSfDizJv67ZGjCf1hfWHanU"
-    backup_dir = ""
+    backup_dir = "./"
+    
+    backup_file = f"{backup_dir}/{db_name}.backup"
+    backup_command = f"pg_dump -h {db_host} -p {db_port} -U {db_user} -F c -b -v {db_name} > {backup_file}"
+
+    # Execute the backup command
+    subprocess.run(backup_command, shell=True, check=True)
+
+    # Send a message to the user with the backup file
+    try:
+        with open(backup_file, "rb") as file:
+            update.message.reply_document(file, filename=f"{db_name}.backup")
+    except Exception as e:
+        update.message.reply_text(e)
 
 
 dispatcher.add_handler(CommandHandler("db_export", db_backup))
-dispatcher.add_handler(CommandHandler("db_import", db_migrate))
+#dispatcher.add_handler(CommandHandler("db_import", db_migrate))
