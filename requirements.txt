@@ -48,7 +48,7 @@ cachetools
 ujson
 pretty_errors
 TgCrypto
-pyrogram==2.0.97
+pyrogram
 yt-dlp
 youtube_search_python
 youtube_search
