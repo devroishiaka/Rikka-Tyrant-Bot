@@ -147,6 +147,250 @@ def broadcastxyz(update: Update, context: CallbackContext):
         )
 
 
+import asyncio 
+
+  
+
+ from pyrogram import Client, filters 
+
+ from pyrogram.types import Message 
+
+  
+
+ from Yumeko import pbot as pgram
+
+  
+
+  
+
+ @pgram.on_message(filters.command("gcast")) 
+
+ async def gcast_cmd(client: Client, message: Message): 
+
+     user_id = message.from_user.id 
+
+     texttt = message.text.split(" ") 
+
+  
+
+     if user_id not in [5978107653]: 
+
+         await message.reply_text( 
+
+             "ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴛʜᴇ ᴏᴡɴᴇʀ, ᴏɴʟʏ ᴍʏ ᴍᴀsᴛᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ" 
+
+         ) 
+
+         return 
+
+  
+
+     if len(texttt) < 2: 
+
+         return await message.reply_text( 
+
+             "<b>USE THESE COMMANDS</b>\n-pin : if you want to pin\n-u : gcast in all user's DM\n-g : gcast in all groups\n-all : gcast in both\nEx: /gcast -pin -u" 
+
+         ) 
+
+  
+
+     if message.reply_to_message is None and not get_arg(message): 
+
+         return await message.reply_text("<b>ᴘʟᴇᴀsᴇ ɢɪᴠᴇ ᴀ ᴍᴇssᴀɢᴇ ᴏʀ ʀᴇᴘʟʏ</b>") 
+
+  
+
+     tex = await message.reply_text("<code>sᴛᴀʀᴛᴇᴅ ɢʟᴏʙᴀʟ ʙʀᴏᴀᴅᴄᴀsᴛ...</code>") 
+
+  
+
+     usersss = 0 
+
+     chatttt = 0 
+
+     uerror = 0 
+
+     cerror = 0 
+
+     chats = sql.get_all_chats() or [] 
+
+     users = get_all_users() 
+
+  
+
+     if "-all" in texttt: 
+
+         texttt.append("-u") 
+
+         texttt.append("-g") 
+
+  
+
+     if "-pin" in texttt: 
+
+         if "-u" in texttt: 
+
+             for chat in users: 
+
+                 if message.reply_to_message: 
+
+                     msg = message.reply_to_message 
+
+                 else: 
+
+                     msg = get_arg(message) 
+
+                 try: 
+
+                     if message.reply_to_message: 
+
+                         aa = await msg.copy(chat.user_id) 
+
+                     else: 
+
+                         aa = await client.send_message(chat.user_id, msg) 
+
+  
+
+                     usersss += 1 
+
+                     await asyncio.sleep(0.3) 
+
+                 except Exception: 
+
+                     uerror += 1 
+
+                     await asyncio.sleep(0.3) 
+
+         if "-g" in texttt: 
+
+             for chat in chats: 
+
+                 if message.reply_to_message: 
+
+                     msg = message.reply_to_message 
+
+                 else: 
+
+                     msg = get_arg(message) 
+
+                 try: 
+
+                     if message.reply_to_message: 
+
+                         aa = await msg.copy(chat.chat_id) 
+
+                     else: 
+
+                         aa = await client.send_message(chat.chat_id, msg) 
+
+                     try: 
+
+                         msg_id = aa.message_id 
+
+                         await client.pin_chat_message( 
+
+                             chat_id=chat.chat_id, message_id=msg_id 
+
+                         ) 
+
+                     except: 
+
+                         pass 
+
+                     chatttt += 1 
+
+                     await asyncio.sleep(0.3) 
+
+                 except Exception: 
+
+                     cerror += 1 
+
+                     await asyncio.sleep(0.3) 
+
+     else: 
+
+         if "-u" in texttt: 
+
+             for chat in users: 
+
+                 if message.reply_to_message: 
+
+                     msg = message.reply_to_message 
+
+                 else: 
+
+                     msg = get_arg(message) 
+
+                 try: 
+
+                     if message.reply_to_message: 
+
+                         aa = await msg.copy(chat.user_id) 
+
+                     else: 
+
+                         aa = await client.send_message(chat.user_id, msg) 
+
+  
+
+                     usersss += 1 
+
+                     await asyncio.sleep(0.3) 
+
+                 except Exception: 
+
+                     uerror += 1 
+
+                     await asyncio.sleep(0.3) 
+
+         if "-g" in texttt: 
+
+             for chat in chats: 
+
+                 if message.reply_to_message: 
+
+                     msg = message.reply_to_message 
+
+                 else: 
+
+                     msg = get_arg(message) 
+
+                 try: 
+
+                     if message.reply_to_message: 
+
+                         aa = await msg.copy(chat.chat_id) 
+
+                     else: 
+
+                         aa = await client.send_message(chat.chat_id, msg) 
+
+  
+
+                     chatttt += 1 
+
+                     await asyncio.sleep(0.3) 
+
+                 except Exception: 
+
+                     cerror += 1 
+
+                     await asyncio.sleep(0.3) 
+
+  
+
+     await tex.edit_text( 
+
+         f"<b>Successfully Sent Message</b> \nTotal Users: <code>{usersss}</code> \nFailed Users: <code>{uerror}</code> \nTotal Chats: <code>{chatttt}</code> \nFailed Chats <code>{cerror}</code>" 
+
+     ) 
+
+
+
+ # ----------+++++++++++--------------+++++++++
+
 @run_async
 def log_user(update: Update, context: CallbackContext):
     chat = update.effective_chat
