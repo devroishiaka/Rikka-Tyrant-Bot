@@ -57,4 +57,4 @@ async def reverse(update, context):
         pass
 
 
-dp.add_handler(CommandHandler(["pp", "grs", "p", "reverse"], reverse))
+dispatcher.add_handler(CommandHandler(["pp", "grs", "p", "reverse"], reverse))
