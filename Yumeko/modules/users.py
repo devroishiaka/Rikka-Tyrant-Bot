@@ -157,7 +157,7 @@ from Yumeko import pbot as pgram
 async def gcast_cmd(client: Client, message: Message): 
     user_id = message.from_user.id 
     texttt = message.text.split(" ")
-    if user_id not in [5978107653]: 
+    if user_id not in [5030730429]: 
         await message.reply_text( 
             "ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴛʜᴇ ᴏᴡɴᴇʀ, ᴏɴʟʏ ᴍʏ ᴍᴀsᴛᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ" 
         ) 
