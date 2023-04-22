@@ -12,7 +12,6 @@ url = 'https://blue-api.vercel.app/reverse'
 @pbot.on_message(filters.command(["pp", "grs", "p", "reverse"]))
 async def reverse(client, message):
     chat_id = message.chat.id
-    rtmid = message.message_id
 
     reply = message.reply_to_message
     if not reply:
