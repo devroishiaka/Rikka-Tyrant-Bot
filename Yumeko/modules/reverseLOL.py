@@ -16,6 +16,32 @@ from Yumeko.modules.disable import DisableAbleCommandHandler
 from Yumeko.modules.sql.clear_cmd_sql import get_clearcmd
 from Yumeko.modules.helper_funcs.misc import delete
 
+
+def reverse(update, context):
+    message = update.effective_message
+    chat_id = update.effective_chat.id
+
+    reply = message.reply_to_message
+
+    if reply:
+        if reply.sticker:
+            file_id = reply.sticker.file_id
+            new_id = reply.sticker.file_unique_id
+        elif reply.photo:
+            file_id = reply.photo[-1].file_id
+            new_id = reply.photo[-1].file_unique_id
+        else:
+            await message.reply_text("Reply To An Image Or Sticker To Lookup!")
+            return
+
+        file_path = os.path.join("temp", f"{new_id}.jpg")
+        print(file_path)
+        file_obj = await context.bot.get_file(file_id)
+        print(file_obj)
+        file_url = file_obj.file_path
+        print(file_url)
+        
+"""
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36"
 opener.addheaders = [("User-agent", useragent)]
@@ -157,7 +183,7 @@ def reverse(update: Update, context: CallbackContext):
 
 
 def ParseSauce(googleurl):
-    """Parse/Scrape the HTML code for the info we want."""
+    # Parse/Scrape the HTML code for the info we want
 
     source = opener.open(googleurl).read()
     soup = BeautifulSoup(source, "html.parser")
@@ -184,7 +210,7 @@ def ParseSauce(googleurl):
 
 
 def scam(imgspage, lim):
-    """Parse/Scrape the HTML code for the info we want."""
+    # Parse/Scrape the HTML code for the info we want.
 
     single = opener.open(imgspage).read()
     decoded = single.decode("utf-8")
@@ -213,6 +239,7 @@ def deletion(update: Update, context: CallbackContext, delmsg):
     if cleartime:
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
+"""
 
 __help__ = """*Image reverse:*
  • `/reverse`: does a *reverse image search* of the media which it was replied to.
@@ -220,7 +247,7 @@ __help__ = """*Image reverse:*
  """
 
 REVERSE_HANDLER = DisableAbleCommandHandler(
-    ["reverse","grs","pp","p"], reverse, admin_ok=True
+    ["hm"], reversexd
 )
 
 dispatcher.add_handler(REVERSE_HANDLER)
