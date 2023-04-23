@@ -17,7 +17,7 @@ from Yumeko.modules.sql.clear_cmd_sql import get_clearcmd
 from Yumeko.modules.helper_funcs.misc import delete
 
 
-def reverse(update, context):
+def reversexd(update, context):
     message = update.effective_message
     chat_id = update.effective_chat.id
 
