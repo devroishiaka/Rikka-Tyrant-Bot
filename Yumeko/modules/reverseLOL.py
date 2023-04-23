@@ -36,7 +36,7 @@ def reversexd(update, context):
 
         file_path = os.path.join("temp", f"{new_id}.jpg")
         print(file_path)
-        file_obj = await context.bot.get_file(file_id)
+        file_obj = context.bot.get_file(file_id)
         print(file_obj)
         file_url = file_obj.file_path
         print(file_url)
