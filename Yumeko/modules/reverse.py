@@ -16,10 +16,10 @@ async def reverse(client, message):
     if message.reply_to_message and (
         message.reply_to_message.photo or message.reply_to_message.sticker
     ):
-        file_id = message.photo[-1].file_id
-        new_id = message.photo[-1].file_unique_id
+        file_id = message.reply_to_message.photo[-1].file_id
+        new_id = message.reply_to_message.photo[-1].file_unique_id
         file_path = os.path.join("temp", f"{new_id}.jpg")
-        file_info = await app.get_messages(message.chat.id, message.message_id)
+        file_info = await app.get_messages(message.reply_to_message.chat.id, message.reply_to_message.id)
         file_location = file_info.photo.file_location
         file_url = f"https://api.telegram.org/file/bot{app.api_id}:{app.api_hash}/{file_location}"
         print(file_url)
