@@ -13,35 +13,25 @@ url = 'https://blue-api.vercel.app/reverse'
 async def reverse(client, message):
     chat_id = message.chat.id
 
-    reply = message.reply_to_message
-    if not reply:
-        await message.reply_text("Please reply to a sticker or an image to search it!")
-        return
-    
+    if message.reply_to_message and (
+        message.reply_to_message.photo or message.reply_to_message.sticker
+    ):
+        file_id = message.photo[-1].file_id
+        new_id = message.photo[-1].file_unique_id
+        file_path = os.path.join("temp", f"{new_id}.jpg")
+        file_info = await app.get_messages(message.chat.id, message.message_id)
+        file_location = file_info.photo.file_location
+        file_url = f"https://api.telegram.org/file/bot{app.api_id}:{app.api_hash}/{file_location}"
+        print(file_url)
 
-    if reply.sticker:
-        file_id = reply.sticker.file_id
-        new_id = reply.sticker.file_unique_id
-    elif reply.photo:
-        file_id = reply.photo[-1].file_id
-        new_id = reply.photo[-1].file_unique_id
-    else:
-        await message.reply_text("Reply to an image or sticker to lookup!")
-        return
+        try:
+            data = {"img_url": file_url}
+            headers = {"API-KEY": api_key}
 
-    file_path = os.path.join("temp", f"{new_id}.jpg")
-    file_obj = client.get_file(file_id)
-    file_url = file_obj
-    print(file_url)
+            async with aiohttp.ClientSession() as session:
+                async with session.post(URL, headers=headers, json=data) as resp:
+                    response_text = await resp.text()
 
-    try:
-        data = {"img_url": file_url}
-        headers = {"API-KEY": api_key}
-
-        async with aiohttp.ClientSession() as session:
-            async with session.post(URL, headers=headers, json=data) as resp:
-                response_text = await resp.text()
-
-        await message.reply_text(response_text)
-    except Exception as e:
-        await message.reply_text("Can't find anything!")
+            await message.reply_text(response_text)
+        except Exception as e:
+            await message.reply_text("Can't find anything!")
