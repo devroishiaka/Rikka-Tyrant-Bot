@@ -20,8 +20,10 @@ async def reverse(client, message):
         new_id = message.reply_to_message.photo.file_unique_id
         file_path = os.path.join("temp", f"{new_id}.jpg")
         file_obj = client.get_file(file_id)
-        file_url = file_obj.file_path
-        print(file_url)
+        for file in file_obj:
+            file_url = file.file_path
+            print(file_url)
+
 
         try:
             data = {"img_url": file_url}
