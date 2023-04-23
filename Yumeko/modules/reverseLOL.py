@@ -31,12 +31,12 @@ def reversexd(update, context):
             file_id = reply.photo[-1].file_id
             new_id = reply.photo[-1].file_unique_id
         else:
-            await message.reply_text("Reply To An Image Or Sticker To Lookup!")
+            message.reply_text("Reply To An Image Or Sticker To Lookup!")
             return
 
         file_path = os.path.join("temp", f"{new_id}.jpg")
         print(file_path)
-        file_obj = await context.bot.get_file(file_id)
+        file_obj = context.bot.get_file(file_id)
         print(file_obj)
         file_url = file_obj.file_path
         print(file_url)
