@@ -25,7 +25,7 @@ async def reverse(client, message):
     
     fileOBJ = await client.download_media(file_id, file_path)
     print(fileOBJ)
-    with open(file, "rb") as f:
+    with open(fileOBJ, "rb") as f:
         data = {"img_url": f.read()}
     print(data)
     
