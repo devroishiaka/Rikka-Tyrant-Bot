@@ -44,11 +44,15 @@ def reverse(update, context):
         try:
             response = requests.post(url, headers=headers, json=data)
             reverse_dict = response.json()
+            web_url = reverse_dict["url"]
+            textu = reverse_dict["reverse"]
             message.reply_text(
-                text=reverse_dict["reverse"],
+                text=textu,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        InlineKeyboardButton(text="Link", url=reverse_dict["url"])
+                        [
+                            InlineKeyboardButton(text="Link", url=web_url)
+                        ]
                     ]
                 )
             )
