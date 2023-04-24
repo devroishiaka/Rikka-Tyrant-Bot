@@ -1,63 +1,59 @@
-import os
-import aiohttp
+import requests
+import json
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import CommandHandler, CallbackQueryHandler
 
-from pyrogram import Client, filters
-from pyrogram.types import Message
-
-from Yumeko import pbot
+from Yumeko import dispatcher
 
 api_key = "blue-api-testing"
 url = 'https://blue-api.vercel.app/reverse'
 
-@pbot.on_message(filters.command(["pp", "grs", "p", "reverse"]))
-async def reverse(client, message):
-    chat_id = message.chat.id
-    
-    if not message.reply_to_message or not message.reply_to_message.photo and not message.reply_to_message.sticker:
-        await message.reply_text("Reply to an image or sticker to reverse search it!")
-        return
-    
+def reverse(update, context):
+    message = update.effective_message
+    chat_id = update.effective_chat.id
+
     reply = message.reply_to_message
-    file = message.reply_to_message.photo or message.reply_to_message.sticker
-    file_id = file.file_id
-    #file_id = reply.photo[-1].file_id if reply.photo else reply.sticker.file_id
-    new_id = file.file_unique_id
-    file_path = os.path.join("temp", f"{new_id}.jpg")
-    fileOBJ = await client.download_media(file_id, file_path)
-    print(fileOBJ)
-    file_url = f"https://api.telegram.org/file/bot{client.bot_token}/{fileOBJ}"
-    print(file_url)
-    
-    """
-    file = message.reply_to_message.photo or message.reply_to_message.sticker
-    
-    file_id = file.file_id
-    new_id = file.file_unique_id
-    file_path = os.path.join("temp", f"{new_id}.jpg")
-    
-    fileOBJ = await client.download_media(file_id, file_path)
-    print(fileOBJ)
-    with open(fileOBJ, "rb") as f:
-        data = {"img_url": f.read()}
-    print(data)
-    """
-    """
-    if message.reply_to_message and (
-        message.reply_to_message.photo or message.reply_to_message.sticker
-    ):
-        file_id = message.reply_to_message.photo.file_id
-        print(file_id)
 
+    if reply:
+        if reply.sticker:
+            file_id = reply.sticker.file_id
+            new_id = reply.sticker.file_unique_id
+        elif reply.photo:
+            file_id = reply.photo[-1].file_id
+            new_id = reply.photo[-1].file_unique_id
+        else:
+            await message.reply_text("Reply To An Image Or Sticker To Lookup!")
+            return
 
+        file_path = os.path.join("temp", f"{new_id}.jpg")
+        file_obj = context.bot.get_file(file_id)
+        file_url = file_obj.file_path
+        
+    else:
+        message.reply_text(
+            "Please Reply To A Sticker, Or An Image To Search It!"
+        )
+        return
+    a = message.reply_text("searching...")
+    try:
+        data = {"img_url": file_url}
+        headers = {"API-KEY": api_key}
         try:
-            data = {"img_url": file_url}
-            headers = {"API-KEY": api_key}
+            response = requests.post(url, headers=headers, json=data)
+            reverse_dict = response.json()
+            message.reply_text(
+                text=reverse_dict["reverse"],
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        InlineKeyboardButton(text="Link", url=reverse_dict["url"])
+                    ]
+                )
+            )
+        except:
+            message.reply_text("Cant find anything!!")
+    except:
+        message.reply_text("Cant find anything!!")
+    a.delete()
+   
 
-            async with aiohttp.ClientSession() as session:
-                async with session.post(URL, headers=headers, json=data) as resp:
-                    response_text = await resp.text()
-
-            await message.reply_text(response_text)
-        except Exception as e:
-            await message.reply_text("Can't find anything!")
-    """
+dispatcher.add_handler(CommandHandler(["pp", "grs", "p", "reverse"], reverse))
