@@ -51,10 +51,12 @@ def reverse(update, context):
                     ]
                 )
             )
-        except:
+        except Exception as e:
             message.reply_text("Cant find anything!!")
-    except:
+            print(e)
+    except Exception as e:
         message.reply_text("Cant find anything!!")
+        print(e)
     a.delete()
    
 
