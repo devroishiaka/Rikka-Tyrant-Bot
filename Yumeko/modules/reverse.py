@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import traceback
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, CallbackQueryHandler
@@ -53,10 +54,10 @@ def reverse(update, context):
             )
         except Exception as e:
             message.reply_text("Cant find anything!!")
-            print(e)
+            print(f"{e}\n{traceback.format_exc()}")
     except Exception as e:
         message.reply_text("Cant find anything!!")
-        print(e)
+        print(f"{e}\n{traceback.format_exc()}")
     a.delete()
    
 
