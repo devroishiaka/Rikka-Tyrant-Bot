@@ -17,6 +17,12 @@ async def reverse(client, message):
         await message.reply_text("Reply to an image or sticker to reverse search it!")
         return
     
+    reply = message.reply_to_message
+    file_id = reply.photo[-1].file_id if reply.photo else reply.sticker.file_id
+    file_path = await client.get_download_file_path(file_id)
+    print(file_path)
+    
+    """
     file = message.reply_to_message.photo or message.reply_to_message.sticker
     
     file_id = file.file_id
@@ -28,7 +34,7 @@ async def reverse(client, message):
     with open(fileOBJ, "rb") as f:
         data = {"img_url": f.read()}
     print(data)
-    
+    """
     """
     if message.reply_to_message and (
         message.reply_to_message.photo or message.reply_to_message.sticker
