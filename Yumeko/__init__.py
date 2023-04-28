@@ -123,7 +123,7 @@ else:
 
     JOIN_LOGGER = Config.JOIN_LOGGER
     OWNER_USERNAME = Config.OWNER_USERNAME
-    ALLOW_CHATS = Config.ALLOW_CHATS
+    ALLOW_CHATS = True
     try:
         DRAGONS = set(int(x) for x in Config.DRAGONS or [])
         DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
@@ -155,13 +155,13 @@ else:
 
     DB_URI = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
-    HEROKU_API_KEY = Config.HEROKU_API_KEY
-    HEROKU_APP_NAME = Config.HEROKU_APP_NAME
-    TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
-    OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
-    BOT_ID = Config.BOT_ID
-    VIRUS_API_KEY = Config.VIRUS_API_KEY
-    DONATION_LINK = Config.DONATION_LINK
+    HEROKU_API_KEY = "dgfd"
+    HEROKU_APP_NAME = "chizuruxd"
+    TEMP_DOWNLOAD_DIRECTORY = "./"
+    OPENWEATHERMAP_ID = "d"
+    BOT_ID = 5506930949
+    VIRUS_API_KEY = "ff"
+    DONATION_LINK = "https//t.me/ishikki_akabane
     LOAD = Config.LOAD
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
@@ -177,11 +177,8 @@ else:
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
     INFOPIC = Config.INFOPIC
-    REDIS_URL = Config.REDIS_URL
-    ARQ_API_URL = Config.ARQ_API_URL
-    ARQ_API_KEY = Config.ARQ_API_KEY
-    LOG_GROUP_ID = Config.LOG_GROUP_ID
-    BOT_USERNAME = Config.BOT_USERNAME
+    LOG_GROUP_ID = -1001631997698
+    BOT_USERNAME = "chizuruxdbot"
 
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
