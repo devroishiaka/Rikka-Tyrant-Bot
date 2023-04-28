@@ -117,12 +117,12 @@ else:
     TOKEN = Config.TOKEN
 
     try:
-        OWNER_ID = int(Config.OWNER_ID)
+        OWNER_ID = 5030730429
     except ValueError:
         raise Exception("Your OWNER_ID variable is not a valid integer.")
 
-    JOIN_LOGGER = Config.JOIN_LOGGER
-    OWNER_USERNAME = Config.OWNER_USERNAME
+    JOIN_LOGGER = -1001631997698
+    OWNER_USERNAME = "ishikki_akabane"
     ALLOW_CHATS = Config.ALLOW_CHATS
     try:
         DRAGONS = set(int(x) for x in Config.DRAGONS or [])
@@ -145,21 +145,21 @@ else:
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
-    EVENT_LOGS = Config.EVENT_LOGS
+    EVENT_LOGS = -1001691108474
     WEBHOOK = Config.WEBHOOK
     URL = Config.URL
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
-    API_ID = Config.API_ID
-    API_HASH = Config.API_HASH
+    API_ID = 10938772
+    API_HASH = "b5e29cb144a6cb6f69884f39cecd212e"
 
-    DB_URI = Config.SQLALCHEMY_DATABASE_URI
-    MONGO_DB_URI = Config.MONGO_DB_URI
+    DB_URI = "postgres://ishikki:OUJm5DA5ya0NtmXxlt4uYOHnSQE975XV@dpg-cfe70ccgqg46rpmlkku0-a.oregon-postgres.render.com/chizuru_kcfb"
+    MONGO_DB_URI = "mongodb+srv://ishikki143:ishikki143@cluster0.sbxugre.mongodb.net/?retryWrites=true&w=majority"
     HEROKU_API_KEY = Config.HEROKU_API_KEY
     HEROKU_APP_NAME = Config.HEROKU_APP_NAME
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
-    BOT_ID = Config.BOT_ID
+    BOT_ID = 5506930949
     VIRUS_API_KEY = Config.VIRUS_API_KEY
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
@@ -168,20 +168,20 @@ else:
     STRICT_GBAN = Config.STRICT_GBAN
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
-    ALLOW_EXCL = Config.ALLOW_EXCL
-    CASH_API_KEY = Config.CASH_API_KEY
+    ALLOW_EXCL = True
+    CASH_API_KEY = "URWAVM2BWHQPCWCZ"
     TIME_API_KEY = Config.TIME_API_KEY
     AI_API_KEY = Config.AI_API_KEY
     WALL_API = Config.WALL_API
-    SUPPORT_CHAT = Config.SUPPORT_CHAT
+    SUPPORT_CHAT = "Botslabxd"
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
-    INFOPIC = Config.INFOPIC
+    INFOPIC = True
     REDIS_URL = Config.REDIS_URL
     ARQ_API_URL = Config.ARQ_API_URL
     ARQ_API_KEY = Config.ARQ_API_KEY
     LOG_GROUP_ID = Config.LOG_GROUP_ID
-    BOT_USERNAME = Config.BOT_USERNAME
+    BOT_USERNAME = "chizuruxdbot"
 
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
