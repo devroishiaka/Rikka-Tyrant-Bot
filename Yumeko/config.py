@@ -19,7 +19,7 @@ class Config(object):
     TOKEN = "BOT_TOKEN"  # This var used to be API_KEY but it is now TOKEN, adjust accordingly.
     OWNER_ID = "5030730429"  # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "ishikki_akabane"
-    SUPPORT_CHAT = "suppporttxd"  # Your own group for support, do not add the @
+    SUPPORT_CHAT = "botslabxd"  # Your own group for support, do not add the @
     JOIN_LOGGER = (
         -1001631997698
     )  # Prints any new group the bot is added to, prints just the name and ID.
@@ -28,25 +28,26 @@ class Config(object):
     )  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
 
     # RECOMMENDED
-    SQLALCHEMY_DATABASE_URI = "postgres://zhlhysxy:L_d73cQARRtSM7f6iIkeg2yPwtNbqHmK@tiny.db.elephantsql.com/zhlhysxy"  # needed for any database modules
+    SQLALCHEMY_DATABASE_URI = "postgres://ishikki:OUJm5DA5ya0NtmXxlt4uYOHnSQE975XV@dpg-cfe70ccgqg46rpmlkku0-a.oregon-postgres.render.com/chizuru_kcfb"  # needed for any database modules
+    MONGO_DB_URI = "mongodb+srv://ishikki143:ishikki143@cluster0.sbxugre.mongodb.net/?retryWrites=true&w=majority"
     LOAD = []
-    NO_LOAD = ["rss", "cleaner", "connection", "math"]
+    NO_LOAD = ["rss", "math"]
     WEBHOOK = False
     INFOPIC = True
     URL = None
     SPAMWATCH_API = "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG"  # go to support.spamwat.ch to get key
-    SPAMWATCH_SUPPORT_CHAT = "@suppporttxd"
+    SPAMWATCH_SUPPORT_CHAT = "@botslabxd"
 
     # OPTIONAL
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
-    DRAGONS = get_user_list("elevated_users.json", "5039582471")
+    DRAGONS = get_user_list("elevated_users.json", "dragons")
     ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = get_user_list("elevated_users.json", "5039582471)
+    DEV_USERS = get_user_list("elevated_users.json", "devs)
     ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
-    DEMONS = get_user_list("elevated_users.json", "5039582471")
+    DEMONS = get_user_list("elevated_users.json", "demons")
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
-    TIGERS = get_user_list("elevated_users.json", "5039582471")
-    WOLVES = get_user_list("elevated_users.json", "5039582471")
+    TIGERS = get_user_list("elevated_users.json", "tigers")
+    WOLVES = get_user_list("elevated_users.json", "wolfes")
     DONATION_LINK = None  # EG, paypal
     CERT_PATH = None
     PORT = 5000
