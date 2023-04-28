@@ -161,7 +161,7 @@ else:
     OPENWEATHERMAP_ID = "d"
     BOT_ID = 5506930949
     VIRUS_API_KEY = "ff"
-    DONATION_LINK = "https//t.me/ishikki_akabane
+    DONATION_LINK = "https//t.me/ishikki_akabane"
     LOAD = Config.LOAD
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
